@@ -1,0 +1,193 @@
+"use client";
+
+import { useState } from "react";
+import { useTranslations } from "next-intl";
+import { motion, AnimatePresence } from "framer-motion";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Collapsible,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { GraduationCap, Award, Calendar, ChevronDown, BookOpen } from "lucide-react";
+
+export function Education() {
+  const tEdu = useTranslations("education");
+  const tCert = useTranslations("certifications");
+  const [isCoursesOpen, setIsCoursesOpen] = useState(false);
+
+  const certifications = tCert.raw("items") as Array<{
+    name: string;
+    org: string;
+    date: string;
+  }>;
+
+  const basicCourses = tEdu.raw("courses.basic.items") as string[];
+  const majorCourses = tEdu.raw("courses.major.items") as string[];
+
+  return (
+    <section id="education" className="py-20 md:py-32">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto">
+          {/* Education */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            <div className="flex items-center gap-3 mb-8">
+              <div className="p-2 rounded-lg bg-point-10">
+                <GraduationCap className="h-6 w-6 text-point" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold">{tEdu("title")}</h2>
+            </div>
+
+            <Collapsible open={isCoursesOpen} onOpenChange={setIsCoursesOpen}>
+              <Card>
+                <CardHeader>
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <div>
+                      <CardTitle className="text-xl mb-1">
+                        {tEdu("university")}
+                      </CardTitle>
+                      <p className="text-muted-foreground">{tEdu("major")}</p>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <Calendar className="h-4 w-4" />
+                        <span>{tEdu("period")}</span>
+                      </div>
+                      <Badge variant="secondary">{tEdu("status")}</Badge>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm text-muted-foreground">GPA:</span>
+                      <span className="font-semibold gradient-text">
+                        {tEdu("gpa")}
+                      </span>
+                    </div>
+                    <CollapsibleTrigger asChild>
+                      <Button variant="ghost" size="sm" className="gap-2">
+                        <BookOpen className="h-4 w-4" />
+                        {isCoursesOpen ? tEdu("hideCourses") : tEdu("viewCourses")}
+                        <ChevronDown
+                          className={`h-4 w-4 transition-transform duration-200 ${
+                            isCoursesOpen ? "rotate-180" : ""
+                          }`}
+                        />
+                      </Button>
+                    </CollapsibleTrigger>
+                  </div>
+
+                  <AnimatePresence initial={false}>
+                    {isCoursesOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{
+                          height: { duration: 0.3, ease: "easeInOut" },
+                          opacity: { duration: 0.2, delay: 0.1 }
+                        }}
+                        className="overflow-hidden"
+                      >
+                        <div className="space-y-4 pt-4 border-t">
+                          {/* Basic Courses */}
+                          <div>
+                            <h4 className="text-sm font-medium text-muted-foreground mb-3">
+                              {tEdu("courses.basic.title")}
+                            </h4>
+                            <div className="flex flex-wrap gap-2">
+                              {basicCourses.map((course) => (
+                                <Badge
+                                  key={course}
+                                  variant="outline"
+                                  className="bg-point-10 border-point-50 text-point"
+                                >
+                                  {course}
+                                </Badge>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* Major Courses */}
+                          <div>
+                            <h4 className="text-sm font-medium text-muted-foreground mb-3">
+                              {tEdu("courses.major.title")}
+                            </h4>
+                            <div className="flex flex-wrap gap-2">
+                              {majorCourses.map((course) => (
+                                <Badge
+                                  key={course}
+                                  variant="outline"
+                                  className="bg-point-10 border-point-50 text-point"
+                                >
+                                  {course}
+                                </Badge>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </CardContent>
+              </Card>
+            </Collapsible>
+          </motion.div>
+
+          {/* Certifications */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center gap-3 mb-8">
+              <div className="p-2 rounded-lg bg-point-10">
+                <Award className="h-6 w-6 text-point" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold">
+                {tCert("title")}
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {certifications.map((cert, index) => (
+                <motion.div
+                  key={cert.name}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className="h-full hover:border-primary/50 transition-colors">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start justify-between gap-4">
+                        <div>
+                          <h4 className="font-medium mb-1">{cert.name}</h4>
+                          <p className="text-sm text-muted-foreground">
+                            {cert.org}
+                          </p>
+                        </div>
+                        <Badge variant="outline" className="shrink-0">
+                          {cert.date}
+                        </Badge>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
