@@ -107,7 +107,7 @@ export function Hero() {
             className='flex flex-col sm:flex-row items-center justify-center gap-4 mb-12'
           >
             <Button size='lg' asChild>
-              <a href='/resume/이준희_이력서.pdf' download>
+              <a href='/resume/resume-20251210.pdf' download>
                 <Download className='mr-2 h-4 w-4' />
                 {t('downloadResume')}
               </a>
