@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import {
   Dialog,
   DialogContent,
@@ -82,10 +83,12 @@ export function ProjectModal({
                 {images.map((image, index) => (
                   <CarouselItem key={index}>
                     <div className="relative aspect-video rounded-lg overflow-hidden bg-muted">
-                      <img
+                      <Image
                         src={image}
                         alt={getAltFromFilename(image, title)}
-                        className="w-full h-full object-contain"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 600px"
+                        className="object-contain"
                       />
                     </div>
                   </CarouselItem>

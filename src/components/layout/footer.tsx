@@ -60,9 +60,6 @@ export function Footer() {
               </a>
             ))}
           </div>
-
-          {/* Built With */}
-          <p className="text-sm text-muted-foreground">{t("builtWith")}</p>
         </div>
       </div>
     </footer>

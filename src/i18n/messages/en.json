@@ -523,5 +523,10 @@
     "light": "Light Mode",
     "dark": "Dark Mode",
     "system": "System"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for does not exist or may have been moved.",
+    "backHome": "Back to Home"
   }
 }

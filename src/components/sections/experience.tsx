@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -26,7 +27,7 @@ const detailsConfig: Record<string, Record<string, string[]>> = {
   },
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 function DetailsCollapsible({
   companyKey,
   positionKey,
@@ -148,11 +149,13 @@ export function Experience() {
                 <CardHeader className="bg-gradient-to-r from-primary/5 to-transparent">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-lg overflow-hidden bg-white flex items-center justify-center">
-                        <img
+                      <div className="relative w-9 h-9 rounded-lg overflow-hidden bg-white">
+                        <Image
                           src={company.logo}
                           alt={company.logoAlt}
-                          className="w-full h-full object-contain"
+                          fill
+                          sizes="36px"
+                          className="object-contain"
                         />
                       </div>
                       <div>
@@ -177,7 +180,7 @@ export function Experience() {
                 {/* Positions */}
                 <CardContent className="pt-6">
                   <div className="space-y-6">
-                    {company.positions.map((position, posIndex) => (
+                    {company.positions.map((position) => (
                       <div
                         key={position}
                         className="relative pl-6 border-l-2 border-border"
