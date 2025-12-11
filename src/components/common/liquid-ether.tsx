@@ -158,7 +158,8 @@ export default function LiquidEther({
         this.width = Math.max(1, Math.floor(rect.width));
         this.height = Math.max(1, Math.floor(rect.height));
         this.aspect = this.width / this.height;
-        if (this.renderer) this.renderer.setSize(this.width, this.height, false);
+        if (this.renderer)
+          this.renderer.setSize(this.width, this.height, false);
       }
       update() {
         if (!this.clock) return;
@@ -705,10 +706,7 @@ export default function LiquidEther({
         super({ output: simProps.dst });
         this.initMouse(simProps);
       }
-      initMouse(simProps: {
-        cellScale: THREE.Vector2;
-        cursor_size: number;
-      }) {
+      initMouse(simProps: { cellScale: THREE.Vector2; cursor_size: number }) {
         super.init();
         const mouseG = new THREE.PlaneGeometry(1, 1);
         const mouseM = new THREE.RawShaderMaterial({
@@ -1220,11 +1218,15 @@ export default function LiquidEther({
         try {
           window.removeEventListener('resize', this._resize);
           if (this._onVisibility)
-            document.removeEventListener('visibilitychange', this._onVisibility);
+            document.removeEventListener(
+              'visibilitychange',
+              this._onVisibility
+            );
           Mouse.dispose();
           if (Common.renderer) {
             const canvas = Common.renderer.domElement;
-            if (canvas && canvas.parentNode) canvas.parentNode.removeChild(canvas);
+            if (canvas && canvas.parentNode)
+              canvas.parentNode.removeChild(canvas);
             Common.renderer.dispose();
           }
         } catch {

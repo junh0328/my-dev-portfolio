@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import * as React from "react";
+import * as React from 'react';
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
-} from "embla-carousel-react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+} from 'embla-carousel-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
@@ -36,7 +36,7 @@ function useCarousel() {
   const context = React.useContext(CarouselContext);
 
   if (!context) {
-    throw new Error("useCarousel must be used within a <Carousel />");
+    throw new Error('useCarousel must be used within a <Carousel />');
   }
 
   return context;
@@ -80,10 +80,10 @@ const Carousel = React.forwardRef<
 
   const handleKeyDown = React.useCallback(
     (event: React.KeyboardEvent<HTMLDivElement>) => {
-      if (event.key === "ArrowLeft") {
+      if (event.key === 'ArrowLeft') {
         event.preventDefault();
         scrollPrev();
-      } else if (event.key === "ArrowRight") {
+      } else if (event.key === 'ArrowRight') {
         event.preventDefault();
         scrollNext();
       }
@@ -101,11 +101,11 @@ const Carousel = React.forwardRef<
 
     setScrollSnaps(api.scrollSnapList());
     onSelect(api);
-    api.on("reInit", onSelect);
-    api.on("select", onSelect);
+    api.on('reInit', onSelect);
+    api.on('select', onSelect);
 
     return () => {
-      api?.off("select", onSelect);
+      api?.off('select', onSelect);
     };
   }, [api, onSelect]);
 
@@ -127,9 +127,9 @@ const Carousel = React.forwardRef<
       <div
         ref={ref}
         onKeyDownCapture={handleKeyDown}
-        className={cn("relative", className)}
-        role="region"
-        aria-roledescription="carousel"
+        className={cn('relative', className)}
+        role='region'
+        aria-roledescription='carousel'
         {...props}
       >
         {children}
@@ -137,7 +137,7 @@ const Carousel = React.forwardRef<
     </CarouselContext.Provider>
   );
 });
-Carousel.displayName = "Carousel";
+Carousel.displayName = 'Carousel';
 
 const CarouselContent = React.forwardRef<
   HTMLDivElement,
@@ -146,12 +146,12 @@ const CarouselContent = React.forwardRef<
   const { carouselRef } = useCarousel();
 
   return (
-    <div ref={carouselRef} className="overflow-hidden">
-      <div ref={ref} className={cn("flex", className)} {...props} />
+    <div ref={carouselRef} className='overflow-hidden'>
+      <div ref={ref} className={cn('flex', className)} {...props} />
     </div>
   );
 });
-CarouselContent.displayName = "CarouselContent";
+CarouselContent.displayName = 'CarouselContent';
 
 const CarouselItem = React.forwardRef<
   HTMLDivElement,
@@ -160,19 +160,19 @@ const CarouselItem = React.forwardRef<
   return (
     <div
       ref={ref}
-      role="group"
-      aria-roledescription="slide"
-      className={cn("min-w-0 shrink-0 grow-0 basis-full", className)}
+      role='group'
+      aria-roledescription='slide'
+      className={cn('min-w-0 shrink-0 grow-0 basis-full', className)}
       {...props}
     />
   );
 });
-CarouselItem.displayName = "CarouselItem";
+CarouselItem.displayName = 'CarouselItem';
 
 const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
->(({ className, variant = "outline", size = "icon", ...props }, ref) => {
+>(({ className, variant = 'outline', size = 'icon', ...props }, ref) => {
   const { scrollPrev, canScrollPrev } = useCarousel();
 
   return (
@@ -181,24 +181,24 @@ const CarouselPrevious = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute left-2 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm",
+        'absolute left-2 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm',
         className
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      <ChevronLeft className="h-4 w-4" />
-      <span className="sr-only">Previous slide</span>
+      <ChevronLeft className='h-4 w-4' />
+      <span className='sr-only'>Previous slide</span>
     </Button>
   );
 });
-CarouselPrevious.displayName = "CarouselPrevious";
+CarouselPrevious.displayName = 'CarouselPrevious';
 
 const CarouselNext = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
->(({ className, variant = "outline", size = "icon", ...props }, ref) => {
+>(({ className, variant = 'outline', size = 'icon', ...props }, ref) => {
   const { scrollNext, canScrollNext } = useCarousel();
 
   return (
@@ -207,19 +207,19 @@ const CarouselNext = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm",
+        'absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm',
         className
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}
     >
-      <ChevronRight className="h-4 w-4" />
-      <span className="sr-only">Next slide</span>
+      <ChevronRight className='h-4 w-4' />
+      <span className='sr-only'>Next slide</span>
     </Button>
   );
 });
-CarouselNext.displayName = "CarouselNext";
+CarouselNext.displayName = 'CarouselNext';
 
 const CarouselDots = React.forwardRef<
   HTMLDivElement,
@@ -230,7 +230,7 @@ const CarouselDots = React.forwardRef<
   return (
     <div
       ref={ref}
-      className={cn("flex justify-center gap-2 mt-4", className)}
+      className={cn('flex justify-center gap-2 mt-4', className)}
       {...props}
     >
       {scrollSnaps.map((_, index) => (
@@ -238,10 +238,10 @@ const CarouselDots = React.forwardRef<
           key={index}
           onClick={() => scrollTo(index)}
           className={cn(
-            "w-2 h-2 rounded-full transition-all",
+            'w-2 h-2 rounded-full transition-all',
             index === selectedIndex
-              ? "bg-primary w-4"
-              : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+              ? 'bg-primary w-4'
+              : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
           )}
           aria-label={`Go to slide ${index + 1}`}
         />
@@ -249,7 +249,7 @@ const CarouselDots = React.forwardRef<
     </div>
   );
 });
-CarouselDots.displayName = "CarouselDots";
+CarouselDots.displayName = 'CarouselDots';
 
 export {
   type CarouselApi,

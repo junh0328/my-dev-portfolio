@@ -241,9 +241,7 @@
                 "Stripe SDK 연동 작품 결제 시스템 구축",
                 "Chart.js 활용 예술품 가격 및 동향 분석 UI 제공"
               ],
-              "monitoring": [
-                "Sentry 기반 에러 로깅 및 핸들링 체계 구축"
-              ]
+              "monitoring": ["Sentry 기반 에러 로깅 및 핸들링 체계 구축"]
             }
           },
           "web1": {

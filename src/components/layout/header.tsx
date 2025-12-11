@@ -82,6 +82,9 @@ export function Header() {
               size='sm'
               onClick={toggleLanguage}
               className='text-muted-foreground hover:text-foreground gap-1.5 px-2'
+              aria-label={
+                locale === 'ko' ? 'Switch to English' : '한국어로 전환'
+              }
             >
               <Globe className='h-4 w-4' />
             </Button>

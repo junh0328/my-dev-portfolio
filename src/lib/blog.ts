@@ -1,4 +1,4 @@
-const RSS_URL = "https://junheedot.tistory.com/rss";
+const RSS_URL = 'https://junheedot.tistory.com/rss';
 
 export interface BlogPost {
   title: string;
@@ -11,43 +11,45 @@ export interface BlogPost {
 
 function decodeHtmlEntities(text: string): string {
   return text
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
     .replace(/&quot;/g, '"')
-    .replace(/&amp;/g, "&")
+    .replace(/&amp;/g, '&')
     .replace(/&#39;/g, "'");
 }
 
 function extractThumbnail(html: string): string | null {
   const decoded = decodeHtmlEntities(html);
   // Match src attribute that starts with http (to avoid onerror fallback URLs)
-  const imgMatch = decoded.match(/<img\s+[^>]*?src=["'](https?:\/\/[^"']+)["']/i);
+  const imgMatch = decoded.match(
+    /<img\s+[^>]*?src=["'](https?:\/\/[^"']+)["']/i
+  );
   return imgMatch ? imgMatch[1] : null;
 }
 
 function formatDate(dateString: string, locale: string): string {
   const date = new Date(dateString);
-  if (locale === "ko") {
-    return date.toLocaleDateString("ko-KR", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
+  if (locale === 'ko') {
+    return date.toLocaleDateString('ko-KR', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
     });
   }
-  return date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
   });
 }
 
 function stripHtml(html: string): string {
-  return html.replace(/<[^>]*>/g, "").trim();
+  return html.replace(/<[^>]*>/g, '').trim();
 }
 
 export async function getBlogPosts(
   limit: number = 4,
-  locale: string = "ko"
+  locale: string = 'ko'
 ): Promise<BlogPost[]> {
   try {
     const response = await fetch(RSS_URL, {
@@ -71,30 +73,31 @@ export async function getBlogPosts(
       const title =
         itemXml.match(/<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>/)?.[1] ||
         itemXml.match(/<title>([\s\S]*?)<\/title>/)?.[1] ||
-        "";
+        '';
 
-      const link =
-        itemXml.match(/<link>([\s\S]*?)<\/link>/)?.[1]?.trim() || "";
+      const link = itemXml.match(/<link>([\s\S]*?)<\/link>/)?.[1]?.trim() || '';
 
       const description =
         itemXml.match(
           /<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/
         )?.[1] ||
         itemXml.match(/<description>([\s\S]*?)<\/description>/)?.[1] ||
-        "";
+        '';
 
       const category =
-        itemXml.match(/<category><!\[CDATA\[([\s\S]*?)\]\]><\/category>/)?.[1] ||
+        itemXml.match(
+          /<category><!\[CDATA\[([\s\S]*?)\]\]><\/category>/
+        )?.[1] ||
         itemXml.match(/<category>([\s\S]*?)<\/category>/)?.[1] ||
-        "";
+        '';
 
       const pubDate =
-        itemXml.match(/<pubDate>([\s\S]*?)<\/pubDate>/)?.[1] || "";
+        itemXml.match(/<pubDate>([\s\S]*?)<\/pubDate>/)?.[1] || '';
 
       items.push({
         title: stripHtml(title),
         link,
-        description: stripHtml(description).slice(0, 150) + "...",
+        description: stripHtml(description).slice(0, 150) + '...',
         category,
         pubDate: formatDate(pubDate, locale),
         thumbnail: extractThumbnail(description),
@@ -103,7 +106,7 @@ export async function getBlogPosts(
 
     return items;
   } catch (error) {
-    console.error("Error fetching blog posts:", error);
+    console.error('Error fetching blog posts:', error);
     return [];
   }
 }
