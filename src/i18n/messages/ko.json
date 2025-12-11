@@ -105,7 +105,28 @@
               "AI를 활용한 서비스 구조 전체 문서화 작업",
               "SPOT 고도화 (BUY/SELL Indicator, Simple Layout)",
               "전체 서비스 유지 보수"
-            ]
+            ],
+            "details": {
+              "kyc": [
+                "기존 솔루션(Sumsub) 계약 만료 대응, AWS Rekognition 활용 자체 본인 인증 서비스 설계",
+                "Amplify Liveness를 활용한 3단계 [본인 인증 - 신분증 업로드 - 실시간 얼굴 인식] 흐름 기획 및 도입",
+                "인프라 - 백엔드 - 프론트엔드 세션 유지 및 인증 흐름 구현",
+                "Figma MCP와 Claude Code를 활용하여 구조 및 디자인 적용"
+              ],
+              "ai_docs": [
+                "7년 이상 유지되는 모노레포 구조의 각 서비스를 Claude Code로 분석 및 피드백, 각 레포지토리 .md 파일에 체계화",
+                "사용자 플로우 분석 및 자동 문서 생성 체계 구축"
+              ],
+              "spot": [
+                "BUY/SELL (거래내역) Indicator 추가",
+                "모바일 웹 Simple Layout 모드 추가 (Buy, Sell 이벤트 클릭 인당 7회 → 12회 증가)"
+              ],
+              "maintenance": [
+                "Angular 기반 레거시 프로젝트 구현 및 설계",
+                "회원 탈퇴 기능 추가",
+                "웹뷰와 SSO 서버간 인증 유지 시스템 설계"
+              ]
+            }
           },
           "p2p": {
             "team": "P2P TF팀",
@@ -115,7 +136,28 @@
               "Next.js 기반의 SSR/ISR 전략 도입",
               "다중 통신 방식 적용 (Axios, SSE, WebSocket)",
               "2단계 인증(2FA) 시스템 전반 설계 및 구현"
-            ]
+            ],
+            "details": {
+              "overview": "실시간 통신 기반 유저간 실물-가상 화폐 거래 시스템 구축",
+              "process": [
+                "기능별 스프린트 주기 설정, 지속적 피드백 기반 개발 프로세스 운영",
+                "Next.js SSR/ISR 전략 도입으로 페이지 로딩 최적화 및 SEO 대응"
+              ],
+              "communication": [
+                "Axios 기반 일반 요청 처리",
+                "SSE(Server Sent Events) 통한 서버-클라이언트 푸시",
+                "WebSocket 통한 실시간 양방향 통신"
+              ],
+              "features": [
+                "광고 관리(my ads), 생성(post ads), 수정(update ads)",
+                "거래 기능(open order), 거래 내역(history)",
+                "사용자 정보(user center)"
+              ],
+              "security": [
+                "2단계 인증(2FA) 시스템 전반 설계 및 구현",
+                "Passkey, 전화번호 인증, OTP, 이메일, Security Key 등 다양한 인증 옵션 통합"
+              ]
+            }
           },
           "spot": {
             "team": "SPOT 팀",
@@ -125,7 +167,26 @@
               "7년간 운영된 qooxdoo 기반 레거시 SPA를 React 기반으로 전면 마이그레이션",
               "실시간 소켓 통신 최적화",
               "다크모드 및 컬러 테마 구현"
-            ]
+            ],
+            "details": {
+              "migration": [
+                "MAU 18만 → 20만, 클릭 이벤트 360만 → 400만 증가 등 퍼포먼스 개선",
+                "유지보수성 향상 및 신규 기능 개발 속도 개선",
+                "react-query v5 도입으로 API 호출 흐름 개선 및 중복 호출 방지"
+              ],
+              "socket": [
+                "ping-pong 메커니즘 재설계로 연결 안정성 향상",
+                "window online/offline, document visibilitychange 이벤트 활용한 재연결 로직 구현",
+                "Access Token 유효시간(15분) 만료 대응 위한 자동 재인증 기능 개발",
+                "불필요한 polling 제거 및 SSE(Server Sent Events) 도입으로 서버 부하 최소화"
+              ],
+              "ux": [
+                "다크모드 및 컬러 테마 구현",
+                "다중 레이아웃 지원",
+                "최초 상장 카운트다운 기능",
+                "심도 차트(Depth Chart) 구현"
+              ]
+            }
           }
         }
       },
@@ -142,7 +203,24 @@
               "웹페이지 리뉴얼 이후 유지보수를 위한 어드민 시스템 개발",
               "프론트엔드 성능 최적화 및 품질 개선",
               "SEO 최적화 전략 수립 및 실행"
-            ]
+            ],
+            "details": {
+              "admin": [
+                "highChart 라이브러리 도입하여 데이터 시각화 기능 구현 및 도식화 UX 개선",
+                "오디오 스트리밍 기능 자체 설계 및 프론트엔드 구현"
+              ],
+              "optimization": [
+                "Next.js 12 → 14, react-query v4 → v5 마이그레이션 수행",
+                "Lighthouse 기준 페이지별 FCP 1초 이내 달성",
+                "Layout Shift 최소화를 위한 구조 개선",
+                "유닛 테스트 코드 도입으로 컴포넌트 수준의 품질 보증 체계 마련"
+              ],
+              "seo": [
+                "검색 엔진 색인 수 약 8천 페이지 → 약 3만 8천 페이지로 4배 이상 증가",
+                "Google Analytics (GA4) 기반 태깅 및 보고서 작성으로 비즈니스 전략 지원",
+                "담당 업무 흐름을 비개발자도 이해할 수 있도록 문서화"
+              ]
+            }
           },
           "renewal": {
             "team": "리뉴얼 TF 팀",
@@ -151,7 +229,22 @@
               "전체 웹서비스 리뉴얼 프로젝트 주요 기술 스택 전환 주도",
               "socket.io 기반 실시간 채팅 기능",
               "Stripe SDK 연동 결제 시스템 구축"
-            ]
+            ],
+            "details": {
+              "tech": [
+                "Next.js, TypeScript, react-query 기반 프레임워크 전면 도입",
+                "SSR 전략 수립 및 성능 개선 (FCP/LCP 최적화 포함)"
+              ],
+              "features": [
+                "socket.io 기반 실시간 채팅 기능",
+                "코멘트 및 좋아요/팔로우 시스템",
+                "Stripe SDK 연동 작품 결제 시스템 구축",
+                "Chart.js 활용 예술품 가격 및 동향 분석 UI 제공"
+              ],
+              "monitoring": [
+                "Sentry 기반 에러 로깅 및 핸들링 체계 구축"
+              ]
+            }
           },
           "web1": {
             "team": "웹 팀",
@@ -160,7 +253,21 @@
               "글로벌 아트 프로젝트 '구찌 가든 아키타이프' 페이지 기능 구현",
               "사내 개발자 스터디 주도",
               "메인 프로젝트에 타입스크립트 도입"
-            ]
+            ],
+            "details": {
+              "gucci": [
+                "지도 기능, 로딩 스크린, 커스텀 버튼 등 UI 기능 개발",
+                "내부 운영 효율화를 위한 어드민 페이지 개발",
+                "이젤 웹사이트의 반응형 큐레이션 및 카테고리 기능 설계 및 구축"
+              ],
+              "study": [
+                "타입스크립트, 클린 코드, 리팩토링 등 주요 프론트엔드 이론 중심 학습 및 실무 적용"
+              ],
+              "typescript": [
+                "메인 프로젝트에 타입스크립트 도입",
+                "코드 문서화 병행하여 유지보수성 강화"
+              ]
+            }
           }
         }
       }
@@ -371,6 +478,21 @@
         "name": "Product Developer로 커리어 빌딩하기 아고라",
         "org": "토스",
         "date": "2023.10"
+      },
+      {
+        "name": "웹 개발 과정 수료",
+        "org": "코리아 IT 아카데미",
+        "date": "2020.02",
+        "description": "HTML/CSS/JS/JQuery/PHP/Node.js/MySQL/React.js"
+      }
+    ]
+  },
+  "language": {
+    "title": "언어",
+    "items": [
+      {
+        "name": "영어",
+        "level": "일상 회화"
       }
     ]
   },

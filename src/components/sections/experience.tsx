@@ -1,10 +1,101 @@
 "use client";
 
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Briefcase } from "lucide-react";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { Calendar, Briefcase, ChevronDown } from "lucide-react";
+
+// Details labels for each position
+const detailsConfig: Record<string, Record<string, string[]>> = {
+  dnsever: {
+    dev: ["kyc", "ai_docs", "spot", "maintenance"],
+    p2p: ["overview", "process", "communication", "features", "security"],
+    spot: ["migration", "socket", "ux"],
+  },
+  eazel: {
+    web2: ["admin", "optimization", "seo"],
+    renewal: ["tech", "features", "monitoring"],
+    web1: ["gucci", "study", "typescript"],
+  },
+};
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function DetailsCollapsible({
+  companyKey,
+  positionKey,
+  t,
+}: {
+  companyKey: string;
+  positionKey: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  t: any;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const detailKeys = detailsConfig[companyKey]?.[positionKey];
+  if (!detailKeys || detailKeys.length === 0) return null;
+
+  // Check if details exist in translations
+  let hasDetails = false;
+  try {
+    const details = t.raw(
+      `companies.${companyKey}.positions.${positionKey}.details`
+    );
+    hasDetails = details && Object.keys(details).length > 0;
+  } catch {
+    return null;
+  }
+
+  if (!hasDetails) return null;
+
+  return (
+    <Collapsible open={isOpen} onOpenChange={setIsOpen} className="mt-3">
+      <CollapsibleTrigger className="flex items-center gap-1 text-xs text-primary hover:text-primary/80 transition-colors cursor-pointer">
+        <ChevronDown
+          className={`h-3 w-3 transition-transform duration-200 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+        <span>{isOpen ? "상세 내용 접기" : "상세 내용 보기"}</span>
+      </CollapsibleTrigger>
+      <CollapsibleContent className="mt-3 space-y-3">
+        {detailKeys.map((detailKey) => {
+          let items: string[] = [];
+          try {
+            items = t.raw(
+              `companies.${companyKey}.positions.${positionKey}.details.${detailKey}`
+            ) as string[];
+          } catch {
+            return null;
+          }
+
+          if (!items || !Array.isArray(items) || items.length === 0)
+            return null;
+
+          return (
+            <div
+              key={detailKey}
+              className="pl-3 border-l border-primary/20 space-y-1"
+            >
+              {items.map((item: string, i: number) => (
+                <p key={i} className="text-xs text-muted-foreground">
+                  • {item}
+                </p>
+              ))}
+            </div>
+          );
+        })}
+      </CollapsibleContent>
+    </Collapsible>
+  );
+}
 
 export function Experience() {
   const t = useTranslations("experience");
@@ -122,6 +213,13 @@ export function Experience() {
                             </li>
                           ))}
                         </ul>
+
+                        {/* Details Collapsible */}
+                        <DetailsCollapsible
+                          companyKey={company.key}
+                          positionKey={position}
+                          t={t}
+                        />
                       </div>
                     ))}
                   </div>

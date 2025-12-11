@@ -105,7 +105,28 @@
               "AI-powered service structure documentation",
               "SPOT enhancement (BUY/SELL Indicator, Simple Layout)",
               "Full service maintenance"
-            ]
+            ],
+            "details": {
+              "kyc": [
+                "Built self-developed identity verification service using AWS Rekognition in response to Sumsub contract expiration",
+                "Planned and implemented 3-step verification flow [Identity verification - ID upload - Real-time face recognition] using Amplify Liveness",
+                "Implemented session persistence and authentication flow across Infrastructure - Backend - Frontend",
+                "Applied structure and design using Figma MCP and Claude Code"
+              ],
+              "ai_docs": [
+                "Analyzed 7+ year monorepo structure services using Claude Code with feedback, systematized in each repository's .md files",
+                "Built user flow analysis and automated document generation system"
+              ],
+              "spot": [
+                "Added BUY/SELL (trade history) Indicator",
+                "Added Mobile web Simple Layout mode (Buy, Sell event clicks increased from 7 to 12 per user)"
+              ],
+              "maintenance": [
+                "Implemented and designed Angular-based legacy projects",
+                "Added account deletion feature",
+                "Designed authentication persistence system between WebView and SSO server"
+              ]
+            }
           },
           "p2p": {
             "team": "P2P TF Team",
@@ -115,7 +136,28 @@
               "Implemented Next.js SSR/ISR strategy",
               "Applied multi-communication methods (Axios, SSE, WebSocket)",
               "Designed and implemented 2FA system"
-            ]
+            ],
+            "details": {
+              "overview": "Built real-time communication-based fiat-crypto trading system between users",
+              "process": [
+                "Set feature-based sprint cycles, operated continuous feedback-based development process",
+                "Optimized page loading and SEO with Next.js SSR/ISR strategy"
+              ],
+              "communication": [
+                "General request handling with Axios",
+                "Server-client push via SSE (Server Sent Events)",
+                "Real-time bidirectional communication via WebSocket"
+              ],
+              "features": [
+                "Ad management (my ads), creation (post ads), editing (update ads)",
+                "Trading functionality (open order), trade history",
+                "User information (user center)"
+              ],
+              "security": [
+                "Designed and implemented complete 2FA system",
+                "Integrated various authentication options: Passkey, phone verification, OTP, email, Security Key"
+              ]
+            }
           },
           "spot": {
             "team": "SPOT Team",
@@ -125,7 +167,26 @@
               "Full migration of 7-year qooxdoo legacy SPA to React",
               "Real-time socket communication optimization",
               "Dark mode and color theme implementation"
-            ]
+            ],
+            "details": {
+              "migration": [
+                "Achieved performance improvements: MAU 180K → 200K, click events 3.6M → 4M",
+                "Improved maintainability and new feature development speed",
+                "Introduced react-query v5 to improve API call flow and prevent duplicate calls"
+              ],
+              "socket": [
+                "Improved connection stability through ping-pong mechanism redesign",
+                "Implemented reconnection logic using window online/offline, document visibilitychange events",
+                "Developed automatic re-authentication for Access Token expiration (15 min)",
+                "Minimized server load by removing unnecessary polling and introducing SSE"
+              ],
+              "ux": [
+                "Implemented dark mode and color theme",
+                "Multi-layout support",
+                "First listing countdown feature",
+                "Depth Chart implementation"
+              ]
+            }
           }
         }
       },
@@ -142,7 +203,24 @@
               "Admin system development for post-renewal maintenance",
               "Frontend performance optimization and quality improvement",
               "SEO optimization strategy planning and execution"
-            ]
+            ],
+            "details": {
+              "admin": [
+                "Implemented data visualization with highChart library, improved charting UX",
+                "Self-designed and implemented audio streaming functionality"
+              ],
+              "optimization": [
+                "Performed Next.js 12 → 14, react-query v4 → v5 migration",
+                "Achieved FCP under 1 second per page (Lighthouse)",
+                "Structural improvements to minimize Layout Shift",
+                "Established component-level QA system through unit test code"
+              ],
+              "seo": [
+                "Increased search engine index from ~8K to ~38K pages (4x+ growth)",
+                "Supported business strategy through GA4-based tagging and reporting",
+                "Documented workflows for non-developers to understand"
+              ]
+            }
           },
           "renewal": {
             "team": "Renewal TF Team",
@@ -151,7 +229,22 @@
               "Led major tech stack transition in web service renewal project",
               "Socket.io-based real-time chat feature",
               "Stripe SDK payment system integration"
-            ]
+            ],
+            "details": {
+              "tech": [
+                "Full adoption of Next.js, TypeScript, react-query framework",
+                "Established SSR strategy and performance improvements (FCP/LCP optimization)"
+              ],
+              "features": [
+                "Socket.io-based real-time chat feature",
+                "Comment and like/follow system",
+                "Built artwork payment system with Stripe SDK integration",
+                "Provided art price and trend analysis UI using Chart.js"
+              ],
+              "monitoring": [
+                "Built error logging and handling system with Sentry"
+              ]
+            }
           },
           "web1": {
             "team": "Web Team",
@@ -160,7 +253,21 @@
               "Global art project 'Gucci Garden Archetypes' page development",
               "Led internal developer study group",
               "Introduced TypeScript to main project"
-            ]
+            ],
+            "details": {
+              "gucci": [
+                "Developed UI features: map functionality, loading screen, custom buttons",
+                "Developed admin page for internal operational efficiency",
+                "Designed and built responsive curation and category features for Eazel website"
+              ],
+              "study": [
+                "Led learning and practical application of key frontend theories: TypeScript, Clean Code, Refactoring"
+              ],
+              "typescript": [
+                "Introduced TypeScript to main project",
+                "Enhanced maintainability through code documentation"
+              ]
+            }
           }
         }
       }
@@ -375,6 +482,21 @@
         "name": "Building Career as Product Developer Agora",
         "org": "Toss",
         "date": "Oct 2023"
+      },
+      {
+        "name": "Web Development Course Completion",
+        "org": "Korea IT Academy",
+        "date": "Feb 2020",
+        "description": "HTML/CSS/JS/JQuery/PHP/Node.js/MySQL/React.js"
+      }
+    ]
+  },
+  "language": {
+    "title": "Languages",
+    "items": [
+      {
+        "name": "English",
+        "level": "Conversational"
       }
     ]
   },

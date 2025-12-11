@@ -158,30 +158,29 @@ export function Education() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-0">
               {certifications.map((cert, index) => (
                 <motion.div
                   key={cert.name}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                   viewport={{ once: true }}
+                  className="relative pl-6 pb-6 border-l-2 border-border last:pb-0"
                 >
-                  <Card className="h-full hover:border-primary/50 transition-colors">
-                    <CardContent className="pt-6">
-                      <div className="flex items-start justify-between gap-4">
-                        <div>
-                          <h4 className="font-medium mb-1">{cert.name}</h4>
-                          <p className="text-sm text-muted-foreground">
-                            {cert.org}
-                          </p>
-                        </div>
-                        <Badge variant="outline" className="shrink-0">
-                          {cert.date}
-                        </Badge>
-                      </div>
-                    </CardContent>
-                  </Card>
+                  {/* Timeline dot */}
+                  <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-background border-2 border-primary" />
+
+                  {/* Content */}
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                    <div>
+                      <h4 className="font-medium">{cert.name}</h4>
+                      <p className="text-sm text-muted-foreground">{cert.org}</p>
+                    </div>
+                    <Badge variant="outline" className="shrink-0 w-fit">
+                      {cert.date}
+                    </Badge>
+                  </div>
                 </motion.div>
               ))}
             </div>
