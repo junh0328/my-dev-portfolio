@@ -73,7 +73,7 @@ export function About() {
                         src={highlight.logo}
                         alt={highlight.logoAlt}
                         fill
-                        sizes="32px"
+                        sizes='32px'
                         className='object-contain'
                       />
                     </div>
@@ -150,9 +150,9 @@ export function About() {
                               <BarChart3 className='h-4 w-4 text-point' />
                             )}
                           </div>
-                          <h4 className='font-semibold group-hover:text-primary transition-colors'>
+                          <h3 className='font-semibold group-hover:text-primary transition-colors'>
                             {item.title}
-                          </h4>
+                          </h3>
                         </div>
                         <ArrowUpRight className='h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all' />
                       </div>

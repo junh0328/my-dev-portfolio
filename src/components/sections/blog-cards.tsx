@@ -66,7 +66,7 @@ export function BlogCards({ posts, title, subtitle, viewAll }: BlogCardsProps) {
                       src={post.thumbnail}
                       alt={post.title}
                       fill
-                      sizes="(max-width: 768px) 100vw, 384px"
+                      sizes='(max-width: 768px) 100vw, 384px'
                       className='object-cover transition-transform duration-300 group-hover:scale-105'
                       unoptimized
                     />

@@ -74,9 +74,7 @@ export function Projects() {
                 }}
               >
                 {/* Point Color Top Bar */}
-                <div
-                  className='h-1 bg-point opacity-50 group-hover:opacity-100 transition-opacity'
-                />
+                <div className='h-1 bg-point opacity-50 group-hover:opacity-100 transition-opacity' />
 
                 <CardHeader>
                   <div className='flex items-start justify-between'>
@@ -86,7 +84,7 @@ export function Projects() {
                           src={project.logo}
                           alt={project.logoAlt}
                           fill
-                          sizes="36px"
+                          sizes='36px'
                           className='object-contain'
                         />
                       </div>
