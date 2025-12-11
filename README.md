@@ -1,24 +1,29 @@
 # My Dev Portfolio
 
-프론트엔드 개발자 이준희의 개인 포트폴리오 웹사이트입니다.
+클로드 코드를 통해 설계한 포트폴리오 웹사이트입니다. 배포를 포함한 클라이언트가 담당하는 전반적인 부분을 담았습니다.
+
+<img src="./assets/main.png" alt="포트폴리오 메인 섹션">
 
 ## 주요 특징
 
 - **다국어 지원** - 한국어/영어 전환 가능
 - **다크 모드** - 라이트/다크/시스템 테마 지원
 - **반응형 디자인** - 모바일, 태블릿, 데스크탑 대응
-- **SEO 최적화** - 메타태그, sitemap, robots.txt 설정
+- **SEO 최적화** - 메타태그, sitemap, robots.txt, canonical URL 설정
+- **Google Analytics** - 사용자 행동 및 이벤트 추적
+- **404 페이지** - 커스텀 에러 페이지 (LiquidEther 배경)
 
 ## 기술 스택
 
-| 분류 | 기술 |
-|------|------|
-| Framework | Next.js 16, React 19 |
-| Language | TypeScript |
-| Styling | Tailwind CSS 4, shadcn/ui |
-| Animation | Framer Motion |
-| i18n | next-intl |
-| Theme | next-themes |
+| 분류      | 기술                      |
+| --------- | ------------------------- |
+| Framework | Next.js 16, React 19      |
+| Language  | TypeScript                |
+| Styling   | Tailwind CSS 4, shadcn/ui |
+| Animation | Framer Motion             |
+| i18n      | next-intl                 |
+| Theme     | next-themes               |
+| Analytics | Google Analytics 4        |
 
 ## 실행 방법
 
@@ -45,12 +50,20 @@ pnpm lint
 src/
 ├── app/                    # Next.js App Router
 │   ├── [locale]/           # 다국어 라우팅 (ko, en)
+│   │   ├── layout.tsx      # 로케일별 레이아웃
+│   │   ├── page.tsx        # 메인 페이지
+│   │   └── not-found.tsx   # 로케일별 404 페이지
+│   ├── layout.tsx          # 루트 레이아웃 (폰트, 메타데이터, GA)
+│   ├── not-found.tsx       # 루트 404 페이지
 │   ├── globals.css         # 전역 스타일
 │   ├── robots.ts           # robots.txt 생성
 │   └── sitemap.ts          # sitemap.xml 생성
 │
 ├── components/
 │   ├── ui/                 # shadcn/ui 컴포넌트
+│   ├── common/             # 공통 컴포넌트
+│   │   ├── liquid-ether.tsx  # 배경 애니메이션
+│   │   └── ascii-text.tsx    # ASCII 텍스트 효과
 │   ├── layout/             # Header, Footer
 │   ├── sections/           # 포트폴리오 섹션들
 │   │   ├── hero.tsx        # 히어로 섹션
@@ -68,7 +81,14 @@ src/
 │   ├── config.ts           # 로케일 설정
 │   └── navigation.ts       # 다국어 네비게이션
 │
-└── lib/                    # 유틸리티 함수
+├── lib/                    # 유틸리티 함수
+│   ├── utils.ts            # cn() 유틸리티
+│   ├── blog.ts             # 블로그 데이터 fetching
+│   ├── fonts.ts            # 폰트 설정
+│   └── gtag.ts             # Google Analytics 유틸리티
+│
+└── types/                  # TypeScript 타입 선언
+    └── gtag.d.ts           # gtag 타입 정의
 ```
 
 ## 포트폴리오 섹션

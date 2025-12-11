@@ -9,6 +9,7 @@
 - **i18n**: next-intl (ko/en)
 - **Theme**: next-themes (다크/라이트 모드)
 - **Animation**: Framer Motion
+- **Analytics**: Google Analytics 4 (G-6JY60CZ148)
 
 ## 프로젝트 구조
 
@@ -17,14 +18,19 @@ src/
 ├── app/
 │   ├── [locale]/           # 다국어 라우팅 (ko, en)
 │   │   ├── layout.tsx      # 로케일별 레이아웃
-│   │   └── page.tsx        # 메인 페이지 (모든 섹션 포함)
-│   ├── layout.tsx          # 루트 레이아웃 (폰트, 메타데이터)
+│   │   ├── page.tsx        # 메인 페이지 (모든 섹션 포함)
+│   │   └── not-found.tsx   # 로케일별 404 페이지
+│   ├── layout.tsx          # 루트 레이아웃 (폰트, 메타데이터, GA)
+│   ├── not-found.tsx       # 루트 404 페이지
 │   ├── globals.css         # 전역 스타일
 │   ├── robots.ts           # robots.txt 생성
 │   └── sitemap.ts          # sitemap.xml 생성
 │
 ├── components/
 │   ├── ui/                 # shadcn/ui 컴포넌트
+│   ├── common/             # 공통 컴포넌트
+│   │   ├── liquid-ether.tsx  # 배경 애니메이션
+│   │   └── ascii-text.tsx    # ASCII 텍스트 효과
 │   ├── layout/             # Header, Footer
 │   ├── sections/           # 포트폴리오 섹션들
 │   │   ├── hero.tsx        # 히어로 섹션
@@ -45,9 +51,14 @@ src/
 │   ├── navigation.ts       # 다국어 네비게이션
 │   └── request.ts          # 메시지 로딩
 │
-└── lib/
-    ├── utils.ts            # cn() 유틸리티
-    └── blog.ts             # 블로그 데이터 fetching
+├── lib/
+│   ├── utils.ts            # cn() 유틸리티
+│   ├── blog.ts             # 블로그 데이터 fetching
+│   ├── fonts.ts            # 폰트 설정
+│   └── gtag.ts             # Google Analytics 유틸리티
+│
+└── types/
+    └── gtag.d.ts           # gtag 타입 선언
 ```
 
 ## 이력서 업데이트 워크플로우
@@ -81,11 +92,14 @@ src/
 | 용도 | 경로 |
 |------|------|
 | 이력서 PDF | `resume/이준희 이력서-YYMMDD.pdf` |
-| 다운로드용 이력서 | `public/resume/이준희_이력서.pdf` |
+| 다운로드용 이력서 | `public/resume/resume-YYMMDD.pdf` |
 | 한국어 번역 | `src/i18n/messages/ko.json` |
 | 영어 번역 | `src/i18n/messages/en.json` |
 | 프로젝트 이미지 | `public/images/projects/` |
 | 비즈니스 임팩트 이미지 | `public/images/business_impact/` |
+| GA 유틸리티 | `src/lib/gtag.ts` |
+| GA 타입 선언 | `src/types/gtag.d.ts` |
+| 공통 컴포넌트 | `src/components/common/` |
 
 ## 실행 명령어
 
