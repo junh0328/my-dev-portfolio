@@ -2,11 +2,13 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { TrendingUp, BarChart3, Zap, ArrowUpRight } from 'lucide-react';
 import { BusinessImpactModal } from './business-impact-modal';
+import * as gtag from '@/lib/gtag';
 
 interface ApproachItem {
   key: string;
@@ -66,11 +68,13 @@ export function About() {
               <Card className='h-full bento-item hover:border-primary/50'>
                 <CardHeader>
                   <div className='flex items-center gap-3 mb-2'>
-                    <div className='w-8 h-8 rounded-lg overflow-hidden bg-white flex items-center justify-center'>
-                      <img
+                    <div className='relative w-8 h-8 rounded-lg overflow-hidden bg-white'>
+                      <Image
                         src={highlight.logo}
                         alt={highlight.logoAlt}
-                        className='w-full h-full object-contain'
+                        fill
+                        sizes="32px"
+                        className='object-contain'
                       />
                     </div>
                     <Badge variant='secondary'>
@@ -128,7 +132,14 @@ export function About() {
                     <div
                       key={item.key}
                       className='p-4 rounded-lg bg-muted/50 border border-border cursor-pointer hover:border-primary/50 transition-colors group'
-                      onClick={() => setSelectedApproach(item.key)}
+                      onClick={() => {
+                        setSelectedApproach(item.key);
+                        gtag.event({
+                          action: 'open',
+                          category: 'modal',
+                          label: `business_impact_${item.key}`,
+                        });
+                      }}
                     >
                       <div className='flex items-center justify-between mb-3'>
                         <div className='flex items-center gap-2'>

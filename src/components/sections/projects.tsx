@@ -2,11 +2,13 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ArrowUpRight } from 'lucide-react';
 import { ProjectModal } from './project-modal';
+import * as gtag from '@/lib/gtag';
 
 export function Projects() {
   const t = useTranslations('projects');
@@ -62,7 +64,14 @@ export function Projects() {
             >
               <Card
                 className='h-full group bento-item overflow-hidden cursor-pointer'
-                onClick={() => setSelectedProject(project.key)}
+                onClick={() => {
+                  setSelectedProject(project.key);
+                  gtag.event({
+                    action: 'open',
+                    category: 'modal',
+                    label: `project_${project.key}`,
+                  });
+                }}
               >
                 {/* Point Color Top Bar */}
                 <div
@@ -72,11 +81,13 @@ export function Projects() {
                 <CardHeader>
                   <div className='flex items-start justify-between'>
                     <div className='flex items-center gap-3'>
-                      <div className='w-9 h-9 rounded-lg overflow-hidden bg-white flex items-center justify-center'>
-                        <img
+                      <div className='relative w-9 h-9 rounded-lg overflow-hidden bg-white'>
+                        <Image
                           src={project.logo}
                           alt={project.logoAlt}
-                          className='w-full h-full object-contain'
+                          fill
+                          sizes="36px"
+                          className='object-contain'
                         />
                       </div>
                       <div>

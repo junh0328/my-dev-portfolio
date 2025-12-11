@@ -1,11 +1,13 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { BookOpen, Calendar, ExternalLink, ArrowRight } from 'lucide-react';
 import type { BlogPost } from '@/lib/blog';
+import * as gtag from '@/lib/gtag';
 
 interface BlogCardsProps {
   posts: BlogPost[];
@@ -48,15 +50,25 @@ export function BlogCards({ posts, title, subtitle, viewAll }: BlogCardsProps) {
               transition={{ duration: 0.4, delay: index * 0.1 }}
               viewport={{ once: true }}
               className='group'
+              onClick={() =>
+                gtag.event({
+                  action: 'click',
+                  category: 'link',
+                  label: 'blog_post',
+                })
+              }
             >
               <Card className='h-full overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1'>
                 {/* Thumbnail or Gradient */}
                 <div className='relative h-40 overflow-hidden'>
                   {post.thumbnail ? (
-                    <img
+                    <Image
                       src={post.thumbnail}
                       alt={post.title}
-                      className='w-full h-full object-cover transition-transform duration-300 group-hover:scale-105'
+                      fill
+                      sizes="(max-width: 768px) 100vw, 384px"
+                      className='object-cover transition-transform duration-300 group-hover:scale-105'
+                      unoptimized
                     />
                   ) : (
                     <div className='w-full h-full gradient-bg opacity-20 flex items-center justify-center'>
@@ -120,6 +132,13 @@ export function BlogCards({ posts, title, subtitle, viewAll }: BlogCardsProps) {
             href='https://junheedot.tistory.com'
             target='_blank'
             rel='noopener noreferrer'
+            onClick={() =>
+              gtag.event({
+                action: 'click',
+                category: 'link',
+                label: 'blog_tistory',
+              })
+            }
           >
             {viewAll}
             <ArrowRight className='ml-2 h-4 w-4 transition-transform group-hover:translate-x-1' />

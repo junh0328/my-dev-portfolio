@@ -5,37 +5,38 @@ import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
 import { Moon, Sun, Globe, Menu, X } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { usePathname, useRouter } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
+import * as gtag from '@/lib/gtag';
 
 export function Header() {
   const t = useTranslations('nav');
   const tTheme = useTranslations('theme');
   const locale = useLocale();
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const { theme = 'dark', setTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const navItems = [
-    { href: '#about', label: t('about') },
-    { href: '#experience', label: t('experience') },
-    { href: '#projects', label: t('projects') },
-    { href: '#skills', label: t('skills') },
-    { href: '#education', label: t('education') },
-    { href: '#blog', label: t('blog') },
-    { href: '#contact', label: t('contact') },
+    { href: '#about', label: t('about'), gtagLabel: 'about' },
+    { href: '#experience', label: t('experience'), gtagLabel: 'experience' },
+    { href: '#projects', label: t('projects'), gtagLabel: 'projects' },
+    { href: '#skills', label: t('skills'), gtagLabel: 'skills' },
+    { href: '#education', label: t('education'), gtagLabel: 'education' },
+    { href: '#blog', label: t('blog'), gtagLabel: 'blog' },
+    { href: '#contact', label: t('contact'), gtagLabel: 'contact' },
   ];
 
   const toggleLanguage = () => {
     const newLocale = locale === 'ko' ? 'en' : 'ko';
     router.replace(pathname, { locale: newLocale });
+    gtag.event({
+      action: 'click',
+      category: 'button',
+      label: 'language_toggle',
+    });
   };
 
   return (
@@ -57,7 +58,18 @@ export function Header() {
                 asChild
                 className='text-muted-foreground hover:text-foreground'
               >
-                <a href={item.href}>{item.label}</a>
+                <a
+                  href={item.href}
+                  onClick={() =>
+                    gtag.event({
+                      action: 'click',
+                      category: 'navigation',
+                      label: item.gtagLabel,
+                    })
+                  }
+                >
+                  {item.label}
+                </a>
               </Button>
             ))}
           </div>
@@ -75,23 +87,29 @@ export function Header() {
             </Button>
 
             {/* Theme Toggle */}
-            {mounted && (
-              <Button
-                variant='ghost'
-                size='icon'
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className='text-muted-foreground hover:text-foreground'
-              >
-                {theme === 'dark' ? (
-                  <Sun className='h-4 w-4' />
-                ) : (
-                  <Moon className='h-4 w-4' />
-                )}
-                <span className='sr-only'>
-                  {theme === 'dark' ? tTheme('light') : tTheme('dark')}
-                </span>
-              </Button>
-            )}
+
+            <Button
+              variant='ghost'
+              size='icon'
+              onClick={() => {
+                setTheme(theme === 'dark' ? 'light' : 'dark');
+                gtag.event({
+                  action: 'click',
+                  category: 'button',
+                  label: 'theme_toggle',
+                });
+              }}
+              className='text-muted-foreground hover:text-foreground'
+            >
+              {theme === 'dark' ? (
+                <Sun className='h-4 w-4' />
+              ) : (
+                <Moon className='h-4 w-4' />
+              )}
+              <span className='sr-only'>
+                {theme === 'dark' ? tTheme('light') : tTheme('dark')}
+              </span>
+            </Button>
 
             {/* Mobile Menu Toggle */}
             <Button
@@ -124,9 +142,20 @@ export function Header() {
                 size='sm'
                 asChild
                 className='justify-start text-muted-foreground hover:text-foreground'
-                onClick={() => setMobileMenuOpen(false)}
               >
-                <a href={item.href}>{item.label}</a>
+                <a
+                  href={item.href}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    gtag.event({
+                      action: 'click',
+                      category: 'navigation',
+                      label: item.gtagLabel,
+                    });
+                  }}
+                >
+                  {item.label}
+                </a>
               </Button>
             ))}
           </div>

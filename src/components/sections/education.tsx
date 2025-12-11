@@ -11,6 +11,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { GraduationCap, Award, Calendar, ChevronDown, BookOpen } from "lucide-react";
+import * as gtag from "@/lib/gtag";
 
 export function Education() {
   const tEdu = useTranslations("education");
@@ -45,7 +46,17 @@ export function Education() {
               <h2 className="text-3xl md:text-4xl font-bold">{tEdu("title")}</h2>
             </div>
 
-            <Collapsible open={isCoursesOpen} onOpenChange={setIsCoursesOpen}>
+            <Collapsible
+              open={isCoursesOpen}
+              onOpenChange={(open) => {
+                setIsCoursesOpen(open);
+                gtag.event({
+                  action: "click",
+                  category: "button",
+                  label: "courses_toggle",
+                });
+              }}
+            >
               <Card>
                 <CardHeader>
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">

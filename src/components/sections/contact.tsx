@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Github, Linkedin, FileText, ExternalLink } from "lucide-react";
+import * as gtag from "@/lib/gtag";
 
 export function Contact() {
   const t = useTranslations("contact");
@@ -15,6 +16,7 @@ export function Contact() {
       href: "mailto:junh0328@naver.com",
       username: "junh0328@naver.com",
       color: "hover:text-red-500",
+      gtagLabel: "email",
     },
     {
       icon: Github,
@@ -22,6 +24,7 @@ export function Contact() {
       href: "https://github.com/junh0328",
       username: "junh0328",
       color: "hover:text-gray-400",
+      gtagLabel: "github",
     },
     {
       icon: Linkedin,
@@ -29,6 +32,7 @@ export function Contact() {
       href: "https://www.linkedin.com/in/%EC%A4%80%ED%9D%AC-%EC%9D%B4-23176a214/",
       username: "이준희",
       color: "hover:text-blue-500",
+      gtagLabel: "linkedin",
     },
     {
       icon: FileText,
@@ -36,6 +40,7 @@ export function Contact() {
       href: "https://junheedot.tistory.com",
       username: "junheedot",
       color: "hover:text-orange-500",
+      gtagLabel: "blog_tistory",
     },
     {
       icon: FileText,
@@ -43,6 +48,7 @@ export function Contact() {
       href: "https://velog.io/@junh0328",
       username: "@junh0328",
       color: "hover:text-green-500",
+      gtagLabel: "blog_velog",
     },
   ];
 
@@ -81,6 +87,13 @@ export function Contact() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.2 + index * 0.05 }}
                   viewport={{ once: true }}
+                  onClick={() =>
+                    gtag.event({
+                      action: "click",
+                      category: "link",
+                      label: link.gtagLabel,
+                    })
+                  }
                 >
                   <Card className="h-full hover:border-primary/50 transition-all group">
                     <CardContent className="pt-6">

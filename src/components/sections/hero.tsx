@@ -1,53 +1,62 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { useTheme } from 'next-themes';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Download, Github, Linkedin, Mail, BookOpen } from 'lucide-react';
+import * as gtag from '@/lib/gtag';
+import LiquidEther from '@/components/common/liquid-ether';
+
+// Theme-based color palettes
+const LIGHT_COLORS = ['#3425A0', '#4231c8', '#7B6AE8'];
+const DARK_COLORS = ['#4A90D9', '#7CB5F7', '#A8D4FF'];
 
 export function Hero() {
   const t = useTranslations('hero');
+  const { resolvedTheme } = useTheme();
+
+  // Use light colors as default during SSR, then switch based on resolved theme
+  const liquidColors = resolvedTheme === 'dark' ? DARK_COLORS : LIGHT_COLORS;
 
   const socialLinks = [
     {
       icon: Github,
       href: 'https://github.com/junh0328',
       label: 'GitHub',
+      gtagLabel: 'github',
     },
     {
       icon: Linkedin,
       href: 'https://www.linkedin.com/in/%EC%A4%80%ED%9D%AC-%EC%9D%B4-23176a214/',
       label: 'LinkedIn',
+      gtagLabel: 'linkedin',
     },
     {
       icon: Mail,
       href: 'mailto:junh0328@naver.com',
       label: 'Email',
+      gtagLabel: 'email',
     },
     {
       icon: BookOpen,
       href: 'https://junheedot.tistory.com',
       label: 'Tech blog',
+      gtagLabel: 'blog_tistory',
     },
   ];
 
   return (
     <section className='relative min-h-screen flex items-center justify-center overflow-hidden pt-16'>
-      {/* Background gradient */}
-      <div className='absolute inset-0 -z-10'>
-        <div
-          className='absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl'
-          style={{
-            background:
-              'radial-gradient(circle, rgba(66, 49, 200, 0.25) 0%, rgba(123, 106, 232, 0.15) 50%, transparent 100%)',
-          }}
-        />
-        <div
-          className='absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl'
-          style={{
-            background:
-              'radial-gradient(circle, rgba(124, 181, 247, 0.25) 0%, rgba(168, 212, 255, 0.15) 50%, transparent 100%)',
-          }}
+      {/* Background - LiquidEther */}
+      <div className='absolute inset-0 -z-10 pointer-events-auto'>
+        <LiquidEther
+          key={resolvedTheme}
+          colors={liquidColors}
+          mouseForce={15}
+          autoDemo={true}
+          autoSpeed={0.5}
+          resolution={0.5}
         />
       </div>
 
@@ -82,6 +91,13 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border mb-6 hover:bg-secondary hover:border-primary/50 transition-all cursor-pointer'
+            onClick={() =>
+              gtag.event({
+                action: 'click',
+                category: 'link',
+                label: 'company_probit',
+              })
+            }
           >
             <span className='w-2 h-2 rounded-full bg-green-500 animate-pulse' />
             <span className='text-sm'>
@@ -107,7 +123,16 @@ export function Hero() {
             className='flex flex-col sm:flex-row items-center justify-center gap-4 mb-12'
           >
             <Button size='lg' asChild>
-              <a href='/resume/resume-20251210.pdf' download>
+              <a
+                href='/resume/resume-20251210.pdf'
+                download
+                onClick={() =>
+                  gtag.event({
+                    action: 'download',
+                    category: 'resume',
+                  })
+                }
+              >
                 <Download className='mr-2 h-4 w-4' />
                 {t('downloadResume')}
               </a>
@@ -117,6 +142,13 @@ export function Hero() {
                 href='https://github.com/junh0328'
                 target='_blank'
                 rel='noopener noreferrer'
+                onClick={() =>
+                  gtag.event({
+                    action: 'click',
+                    category: 'link',
+                    label: 'github',
+                  })
+                }
               >
                 <Github className='mr-2 h-4 w-4' />
                 {t('viewGithub')}
@@ -142,6 +174,13 @@ export function Hero() {
                 transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
                 className='relative group p-3 rounded-full bg-secondary/50 border border-border hover:bg-secondary hover:scale-110 transition-all'
                 aria-label={link.label}
+                onClick={() =>
+                  gtag.event({
+                    action: 'click',
+                    category: 'link',
+                    label: link.gtagLabel,
+                  })
+                }
               >
                 <link.icon className='h-5 w-5' />
                 <span className='absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 text-xs rounded bg-foreground text-background opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap'>

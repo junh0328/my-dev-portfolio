@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Github, Linkedin, Mail } from "lucide-react";
+import * as gtag from "@/lib/gtag";
 
 export function Footer() {
   const t = useTranslations("footer");
@@ -12,16 +13,19 @@ export function Footer() {
       icon: Github,
       href: "https://github.com/junh0328",
       label: "GitHub",
+      gtagLabel: "github",
     },
     {
       icon: Linkedin,
       href: "https://www.linkedin.com/in/%EC%A4%80%ED%9D%AC-%EC%9D%B4-23176a214/",
       label: "LinkedIn",
+      gtagLabel: "linkedin",
     },
     {
       icon: Mail,
       href: "mailto:junh0328@naver.com",
       label: "Email",
+      gtagLabel: "email",
     },
   ];
 
@@ -44,6 +48,13 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label={link.label}
+                onClick={() =>
+                  gtag.event({
+                    action: "click",
+                    category: "link",
+                    label: link.gtagLabel,
+                  })
+                }
               >
                 <link.icon className="h-5 w-5" />
               </a>
