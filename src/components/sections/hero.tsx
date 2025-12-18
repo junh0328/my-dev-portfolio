@@ -124,7 +124,7 @@ export function Hero() {
           >
             <Button size='lg' asChild>
               <a
-                href='/resume/resume.pdf'
+                href='/resume/resume-20251218.pdf'
                 download
                 onClick={() =>
                   gtag.event({
