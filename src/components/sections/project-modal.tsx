@@ -18,7 +18,7 @@ import {
 } from '@/components/ui/carousel';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { Calendar, Briefcase } from 'lucide-react';
+import { Calendar, Briefcase, Users } from 'lucide-react';
 
 interface ProjectModalProps {
   projectKey: string | null;
@@ -58,6 +58,14 @@ export function ProjectModal({
   const tasks = t.raw(`items.${projectKey}.detail.tasks`) as string[];
   const images = t.raw(`items.${projectKey}.images`) as string[];
 
+  // Get teamSize if exists
+  let teamSize: string | null = null;
+  try {
+    teamSize = t(`items.${projectKey}.teamSize`);
+  } catch {
+    teamSize = null;
+  }
+
   const hasImages = images && images.length > 0;
 
   return (
@@ -74,6 +82,12 @@ export function ProjectModal({
               <Calendar className='h-4 w-4' />
               <span>{period}</span>
             </div>
+            {teamSize && (
+              <div className='flex items-center gap-2'>
+                <Users className='h-4 w-4' />
+                <span>{teamSize}</span>
+              </div>
+            )}
           </div>
         </DialogHeader>
 

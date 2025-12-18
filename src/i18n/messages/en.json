@@ -11,7 +11,7 @@
   "hero": {
     "name": "Junhee Lee",
     "role": "Frontend Developer",
-    "description": "Frontend developer who though about business impact.",
+    "description": "Frontend developer who thinks about user experience and business impact together.",
     "company": "ProBit Global",
     "companyDesc": "Coin Market Cap Top 20 Centralized Cryptocurrency Exchange",
     "downloadResume": "Download Resume",
@@ -58,7 +58,7 @@
           "description": "Regularly analyze competitor services to discover UX improvements and proactively propose them.",
           "examples": [
             "Introduced Depth Chart → Enhanced trade visualization",
-            "Mobile Simple Layout → Improved accessibility"
+            "Mobile Simple Layout → BUY/SELL click events per user 7 → 12 increase"
           ],
           "images": [
             "/images/business_impact/bottom_up/bottom-up.png",
@@ -109,28 +109,38 @@
             "details": {
               "kyc": [
                 "Built self-developed identity verification service using AWS Rekognition in response to Sumsub contract expiration",
-                "Planned and implemented 3-step verification flow [Identity verification - ID upload - Real-time face recognition] using Amplify Liveness",
+                "Planned and implemented 3-step verification flow [Identity verification - ID upload - Real-time face recognition and comparison] using Amplify Liveness",
                 "Implemented session persistence and authentication flow across Infrastructure - Backend - Frontend",
                 "Applied structure and design using Figma MCP and Claude Code"
               ],
               "ai_docs": [
                 "Analyzed 7+ year monorepo structure services using Claude Code with feedback, systematized in each repository's .md files",
-                "Built user flow analysis and automated document generation system"
+                "Built user flow analysis and automated document generation system",
+                "Established single-document-based onboarding system"
               ],
               "spot": [
                 "Added BUY/SELL (trade history) Indicator",
-                "Added Mobile web Simple Layout mode (Buy, Sell event clicks increased from 7 to 12 per user)"
+                "Added Mobile web Simple Layout mode (Buy, Sell event clicks increased from 7 to 12 per user)",
+                "Implemented Depth Chart (canvas-based custom implementation)"
               ],
               "maintenance": [
                 "Implemented and designed Angular-based legacy projects",
                 "Added account deletion feature",
-                "Designed authentication persistence system between WebView and SSO server"
+                "Designed authentication persistence system between WebView and SSO server",
+                "Soft landing work for service termination"
               ]
+            },
+            "teamSize": {
+              "kyc": "FE 1, BE 1, Planning 1",
+              "ai_docs": "FE 1",
+              "spot": "FE 1, Planning 1",
+              "maintenance": "FE 1, BE 2, PM 1"
             }
           },
           "p2p": {
             "team": "P2P TF Team",
             "period": "Jan 2025 - Jun 2025",
+            "teamSize": "FE 2, BE 2, Planning 2, UX/UI 2, PM 1",
             "projects": [
               "Led entire frontend from design to release as project maintainer",
               "Implemented Next.js SSR/ISR strategy",
@@ -151,7 +161,8 @@
               "features": [
                 "Ad management (my ads), creation (post ads), editing (update ads)",
                 "Trading functionality (open order), trade history",
-                "User information (user center)"
+                "User information (user center) community features",
+                "Real-time chat feature (Sendbird)"
               ],
               "security": [
                 "Designed and implemented complete 2FA system",
@@ -162,6 +173,7 @@
           "spot": {
             "team": "SPOT Team",
             "period": "Jul 2024 - Dec 2024",
+            "teamSize": "FE 2, Planning 1, UX/UI 2, PM 1",
             "projects": [
               "ProBit Global exchange service (SPOT) migration",
               "Full migration of 7-year qooxdoo legacy SPA to React",
@@ -172,7 +184,7 @@
               "migration": [
                 "Achieved performance improvements: MAU 180K → 200K, click events 3.6M → 4M",
                 "Improved maintainability and new feature development speed",
-                "Introduced react-query v5 to improve API call flow and prevent duplicate calls"
+                "Introduced tanstack-query to improve API call flow and prevent duplicate calls"
               ],
               "socket": [
                 "Improved connection stability through ping-pong mechanism redesign",
@@ -184,7 +196,8 @@
                 "Implemented dark mode and color theme",
                 "Multi-layout support",
                 "First listing countdown feature",
-                "Depth Chart implementation"
+                "Depth Chart implementation",
+                "Web accessibility and RTL/LTR support for internationalization"
               ]
             }
           }
@@ -199,6 +212,7 @@
           "web2": {
             "team": "Web Team",
             "period": "Jan 2024 - May 2024",
+            "teamSize": "FE 3, BE 2, UX/UI 1",
             "projects": [
               "Admin system development for post-renewal maintenance",
               "Frontend performance optimization and quality improvement",
@@ -207,17 +221,18 @@
             "details": {
               "admin": [
                 "Implemented data visualization with highChart library, improved charting UX",
-                "Self-designed and implemented audio streaming functionality"
+                "Self-designed and implemented audio streaming functionality",
+                "Provided conditional audio streaming for non-members/members based on presigned URL"
               ],
               "optimization": [
                 "Performed Next.js 12 → 14, react-query v4 → v5 migration",
                 "Achieved FCP under 1 second per page (Lighthouse)",
-                "Structural improvements to minimize Layout Shift",
-                "Established component-level QA system through unit test code"
+                "Structural improvements to minimize Layout Shift (using Suspense, Skeleton UI)",
+                "Unit test implementation (jest)"
               ],
               "seo": [
                 "Increased search engine index from ~8K to ~38K pages (4x+ growth)",
-                "Supported business strategy through GA4-based tagging and reporting",
+                "Google Analytics 4 implementation",
                 "Documented workflows for non-developers to understand"
               ]
             }
@@ -225,6 +240,7 @@
           "renewal": {
             "team": "Renewal TF Team",
             "period": "Jan 2023 - Dec 2023",
+            "teamSize": "FE 3, BE 2, UX/UI 1",
             "projects": [
               "Led major tech stack transition in web service renewal project",
               "Socket.io-based real-time chat feature",
@@ -233,13 +249,13 @@
             "details": {
               "tech": [
                 "Full adoption of Next.js, TypeScript, react-query framework",
-                "Established SSR strategy and performance improvements (FCP/LCP optimization)"
+                "SSR/CSR strategy implementation and performance improvements (FCP/LCP optimization)"
               ],
               "features": [
-                "Socket.io-based real-time chat feature",
-                "Comment and like/follow system",
+                "WebSocket-based real-time chat feature",
+                "Community system implementation (comments, likes, follow system)",
                 "Built artwork payment system with Stripe SDK integration",
-                "Provided art price and trend analysis UI using Chart.js"
+                "Provided art price and trend analysis UI using highChart.js"
               ],
               "monitoring": [
                 "Built error logging and handling system with Sentry"
@@ -249,6 +265,7 @@
           "web1": {
             "team": "Web Team",
             "period": "Jan 2022 - Dec 2022",
+            "teamSize": "FE 3, BE 1, UX/UI 1",
             "projects": [
               "Global art project 'Gucci Garden Archetypes' page development",
               "Led internal developer study group",
@@ -258,7 +275,7 @@
               "gucci": [
                 "Developed UI features: map functionality, loading screen, custom buttons",
                 "Developed admin page for internal operational efficiency",
-                "Designed and built responsive curation and category features for Eazel website"
+                "Published responsive web-based art content curation and categories"
               ],
               "study": [
                 "Led learning and practical application of key frontend theories: TypeScript, Clean Code, Refactoring"
@@ -288,6 +305,7 @@
         "description": "Full migration from 7-year qooxdoo legacy to React to resolve rising maintenance costs and feature development delays",
         "role": "Frontend Developer (1 of 2)",
         "period": "Jul 2024 - Dec 2024",
+        "teamSize": "FE 2, Planning 1, UX/UI 2, PM 1",
         "tech": ["React", "TypeScript", "Tanstack Query", "WebSocket"],
         "achievements": [
           "MAU 180K → 200K (10% increase)",
@@ -318,6 +336,7 @@
         "description": "Designed and built real-time P2P trading platform for business expansion and competitive positioning",
         "role": "Project Maintainer",
         "period": "Jan 2025 - Jun 2025",
+        "teamSize": "FE 2, BE 2, Planning 2, UX/UI 2, PM 1",
         "tech": ["Next.js", "WebSocket", "SSE", "Axios"],
         "achievements": [
           "Led entire frontend from design to release",
@@ -328,7 +347,8 @@
           "tasks": [
             "Established and applied Next.js-based SSR/ISR rendering strategies",
             "Designed multi-communication architecture using WebSocket, SSE, and Axios",
-            "Developed entire frontend for ad creation/management, trading, and chat systems",
+            "Developed entire frontend for ad creation/management, trading",
+            "Real-time chat feature (Sendbird)",
             "Designed and implemented multi-factor 2FA system including Passkey and OTP",
             "Designed UI/UX for trade status management and dispute resolution"
           ]
@@ -340,6 +360,7 @@
         "description": "Self-developed identity verification service using AWS Rekognition",
         "role": "Solo Frontend Developer",
         "period": "Jun 2025 - Present",
+        "teamSize": "FE 1, BE 1, Planning 1",
         "tech": [
           "AWS Rekognition",
           "Amplify Liveness",
@@ -351,11 +372,12 @@
           "Applied AI tools for structure and design"
         ],
         "detail": {
-          "overview": "Internalized the identity verification system that previously relied on external KYC solutions using AWS Rekognition and Amplify Liveness. Actively utilized AI tools to improve development efficiency and designed a user-friendly verification flow.",
+          "overview": "Internalized the identity verification system that previously relied on external KYC solutions (Sumsub) using AWS Rekognition and Amplify Liveness. Actively utilized AI tools to improve development efficiency and designed a user-friendly verification flow.",
           "tasks": [
             "Implemented facial recognition authentication using AWS Rekognition Face Liveness",
             "Developed ID card capture and OCR data extraction process",
-            "Planned and implemented 3-step verification flow (ID → Face Auth → Final Confirmation)",
+            "Planned and implemented 3-step verification flow [Identity verification → ID upload → Real-time face recognition and comparison]",
+            "Implemented session persistence and authentication flow across Infrastructure - Backend - Frontend",
             "Introduced AI-based development workflow using Claude Code and Figma MCP"
           ]
         },
@@ -366,7 +388,14 @@
         "description": "Complete renewal from vanilla JS to Next.js to resolve tech debt and improve performance",
         "role": "Frontend Developer · Tech Lead",
         "period": "Jan 2023 - Dec 2023",
-        "tech": ["Next.js", "TypeScript", "react-query", "socket.io"],
+        "teamSize": "FE 3, BE 2, UX/UI 1",
+        "tech": [
+          "Next.js",
+          "TypeScript",
+          "react-query",
+          "socket.io",
+          "highChart.js"
+        ],
         "achievements": [
           "Search index 8K → 38K pages (475% increase)",
           "Achieved FCP under 1 second"
@@ -376,8 +405,10 @@
           "tasks": [
             "Transitioned entire service architecture to Next.js",
             "Improved code stability and developer productivity by introducing TypeScript",
-            "Implemented real-time chat functionality using socket.io",
+            "Implemented real-time chat functionality using WebSocket",
+            "Community system implementation (comments, likes, follow system)",
             "Built payment system with Stripe SDK integration",
+            "Provided art price and trend analysis UI using highChart.js",
             "Increased search index by 475% through SEO optimization",
             "Achieved FCP under 1 second through performance optimization"
           ]
@@ -395,11 +426,25 @@
       },
       "data": {
         "title": "Data & Communication",
-        "items": ["Tanstack Query", "WebSocket", "SSE", "Axios", "Zod"]
+        "items": [
+          "Tanstack Query",
+          "WebSocket",
+          "SSE",
+          "Axios",
+          "Zod",
+          "Redux Toolkit",
+          "Zustand"
+        ]
       },
       "styling": {
         "title": "Styling",
-        "items": ["shadcn/ui", "MUI", "Styled-Components", "Emotion"]
+        "items": [
+          "shadcn/ui",
+          "MUI",
+          "Styled-Components",
+          "Emotion",
+          "Tailwind CSS"
+        ]
       },
       "devops": {
         "title": "DevOps & Monitoring",

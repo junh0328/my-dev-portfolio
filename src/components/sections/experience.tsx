@@ -11,7 +11,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
-import { Calendar, Briefcase, ChevronDown } from 'lucide-react';
+import { Calendar, Briefcase, ChevronDown, Users } from 'lucide-react';
 
 // Details labels for each position
 const detailsConfig: Record<string, Record<string, string[]>> = {
@@ -198,6 +198,24 @@ export function Experience() {
                               `companies.${company.key}.positions.${position}.period`
                             )}
                           </p>
+                          {(() => {
+                            try {
+                              const teamSize = t.raw(
+                                `companies.${company.key}.positions.${position}.teamSize`
+                              );
+                              if (typeof teamSize === 'string') {
+                                return (
+                                  <div className='flex items-center gap-1 mt-1 text-xs text-muted-foreground'>
+                                    <Users className='h-3 w-3' />
+                                    <span>{teamSize}</span>
+                                  </div>
+                                );
+                              }
+                              return null;
+                            } catch {
+                              return null;
+                            }
+                          })()}
                         </div>
 
                         <ul className='space-y-2'>
