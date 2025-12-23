@@ -3,6 +3,7 @@
     "about": "소개",
     "experience": "경력",
     "projects": "프로젝트",
+    "personalProjects": "사이드 프로젝트",
     "skills": "기술",
     "education": "학력",
     "blog": "기술 블로그",
@@ -412,6 +413,121 @@
           ]
         },
         "images": []
+      }
+    }
+  },
+  "personalProjects": {
+    "title": "사이드 프로젝트",
+    "subtitle": "개인적으로 진행한 학습 및 실험 프로젝트입니다.",
+    "viewMore": "자세히 보기",
+    "modal": {
+      "overview": "개요",
+      "tasks": "주요 기능",
+      "techStack": "기술 스택",
+      "links": "링크"
+    },
+    "items": {
+      "my-agentic-ai": {
+        "title": "리뷰 텍스트 감정 분석 Agent AI",
+        "description": "Google Gemini와 Claude API를 활용한 리뷰 텍스트 감정 분석 Agent AI 서비스",
+        "role": "개인 프로젝트",
+        "period": "2024",
+        "tech": ["Next.js 16", "React 19", "TypeScript", "shadcn/ui", "Tailwind CSS", "Framer Motion", "Google Gemini API", "Claude API"],
+        "features": [
+          "리뷰 텍스트 감정 분석 (긍정/부정/중립)",
+          "-1.0 ~ 1.0 범위의 감정 점수 산출",
+          "Figma MCP를 활용한 UI 자동 생성"
+        ],
+        "detail": {
+          "overview": "Google Gemini와 Claude API를 활용하여 리뷰 텍스트의 감정을 분석하고, AI 기반으로 적절한 응답을 자동 생성하는 Agent AI 서비스입니다. AWSKRUG에서 진행한 'AWS Agentic AI로 리뷰 관리 자동화' 세미나 내용을 기반으로 구현했습니다.",
+          "tasks": [
+            "리뷰 텍스트 입력 및 감정 분석 기능 구현",
+            "AI 모델(Gemini, Claude)을 활용한 자동 응답 생성",
+            "Figma MCP를 활용한 디자인 기반 코드 자동 생성 워크플로우 구축",
+            "shadcn/ui와 Tailwind CSS를 활용한 반응형 UI 구현"
+          ]
+        },
+        "github": "https://github.com/junh0328/my-agentic-ai",
+        "images": [
+          "/images/personal-projects/my-agentic-ai/agentic-ai.gif",
+          "/images/personal-projects/my-agentic-ai/figma_make_default.png",
+          "/images/personal-projects/my-agentic-ai/figma_make_code_download.png"
+        ]
+      },
+      "my-liveness": {
+        "title": "AWS Rekognition Face Liveness Demo",
+        "description": "AWS Rekognition과 Amplify를 활용한 Face Liveness 인증 데모 애플리케이션",
+        "role": "개인 프로젝트",
+        "period": "2024",
+        "tech": ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS 4", "AWS Amplify", "AWS Rekognition", "Zod"],
+        "features": [
+          "실시간 얼굴 인식 및 Liveness 검증",
+          "AWS Amplify UI 컴포넌트 통합",
+          "인증 결과 시각화"
+        ],
+        "detail": {
+          "overview": "AWS Rekognition Face Liveness 기능을 테스트하고 학습하기 위한 데모 애플리케이션입니다. 회사 KYC 프로젝트에 앞서 AWS 서비스 연동 방식을 사전 검증하는 목적으로 개발했습니다.",
+          "tasks": [
+            "AWS Amplify 설정 및 Rekognition Face Liveness 연동",
+            "실시간 카메라 스트림 처리 및 얼굴 인식 구현",
+            "Liveness 검증 결과 처리 및 UI 피드백",
+            "Zod를 활용한 입력 데이터 유효성 검증"
+          ]
+        },
+        "github": "https://github.com/junh0328/my-liveness",
+        "images": [
+          "/images/personal-projects/my-liveness/record_720.gif"
+        ]
+      },
+      "my-tanstack-query-strategy": {
+        "title": "TanStack Query v5 전략 가이드",
+        "description": "Next.js App Router 환경에서 TanStack Query의 세 가지 데이터 페칭 전략(CSR, SSR, Streaming) 비교 분석",
+        "role": "개인 프로젝트",
+        "period": "2024",
+        "tech": ["Next.js", "TanStack Query v5", "React 18+", "TypeScript"],
+        "features": [
+          "CSR vs SSR vs Streaming 전략 비교",
+          "QueryClient 서버/클라이언트 분리 패턴",
+          "useQuery vs useSuspenseQuery 선택 기준"
+        ],
+        "detail": {
+          "overview": "TanStack Query v5를 Next.js App Router 환경에서 효과적으로 활용하기 위한 전략 가이드 및 예제 프로젝트입니다. CSR, SSR+Hydration, Streaming 세 가지 데이터 페칭 전략의 동작 원리와 선택 기준을 정리했습니다.",
+          "tasks": [
+            "QueryClient 서버/클라이언트 분리 패턴 구현",
+            "CSR, SSR+Hydration, Streaming 세 가지 전략 비교 분석",
+            "useQuery vs useSuspenseQuery 선택 기준 정리",
+            "HydrationBoundary를 활용한 서버 캐시 전달 패턴 구현"
+          ]
+        },
+        "github": "https://github.com/junh0328/my-tanstack-query-strategy",
+        "images": [
+          "/images/personal-projects/my-tanstack-query-strategy/tanstack.gif"
+        ]
+      },
+      "my-monorepo": {
+        "title": "우리 동네 날씨는?",
+        "description": "pnpm + Turborepo 기반 모노레포로 구성된 날씨 서비스",
+        "role": "개인 프로젝트",
+        "period": "2024",
+        "tech": ["Next.js 16", "React 19", "Vite 6", "Tailwind CSS 4", "Turborepo", "shadcn/ui"],
+        "features": [
+          "모노레포 구조 설계 (Turborepo)",
+          "공통 UI 패키지 분리 (@repo/ui)",
+          "실시간 날씨 정보 제공"
+        ],
+        "detail": {
+          "overview": "Turborepo를 활용한 모노레포 구조 학습 및 실습 프로젝트입니다. Next.js와 Vite 기반의 여러 애플리케이션이 공통 UI 패키지를 공유하는 구조로 설계했습니다. Vercel을 통한 모노레포 웹 배포 과정을 학습했습니다.",
+          "tasks": [
+            "Turborepo를 활용한 모노레포 구조 설계",
+            "공통 UI 컴포넌트 패키지 (@repo/ui) 구현",
+            "Next.js 웹 애플리케이션 및 Vite 기반 앱 구현",
+            "날씨 API 연동 및 실시간 정보 표시"
+          ]
+        },
+        "github": "https://github.com/junh0328/my-monorepo",
+        "images": [
+          "/images/personal-projects/my-monorepo/weather.gif"
+        ]
       }
     }
   },

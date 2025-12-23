@@ -3,6 +3,7 @@
     "about": "About",
     "experience": "Experience",
     "projects": "Projects",
+    "personalProjects": "Side Projects",
     "skills": "Skills",
     "education": "Education",
     "blog": "Tech Blog",
@@ -414,6 +415,121 @@
           ]
         },
         "images": []
+      }
+    }
+  },
+  "personalProjects": {
+    "title": "Side Projects",
+    "subtitle": "Personal learning and experimental projects.",
+    "viewMore": "View Details",
+    "modal": {
+      "overview": "Overview",
+      "tasks": "Key Features",
+      "techStack": "Tech Stack",
+      "links": "Links"
+    },
+    "items": {
+      "my-agentic-ai": {
+        "title": "Review Sentiment Analysis Agent AI",
+        "description": "Agent AI service for review text sentiment analysis using Google Gemini and Claude API",
+        "role": "Personal Project",
+        "period": "2024",
+        "tech": ["Next.js 16", "React 19", "TypeScript", "shadcn/ui", "Tailwind CSS", "Framer Motion", "Google Gemini API", "Claude API"],
+        "features": [
+          "Review text sentiment analysis (positive/negative/neutral)",
+          "Sentiment score ranging from -1.0 to 1.0",
+          "UI auto-generation using Figma MCP"
+        ],
+        "detail": {
+          "overview": "An Agent AI service that analyzes review text sentiment and automatically generates appropriate responses using Google Gemini and Claude API. Built based on the 'AWS Agentic AI Review Management Automation' seminar from AWSKRUG.",
+          "tasks": [
+            "Implemented review text input and sentiment analysis",
+            "Auto-response generation using AI models (Gemini, Claude)",
+            "Built design-based code auto-generation workflow using Figma MCP",
+            "Implemented responsive UI with shadcn/ui and Tailwind CSS"
+          ]
+        },
+        "github": "https://github.com/junh0328/my-agentic-ai",
+        "images": [
+          "/images/personal-projects/my-agentic-ai/agentic-ai.gif",
+          "/images/personal-projects/my-agentic-ai/figma_make_default.png",
+          "/images/personal-projects/my-agentic-ai/figma_make_code_download.png"
+        ]
+      },
+      "my-liveness": {
+        "title": "AWS Rekognition Face Liveness Demo",
+        "description": "Face Liveness authentication demo application using AWS Rekognition and Amplify",
+        "role": "Personal Project",
+        "period": "2024",
+        "tech": ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS 4", "AWS Amplify", "AWS Rekognition", "Zod"],
+        "features": [
+          "Real-time face recognition and Liveness verification",
+          "AWS Amplify UI component integration",
+          "Authentication result visualization"
+        ],
+        "detail": {
+          "overview": "A demo application for testing and learning AWS Rekognition Face Liveness feature. Developed to pre-validate AWS service integration methods before the company's KYC project.",
+          "tasks": [
+            "AWS Amplify setup and Rekognition Face Liveness integration",
+            "Real-time camera stream processing and face recognition implementation",
+            "Liveness verification result handling and UI feedback",
+            "Input data validation using Zod"
+          ]
+        },
+        "github": "https://github.com/junh0328/my-liveness",
+        "images": [
+          "/images/personal-projects/my-liveness/record_720.gif"
+        ]
+      },
+      "my-tanstack-query-strategy": {
+        "title": "TanStack Query v5 Strategy Guide",
+        "description": "Comparative analysis of three data fetching strategies (CSR, SSR, Streaming) with TanStack Query in Next.js App Router",
+        "role": "Personal Project",
+        "period": "2024",
+        "tech": ["Next.js", "TanStack Query v5", "React 18+", "TypeScript"],
+        "features": [
+          "CSR vs SSR vs Streaming strategy comparison",
+          "QueryClient server/client separation pattern",
+          "useQuery vs useSuspenseQuery selection criteria"
+        ],
+        "detail": {
+          "overview": "A strategy guide and example project for effectively utilizing TanStack Query v5 in Next.js App Router environment. Documented the working principles and selection criteria for three data fetching strategies: CSR, SSR+Hydration, and Streaming.",
+          "tasks": [
+            "QueryClient server/client separation pattern implementation",
+            "Comparative analysis of CSR, SSR+Hydration, Streaming strategies",
+            "useQuery vs useSuspenseQuery selection criteria documentation",
+            "Server cache transfer pattern implementation using HydrationBoundary"
+          ]
+        },
+        "github": "https://github.com/junh0328/my-tanstack-query-strategy",
+        "images": [
+          "/images/personal-projects/my-tanstack-query-strategy/tanstack.gif"
+        ]
+      },
+      "my-monorepo": {
+        "title": "Local Weather Service",
+        "description": "Weather service built with pnpm + Turborepo-based monorepo structure",
+        "role": "Personal Project",
+        "period": "2024",
+        "tech": ["Next.js 16", "React 19", "Vite 6", "Tailwind CSS 4", "Turborepo", "shadcn/ui"],
+        "features": [
+          "Monorepo structure design (Turborepo)",
+          "Shared UI package separation (@repo/ui)",
+          "Real-time weather information"
+        ],
+        "detail": {
+          "overview": "A learning and practice project for monorepo structure using Turborepo. Designed with multiple applications based on Next.js and Vite sharing a common UI package. Learned monorepo web deployment process through Vercel.",
+          "tasks": [
+            "Monorepo structure design using Turborepo",
+            "Common UI component package (@repo/ui) implementation",
+            "Next.js web application and Vite-based app implementation",
+            "Weather API integration and real-time information display"
+          ]
+        },
+        "github": "https://github.com/junh0328/my-monorepo",
+        "images": [
+          "/images/personal-projects/my-monorepo/weather.gif"
+        ]
       }
     }
   },

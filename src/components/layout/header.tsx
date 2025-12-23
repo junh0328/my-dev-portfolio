@@ -23,6 +23,11 @@ export function Header() {
     { href: '#about', label: t('about'), gtagLabel: 'about' },
     { href: '#experience', label: t('experience'), gtagLabel: 'experience' },
     { href: '#projects', label: t('projects'), gtagLabel: 'projects' },
+    {
+      href: '#personal-projects',
+      label: t('personalProjects'),
+      gtagLabel: 'personal-projects',
+    },
     { href: '#skills', label: t('skills'), gtagLabel: 'skills' },
     { href: '#education', label: t('education'), gtagLabel: 'education' },
     { href: '#blog', label: t('blog'), gtagLabel: 'blog' },
