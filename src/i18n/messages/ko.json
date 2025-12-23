@@ -14,7 +14,6 @@
     "role": "Frontend Developer",
     "description": "사용자 경험과 비즈니스 임팩트를 함께 고민하는 프론트엔드 개발자 이준희입니다.",
     "company": "ProBit Global",
-    "companyDesc": "Coin Market Cap Top 20 중앙화 암호화폐 거래소",
     "downloadResume": "이력서 다운로드",
     "viewGithub": "GitHub"
   },
@@ -432,7 +431,16 @@
         "description": "Google Gemini와 Claude API를 활용한 리뷰 텍스트 감정 분석 Agent AI 서비스",
         "role": "개인 프로젝트",
         "period": "2024",
-        "tech": ["Next.js 16", "React 19", "TypeScript", "shadcn/ui", "Tailwind CSS", "Framer Motion", "Google Gemini API", "Claude API"],
+        "tech": [
+          "Next.js 16",
+          "React 19",
+          "TypeScript",
+          "shadcn/ui",
+          "Tailwind CSS",
+          "Framer Motion",
+          "Google Gemini API",
+          "Claude API"
+        ],
         "features": [
           "리뷰 텍스트 감정 분석 (긍정/부정/중립)",
           "-1.0 ~ 1.0 범위의 감정 점수 산출",
@@ -459,7 +467,15 @@
         "description": "AWS Rekognition과 Amplify를 활용한 Face Liveness 인증 데모 애플리케이션",
         "role": "개인 프로젝트",
         "period": "2024",
-        "tech": ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS 4", "AWS Amplify", "AWS Rekognition", "Zod"],
+        "tech": [
+          "Next.js 16",
+          "React 19",
+          "TypeScript",
+          "Tailwind CSS 4",
+          "AWS Amplify",
+          "AWS Rekognition",
+          "Zod"
+        ],
         "features": [
           "실시간 얼굴 인식 및 Liveness 검증",
           "AWS Amplify UI 컴포넌트 통합",
@@ -475,9 +491,7 @@
           ]
         },
         "github": "https://github.com/junh0328/my-liveness",
-        "images": [
-          "/images/personal-projects/my-liveness/record_720.gif"
-        ]
+        "images": ["/images/personal-projects/my-liveness/record_720.gif"]
       },
       "my-tanstack-query-strategy": {
         "title": "TanStack Query v5 전략 가이드",
@@ -509,7 +523,14 @@
         "description": "pnpm + Turborepo 기반 모노레포로 구성된 날씨 서비스",
         "role": "개인 프로젝트",
         "period": "2024",
-        "tech": ["Next.js 16", "React 19", "Vite 6", "Tailwind CSS 4", "Turborepo", "shadcn/ui"],
+        "tech": [
+          "Next.js 16",
+          "React 19",
+          "Vite 6",
+          "Tailwind CSS 4",
+          "Turborepo",
+          "shadcn/ui"
+        ],
         "features": [
           "모노레포 구조 설계 (Turborepo)",
           "공통 UI 패키지 분리 (@repo/ui)",
@@ -525,9 +546,7 @@
           ]
         },
         "github": "https://github.com/junh0328/my-monorepo",
-        "images": [
-          "/images/personal-projects/my-monorepo/weather.gif"
-        ]
+        "images": ["/images/personal-projects/my-monorepo/weather.gif"]
       }
     }
   },

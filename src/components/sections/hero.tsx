@@ -82,29 +82,6 @@ export function Hero() {
             {t('role')}
           </motion.h2>
 
-          {/* Company Badge */}
-          <motion.a
-            href='https://www.probit.com/en-us/'
-            target='_blank'
-            rel='noopener noreferrer'
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border mb-6 hover:bg-secondary hover:border-primary/50 transition-all cursor-pointer'
-            onClick={() =>
-              gtag.event({
-                action: 'click',
-                category: 'link',
-                label: 'company_probit',
-              })
-            }
-          >
-            <span className='w-2 h-2 rounded-full bg-green-500 animate-pulse' />
-            <span className='text-sm'>
-              {t('company')} · {t('companyDesc')}
-            </span>
-          </motion.a>
-
           {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -124,7 +101,7 @@ export function Hero() {
           >
             <Button size='lg' asChild>
               <a
-                href='/resume/resume-20251218.pdf'
+                href='/resume/resume-20251223.pdf'
                 download
                 onClick={() =>
                   gtag.event({

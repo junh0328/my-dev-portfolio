@@ -14,7 +14,6 @@
     "role": "Frontend Developer",
     "description": "Frontend developer who thinks about user experience and business impact together.",
     "company": "ProBit Global",
-    "companyDesc": "Coin Market Cap Top 20 Centralized Cryptocurrency Exchange",
     "downloadResume": "Download Resume",
     "viewGithub": "GitHub"
   },
@@ -434,7 +433,16 @@
         "description": "Agent AI service for review text sentiment analysis using Google Gemini and Claude API",
         "role": "Personal Project",
         "period": "2024",
-        "tech": ["Next.js 16", "React 19", "TypeScript", "shadcn/ui", "Tailwind CSS", "Framer Motion", "Google Gemini API", "Claude API"],
+        "tech": [
+          "Next.js 16",
+          "React 19",
+          "TypeScript",
+          "shadcn/ui",
+          "Tailwind CSS",
+          "Framer Motion",
+          "Google Gemini API",
+          "Claude API"
+        ],
         "features": [
           "Review text sentiment analysis (positive/negative/neutral)",
           "Sentiment score ranging from -1.0 to 1.0",
@@ -461,7 +469,15 @@
         "description": "Face Liveness authentication demo application using AWS Rekognition and Amplify",
         "role": "Personal Project",
         "period": "2024",
-        "tech": ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS 4", "AWS Amplify", "AWS Rekognition", "Zod"],
+        "tech": [
+          "Next.js 16",
+          "React 19",
+          "TypeScript",
+          "Tailwind CSS 4",
+          "AWS Amplify",
+          "AWS Rekognition",
+          "Zod"
+        ],
         "features": [
           "Real-time face recognition and Liveness verification",
           "AWS Amplify UI component integration",
@@ -477,9 +493,7 @@
           ]
         },
         "github": "https://github.com/junh0328/my-liveness",
-        "images": [
-          "/images/personal-projects/my-liveness/record_720.gif"
-        ]
+        "images": ["/images/personal-projects/my-liveness/record_720.gif"]
       },
       "my-tanstack-query-strategy": {
         "title": "TanStack Query v5 Strategy Guide",
@@ -511,7 +525,14 @@
         "description": "Weather service built with pnpm + Turborepo-based monorepo structure",
         "role": "Personal Project",
         "period": "2024",
-        "tech": ["Next.js 16", "React 19", "Vite 6", "Tailwind CSS 4", "Turborepo", "shadcn/ui"],
+        "tech": [
+          "Next.js 16",
+          "React 19",
+          "Vite 6",
+          "Tailwind CSS 4",
+          "Turborepo",
+          "shadcn/ui"
+        ],
         "features": [
           "Monorepo structure design (Turborepo)",
           "Shared UI package separation (@repo/ui)",
@@ -527,9 +548,7 @@
           ]
         },
         "github": "https://github.com/junh0328/my-monorepo",
-        "images": [
-          "/images/personal-projects/my-monorepo/weather.gif"
-        ]
+        "images": ["/images/personal-projects/my-monorepo/weather.gif"]
       }
     }
   },
