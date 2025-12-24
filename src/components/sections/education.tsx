@@ -189,10 +189,10 @@ export function Education() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                   viewport={{ once: true }}
-                  className='relative pl-6 pb-6 border-l-2 border-[var(--glass-border)] last:pb-0'
+                  className='relative pl-6 pb-6 border-l-2 border-[var(--timeline-line)] last:pb-0'
                 >
                   {/* Timeline dot */}
-                  <div className='absolute left-[-9px] top-0 w-4 h-4 rounded-full liquid-glass-subtle border-2 border-primary glass-glow' />
+                  <div className='absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-[var(--timeline-dot-bg)] border-2 border-[var(--timeline-dot-border)] shadow-sm' />
 
                   {/* Content */}
                   <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-2'>

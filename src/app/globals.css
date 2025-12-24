@@ -46,6 +46,11 @@
   --glass-bg-subtle: rgba(255, 255, 255, 0.25);
   --glass-border: rgba(255, 255, 255, 0.5);
   --glass-border-subtle: rgba(255, 255, 255, 0.3);
+
+  /* Timeline - Light Mode */
+  --timeline-line: rgba(0, 0, 0, 0.12);
+  --timeline-dot-bg: rgba(255, 255, 255, 0.95);
+  --timeline-dot-border: var(--gradient-mid);
   --glass-shadow: rgba(0, 0, 0, 0.08);
   --glass-shadow-strong: rgba(0, 0, 0, 0.15);
   --glass-highlight: rgba(255, 255, 255, 0.6);
@@ -103,6 +108,11 @@
   --glass-shadow-strong: rgba(0, 0, 0, 0.4);
   --glass-highlight: rgba(255, 255, 255, 0.15);
   --glass-refraction: rgba(255, 255, 255, 0.05);
+
+  /* Timeline - Dark Mode */
+  --timeline-line: rgba(255, 255, 255, 0.2);
+  --timeline-dot-bg: rgba(40, 40, 55, 0.9);
+  --timeline-dot-border: var(--gradient-mid);
 }
 
 @theme inline {

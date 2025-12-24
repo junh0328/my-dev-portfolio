@@ -83,7 +83,7 @@ function DetailsCollapsible({
           return (
             <div
               key={detailKey}
-              className='pl-3 border-l border-[var(--glass-border)] space-y-1'
+              className='pl-3 border-l border-[var(--timeline-line)] space-y-1'
             >
               {items.map((item: string, i: number) => (
                 <p key={i} className='text-xs text-muted-foreground'>
@@ -184,10 +184,10 @@ export function Experience() {
                     {company.positions.map((position) => (
                       <div
                         key={position}
-                        className='relative pl-6 border-l-2 border-[var(--glass-border)]'
+                        className='relative pl-6 border-l-2 border-[var(--timeline-line)]'
                       >
                         {/* Timeline dot */}
-                        <div className='absolute left-[-9px] top-0 w-4 h-4 rounded-full liquid-glass-subtle border-2 border-primary glass-glow' />
+                        <div className='absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-[var(--timeline-dot-bg)] border-2 border-[var(--timeline-dot-border)] shadow-sm' />
 
                         <div className='mb-2'>
                           <h3 className='font-semibold'>
