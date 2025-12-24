@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ArrowUpRight, Github } from 'lucide-react';
 import { PersonalProjectModal } from './personal-project-modal';
+import { SpotlightCard } from '@/components/common/spotlight-card';
 import * as gtag from '@/lib/gtag';
 
 export function PersonalProjects() {
@@ -47,8 +48,9 @@ export function PersonalProjects() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
+              <SpotlightCard className='h-full'>
               <Card
-                className='h-full group bento-item overflow-hidden cursor-pointer'
+                className='h-full group liquid-glass-interactive overflow-hidden cursor-pointer'
                 onClick={() => {
                   setSelectedProject(project.key);
                   gtag.event({
@@ -59,12 +61,12 @@ export function PersonalProjects() {
                 }}
               >
                 {/* Point Color Top Bar */}
-                <div className='h-1 bg-point opacity-50 group-hover:opacity-100 transition-opacity' />
+                <div className='h-1 bg-point opacity-50 group-hover:opacity-100 group-hover:glass-glow transition-all' />
 
                 <CardHeader>
                   <div className='flex items-start justify-between'>
                     <div className='flex items-center gap-3'>
-                      <div className='flex items-center justify-center w-9 h-9 rounded-lg bg-muted'>
+                      <div className='flex items-center justify-center w-9 h-9 rounded-lg liquid-glass-subtle'>
                         <Github className='h-5 w-5 text-muted-foreground' />
                       </div>
                       <div>
@@ -92,15 +94,15 @@ export function PersonalProjects() {
                       .map((tech: string) => (
                         <Badge
                           key={tech}
-                          variant='secondary'
-                          className='text-xs'
+                          variant='glass'
+                          className='text-xs hover:glass-glow'
                         >
                           {tech}
                         </Badge>
                       ))}
                     {(t.raw(`items.${project.key}.tech`) as string[]).length >
                       4 && (
-                      <Badge variant='outline' className='text-xs'>
+                      <Badge variant='glass' className='text-xs'>
                         +
                         {(t.raw(`items.${project.key}.tech`) as string[])
                           .length - 4}
@@ -124,6 +126,7 @@ export function PersonalProjects() {
                   </ul>
                 </CardContent>
               </Card>
+              </SpotlightCard>
             </motion.div>
           ))}
         </div>

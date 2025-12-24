@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { BookOpen, Calendar, ExternalLink, ArrowRight } from 'lucide-react';
+import { SpotlightCard } from '@/components/common/spotlight-card';
 import type { BlogPost } from '@/lib/blog';
 import * as gtag from '@/lib/gtag';
 
@@ -28,7 +29,7 @@ export function BlogCards({ posts, title, subtitle, viewAll }: BlogCardsProps) {
         className='mb-12'
       >
         <div className='flex items-center gap-3 mb-4'>
-          <div className='p-2 rounded-lg bg-point-10'>
+          <div className='p-2 rounded-lg liquid-glass-subtle'>
             <BookOpen className='h-6 w-6 text-point' />
           </div>
           <h2 className='text-3xl md:text-4xl font-bold'>{title}</h2>
@@ -40,8 +41,8 @@ export function BlogCards({ posts, title, subtitle, viewAll }: BlogCardsProps) {
       {posts.length > 0 ? (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mb-8'>
           {posts.map((post, index) => (
+            <SpotlightCard key={post.link} className='h-full'>
             <motion.a
-              key={post.link}
               href={post.link}
               target='_blank'
               rel='noopener noreferrer'
@@ -49,7 +50,7 @@ export function BlogCards({ posts, title, subtitle, viewAll }: BlogCardsProps) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className='group'
+              className='group h-full block'
               onClick={() =>
                 gtag.event({
                   action: 'click',
@@ -58,7 +59,7 @@ export function BlogCards({ posts, title, subtitle, viewAll }: BlogCardsProps) {
                 })
               }
             >
-              <Card className='h-full overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1'>
+              <Card className='h-full overflow-hidden liquid-glass-interactive'>
                 {/* Thumbnail or Gradient */}
                 <div className='relative h-40 overflow-hidden'>
                   {post.thumbnail ? (
@@ -84,8 +85,8 @@ export function BlogCards({ posts, title, subtitle, viewAll }: BlogCardsProps) {
                   {/* Category Badge */}
                   {post.category && (
                     <Badge
-                      variant='secondary'
-                      className='mb-3 text-xs bg-point-10 text-point hover:bg-point-20'
+                      variant='glass'
+                      className='mb-3 text-xs hover:glass-glow'
                     >
                       {post.category}
                     </Badge>
@@ -105,12 +106,13 @@ export function BlogCards({ posts, title, subtitle, viewAll }: BlogCardsProps) {
 
                 {/* External link indicator */}
                 <div className='absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity'>
-                  <div className='p-1.5 rounded-full bg-background/80 backdrop-blur-sm'>
+                  <div className='p-1.5 rounded-full liquid-glass-elevated'>
                     <ExternalLink className='h-4 w-4 text-primary' />
                   </div>
                 </div>
               </Card>
             </motion.a>
+            </SpotlightCard>
           ))}
         </div>
       ) : (
@@ -127,7 +129,7 @@ export function BlogCards({ posts, title, subtitle, viewAll }: BlogCardsProps) {
         viewport={{ once: true }}
         className='text-center'
       >
-        <Button variant='outline' size='lg' asChild className='group'>
+        <Button variant='outline' size='lg' asChild className='group liquid-glass hover:liquid-glass-elevated'>
           <a
             href='https://junheedot.tistory.com'
             target='_blank'

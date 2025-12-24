@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { TrendingUp, BarChart3, Zap, ArrowUpRight } from 'lucide-react';
 import { BusinessImpactModal } from './business-impact-modal';
+import { SpotlightCard } from '@/components/common/spotlight-card';
 import * as gtag from '@/lib/gtag';
 
 interface ApproachItem {
@@ -65,10 +66,11 @@ export function About() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className='h-full bento-item hover:border-primary/50'>
+              <SpotlightCard className='h-full'>
+              <Card className='h-full liquid-glass-interactive'>
                 <CardHeader>
                   <div className='flex items-center gap-3 mb-2'>
-                    <div className='relative w-8 h-8 rounded-lg overflow-hidden bg-white'>
+                    <div className='relative w-8 h-8 rounded-lg overflow-hidden liquid-glass-subtle'>
                       <Image
                         src={highlight.logo}
                         alt={highlight.logoAlt}
@@ -77,7 +79,7 @@ export function About() {
                         className='object-contain'
                       />
                     </div>
-                    <Badge variant='secondary'>
+                    <Badge variant='glass'>
                       {t(`highlights.${highlight.key}.company`)}
                     </Badge>
                   </div>
@@ -104,6 +106,7 @@ export function About() {
                   </ul>
                 </CardContent>
               </Card>
+              </SpotlightCard>
             </motion.div>
           ))}
         </div>
@@ -116,10 +119,10 @@ export function About() {
           viewport={{ once: true }}
           className='mt-12'
         >
-          <Card>
+          <Card className='liquid-glass'>
             <CardHeader>
               <div className='flex items-center gap-3'>
-                <div className='p-2 rounded-lg bg-point-10'>
+                <div className='p-2 rounded-lg liquid-glass-subtle'>
                   <Zap className='h-5 w-5 text-point' />
                 </div>
                 <CardTitle className='text-xl'>{t('approach.title')}</CardTitle>
@@ -129,9 +132,9 @@ export function About() {
               <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                 {(t.raw('approach.items') as ApproachItem[]).map(
                   (item, index) => (
+                    <SpotlightCard key={item.key}>
                     <div
-                      key={item.key}
-                      className='p-4 rounded-lg bg-muted/50 border border-border cursor-pointer hover:border-primary/50 transition-colors group'
+                      className='p-4 liquid-glass-interactive cursor-pointer group h-full'
                       onClick={() => {
                         setSelectedApproach(item.key);
                         gtag.event({
@@ -143,7 +146,7 @@ export function About() {
                     >
                       <div className='flex items-center justify-between mb-3'>
                         <div className='flex items-center gap-2'>
-                          <div className='p-1.5 rounded-md bg-point-10'>
+                          <div className='p-1.5 rounded-md liquid-glass-subtle'>
                             {index === 0 ? (
                               <TrendingUp className='h-4 w-4 text-point' />
                             ) : (
@@ -171,6 +174,7 @@ export function About() {
                         ))}
                       </ul>
                     </div>
+                    </SpotlightCard>
                   )
                 )}
               </div>

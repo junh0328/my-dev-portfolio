@@ -12,6 +12,7 @@ import {
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
 import { Calendar, Briefcase, ChevronDown, Users } from 'lucide-react';
+import { SpotlightCard } from '@/components/common/spotlight-card';
 
 // Details labels for each position
 const detailsConfig: Record<string, Record<string, string[]>> = {
@@ -65,7 +66,7 @@ function DetailsCollapsible({
         />
         <span>{isOpen ? '상세 내용 접기' : '상세 내용 보기'}</span>
       </CollapsibleTrigger>
-      <CollapsibleContent className='mt-3 space-y-3'>
+      <CollapsibleContent className='mt-3 p-3 liquid-glass-subtle space-y-3'>
         {detailKeys.map((detailKey) => {
           let items: string[] = [];
           try {
@@ -82,7 +83,7 @@ function DetailsCollapsible({
           return (
             <div
               key={detailKey}
-              className='pl-3 border-l border-primary/20 space-y-1'
+              className='pl-3 border-l border-[var(--glass-border)] space-y-1'
             >
               {items.map((item: string, i: number) => (
                 <p key={i} className='text-xs text-muted-foreground'>
@@ -127,7 +128,7 @@ export function Experience() {
           className='text-center mb-16'
         >
           <h2 className='text-3xl md:text-4xl font-bold mb-4'>{t('title')}</h2>
-          <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20'>
+          <div className='inline-flex items-center gap-2 px-4 py-2 liquid-glass-subtle'>
             <Briefcase className='h-4 w-4 text-primary' />
             <span className='text-sm font-medium'>{t('years')}</span>
           </div>
@@ -143,12 +144,13 @@ export function Experience() {
               transition={{ duration: 0.5, delay: companyIndex * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className='overflow-hidden'>
+              <SpotlightCard>
+              <Card className='overflow-hidden liquid-glass-interactive'>
                 {/* Company Header */}
                 <CardHeader className='bg-gradient-to-r from-primary/5 to-transparent'>
                   <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-4'>
                     <div className='flex items-center gap-3'>
-                      <div className='relative w-9 h-9 rounded-lg overflow-hidden bg-white'>
+                      <div className='relative w-9 h-9 rounded-lg overflow-hidden liquid-glass-subtle'>
                         <Image
                           src={company.logo}
                           alt={company.logoAlt}
@@ -169,7 +171,7 @@ export function Experience() {
                     <div className='flex items-center gap-2 text-sm text-muted-foreground'>
                       <Calendar className='h-4 w-4' />
                       <span>{t(`companies.${company.key}.period`)}</span>
-                      <Badge variant='secondary'>
+                      <Badge variant='glass'>
                         {t(`companies.${company.key}.duration`)}
                       </Badge>
                     </div>
@@ -182,10 +184,10 @@ export function Experience() {
                     {company.positions.map((position) => (
                       <div
                         key={position}
-                        className='relative pl-6 border-l-2 border-border'
+                        className='relative pl-6 border-l-2 border-[var(--glass-border)]'
                       >
                         {/* Timeline dot */}
-                        <div className='absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-background border-2 border-primary' />
+                        <div className='absolute left-[-9px] top-0 w-4 h-4 rounded-full liquid-glass-subtle border-2 border-primary glass-glow' />
 
                         <div className='mb-2'>
                           <h3 className='font-semibold'>
@@ -245,6 +247,7 @@ export function Experience() {
                   </div>
                 </CardContent>
               </Card>
+              </SpotlightCard>
             </motion.div>
           ))}
         </div>

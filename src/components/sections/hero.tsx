@@ -99,7 +99,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className='flex flex-col sm:flex-row items-center justify-center gap-4 mb-12'
           >
-            <Button size='lg' asChild>
+            <Button size='lg' variant='glass' className='glass-glow' asChild>
               <a
                 href='/resume/resume-20251223.pdf'
                 download
@@ -114,7 +114,7 @@ export function Hero() {
                 {t('downloadResume')}
               </a>
             </Button>
-            <Button size='lg' variant='outline' asChild>
+            <Button size='lg' variant='glass' asChild>
               <a
                 href='https://github.com/junh0328'
                 target='_blank'
@@ -149,7 +149,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
-                className='relative group p-3 rounded-full bg-secondary/50 border border-border hover:bg-secondary hover:scale-110 transition-all'
+                className='relative group p-3 rounded-full liquid-glass hover:liquid-glass-elevated hover:scale-110 transition-all'
                 aria-label={link.label}
                 onClick={() =>
                   gtag.event({
@@ -160,7 +160,7 @@ export function Hero() {
                 }
               >
                 <link.icon className='h-5 w-5' />
-                <span className='absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 text-xs rounded bg-foreground text-background opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap'>
+                <span className='absolute -bottom-8 left-1/2 -translate-x-1/2 px-3 py-1.5 text-xs rounded-lg liquid-glass-elevated opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap'>
                   {link.label}
                 </span>
               </motion.a>

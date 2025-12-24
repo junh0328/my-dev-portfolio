@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ArrowUpRight } from 'lucide-react';
 import { ProjectModal } from './project-modal';
+import { SpotlightCard } from '@/components/common/spotlight-card';
 import * as gtag from '@/lib/gtag';
 
 export function Projects() {
@@ -62,81 +63,83 @@ export function Projects() {
               viewport={{ once: true }}
               className={index === 0 || index === 3 ? 'md:col-span-1' : ''}
             >
-              <Card
-                className='h-full group bento-item overflow-hidden cursor-pointer'
-                onClick={() => {
-                  setSelectedProject(project.key);
-                  gtag.event({
-                    action: 'open',
-                    category: 'modal',
-                    label: `project_${project.key}`,
-                  });
-                }}
-              >
-                {/* Point Color Top Bar */}
-                <div className='h-1 bg-point opacity-50 group-hover:opacity-100 transition-opacity' />
+              <SpotlightCard className='h-full'>
+                <Card
+                  className='h-full group liquid-glass-interactive overflow-hidden cursor-pointer'
+                  onClick={() => {
+                    setSelectedProject(project.key);
+                    gtag.event({
+                      action: 'open',
+                      category: 'modal',
+                      label: `project_${project.key}`,
+                    });
+                  }}
+                >
+                  {/* Point Color Top Bar */}
+                  <div className='h-1 bg-point opacity-50 group-hover:opacity-100 group-hover:glass-glow transition-all' />
 
-                <CardHeader>
-                  <div className='flex items-start justify-between'>
-                    <div className='flex items-center gap-3'>
-                      <div className='relative w-9 h-9 rounded-lg overflow-hidden bg-white'>
-                        <Image
-                          src={project.logo}
-                          alt={project.logoAlt}
-                          fill
-                          sizes='36px'
-                          className='object-contain'
-                        />
+                  <CardHeader>
+                    <div className='flex items-start justify-between'>
+                      <div className='flex items-center gap-3'>
+                        <div className='relative w-9 h-9 rounded-lg overflow-hidden liquid-glass-subtle'>
+                          <Image
+                            src={project.logo}
+                            alt={project.logoAlt}
+                            fill
+                            sizes='36px'
+                            className='object-contain'
+                          />
+                        </div>
+                        <div>
+                          <CardTitle className='text-lg group-hover:text-primary transition-colors'>
+                            {t(`items.${project.key}.title`)}
+                          </CardTitle>
+                          <p className='text-sm text-muted-foreground'>
+                            {t(`items.${project.key}.role`)}
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <CardTitle className='text-lg group-hover:text-primary transition-colors'>
-                          {t(`items.${project.key}.title`)}
-                        </CardTitle>
-                        <p className='text-sm text-muted-foreground'>
-                          {t(`items.${project.key}.role`)}
-                        </p>
-                      </div>
+                      <ArrowUpRight className='h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all' />
                     </div>
-                    <ArrowUpRight className='h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all' />
-                  </div>
-                </CardHeader>
+                  </CardHeader>
 
-                <CardContent className='space-y-4'>
-                  <p className='text-sm text-muted-foreground'>
-                    {t(`items.${project.key}.description`)}
-                  </p>
+                  <CardContent className='space-y-4'>
+                    <p className='text-sm text-muted-foreground'>
+                      {t(`items.${project.key}.description`)}
+                    </p>
 
-                  {/* Tech Stack */}
-                  <div className='flex flex-wrap gap-2'>
-                    {(t.raw(`items.${project.key}.tech`) as string[]).map(
-                      (tech: string) => (
-                        <Badge
-                          key={tech}
-                          variant='secondary'
-                          className='text-xs'
+                    {/* Tech Stack */}
+                    <div className='flex flex-wrap gap-2'>
+                      {(t.raw(`items.${project.key}.tech`) as string[]).map(
+                        (tech: string) => (
+                          <Badge
+                            key={tech}
+                            variant='glass'
+                            className='text-xs hover:glass-glow'
+                          >
+                            {tech}
+                          </Badge>
+                        )
+                      )}
+                    </div>
+
+                    {/* Achievements */}
+                    <ul className='space-y-1'>
+                      {(
+                        t.raw(`items.${project.key}.achievements`) as string[]
+                      ).map((achievement: string, i: number) => (
+                        <li
+                          key={i}
+                          className='flex items-start gap-2 text-xs text-muted-foreground'
                         >
-                          {tech}
-                        </Badge>
-                      )
-                    )}
-                  </div>
-
-                  {/* Achievements */}
-                  <ul className='space-y-1'>
-                    {(
-                      t.raw(`items.${project.key}.achievements`) as string[]
-                    ).map((achievement: string, i: number) => (
-                      <li
-                        key={i}
-                        className='flex items-start gap-2 text-xs text-muted-foreground'
-                      >
-                        <span className='mt-1 w-1 h-1 rounded-full bg-primary shrink-0' />
-                        <span>{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+                          <span className='mt-1 w-1 h-1 rounded-full bg-primary shrink-0' />
+                          <span>{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </SpotlightCard>
             </motion.div>
           ))}
         </div>

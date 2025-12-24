@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* Dark mode toggle support */
 @custom-variant dark (&:is(.dark *));
@@ -36,9 +36,26 @@
   --radius: 0.625rem;
 
   /* Gradient colors - Purple monotone */
-  --gradient-start: #3425A0;
+  --gradient-start: #3425a0;
   --gradient-mid: #4231c8;
-  --gradient-end: #7B6AE8;
+  --gradient-end: #7b6ae8;
+
+  /* Liquid Glass - Light Mode */
+  --glass-bg: rgba(255, 255, 255, 0.4);
+  --glass-bg-elevated: rgba(255, 255, 255, 0.6);
+  --glass-bg-subtle: rgba(255, 255, 255, 0.25);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-border-subtle: rgba(255, 255, 255, 0.3);
+  --glass-shadow: rgba(0, 0, 0, 0.08);
+  --glass-shadow-strong: rgba(0, 0, 0, 0.15);
+  --glass-highlight: rgba(255, 255, 255, 0.6);
+  --glass-refraction: rgba(255, 255, 255, 0.1);
+  --glass-blur: 20px;
+  --glass-blur-strong: 40px;
+  --glass-blur-subtle: 10px;
+  --glass-radius: 20px;
+  --glass-radius-lg: 28px;
+  --glass-radius-sm: 12px;
 }
 
 .dark {
@@ -72,9 +89,20 @@
   --ring: #d4d4d8;
 
   /* Gradient colors for dark mode - Blue monotone */
-  --gradient-start: #4A90D9;
-  --gradient-mid: #7CB5F7;
-  --gradient-end: #A8D4FF;
+  --gradient-start: #4a90d9;
+  --gradient-mid: #7cb5f7;
+  --gradient-end: #a8d4ff;
+
+  /* Liquid Glass - Dark Mode */
+  --glass-bg: rgba(30, 30, 40, 0.5);
+  --glass-bg-elevated: rgba(40, 40, 55, 0.6);
+  --glass-bg-subtle: rgba(25, 25, 35, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-subtle: rgba(255, 255, 255, 0.08);
+  --glass-shadow: rgba(0, 0, 0, 0.25);
+  --glass-shadow-strong: rgba(0, 0, 0, 0.4);
+  --glass-highlight: rgba(255, 255, 255, 0.15);
+  --glass-refraction: rgba(255, 255, 255, 0.05);
 }
 
 @theme inline {
@@ -147,12 +175,103 @@
 
   /* Glow effect for buttons */
   .glow {
-    box-shadow: 0 0 20px color-mix(in srgb, var(--gradient-mid) 30%, transparent);
+    box-shadow: 0 0 20px
+      color-mix(in srgb, var(--gradient-mid) 30%, transparent);
   }
 
-  /* Glass morphism effect */
+  /* Glass morphism effect (legacy) */
   .glass {
     @apply backdrop-blur-lg bg-background/80 border border-border/50;
+  }
+
+  /* ===== Liquid Glass Utilities ===== */
+
+  /* Base Liquid Glass */
+  .liquid-glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--glass-radius);
+    box-shadow:
+      0 8px 32px var(--glass-shadow),
+      inset 0 1px 0 var(--glass-highlight),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  /* Elevated Liquid Glass (modals, popovers) */
+  .liquid-glass-elevated {
+    background: var(--glass-bg-elevated);
+    backdrop-filter: blur(var(--glass-blur-strong));
+    -webkit-backdrop-filter: blur(var(--glass-blur-strong));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--glass-radius-lg);
+    box-shadow:
+      0 25px 50px -12px var(--glass-shadow-strong),
+      0 12px 24px -8px var(--glass-shadow),
+      inset 0 1px 0 var(--glass-highlight),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  /* Subtle Liquid Glass (badges, small elements) */
+  .liquid-glass-subtle {
+    background: var(--glass-bg-subtle);
+    backdrop-filter: blur(var(--glass-blur-subtle));
+    -webkit-backdrop-filter: blur(var(--glass-blur-subtle));
+    border: 1px solid var(--glass-border-subtle);
+    border-radius: var(--glass-radius-sm);
+  }
+
+  /* Interactive Liquid Glass with hover states */
+  .liquid-glass-interactive {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--glass-radius);
+    box-shadow:
+      0 8px 32px var(--glass-shadow),
+      inset 0 1px 0 var(--glass-highlight),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .liquid-glass-interactive:hover {
+    background: var(--glass-bg-elevated);
+    box-shadow:
+      0 12px 40px var(--glass-shadow),
+      0 4px 16px var(--glass-shadow),
+      inset 0 1px 0 var(--glass-highlight);
+    transform: translateY(-2px);
+  }
+
+  /* Light refraction effect */
+  .glass-refraction {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glass-refraction::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+  }
+
+  .glass-refraction:hover::before {
+    opacity: 1;
+  }
+
+  /* Glass glow effect */
+  .glass-glow {
+    box-shadow:
+      0 0 30px color-mix(in srgb, var(--gradient-mid) 20%, transparent),
+      0 8px 32px var(--glass-shadow);
   }
 
   /* Bento grid animation */
@@ -204,4 +323,69 @@ html {
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* ===== Liquid Glass Performance & Animation ===== */
+
+/* Reduce blur on mobile for performance */
+@media (max-width: 768px) {
+  :root {
+    --glass-blur: 12px;
+    --glass-blur-strong: 20px;
+    --glass-blur-subtle: 8px;
+  }
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .glass-refraction::before,
+  .liquid-glass-interactive {
+    transition: none !important;
+  }
+
+  .liquid-glass-interactive:hover {
+    transform: none;
+  }
+}
+
+/* Glass shimmer animation */
+@keyframes glass-shimmer {
+  0% {
+    transform: translateX(-100%) rotate(-45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(-45deg);
+  }
+}
+
+/* Glass pulse animation */
+@keyframes glass-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px var(--glass-shadow);
+  }
+  50% {
+    box-shadow:
+      0 0 40px var(--glass-shadow),
+      0 0 60px var(--glass-shadow);
+  }
+}
+
+.animate-glass-shimmer {
+  animation: glass-shimmer 4s ease-in-out infinite;
+}
+
+.animate-glass-pulse {
+  animation: glass-pulse 3s ease-in-out infinite;
+}
+
+/* ===== Spotlight Card Effect ===== */
+/* Light mode spotlight color */
+:root {
+  --spotlight-color: rgba(120, 100, 200, 0.15);
+}
+
+/* Dark mode spotlight color */
+.dark {
+  --spotlight-color: rgba(255, 255, 255, 0.1);
 }

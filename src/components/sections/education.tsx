@@ -14,6 +14,7 @@ import {
   ChevronDown,
   BookOpen,
 } from 'lucide-react';
+import { SpotlightCard } from '@/components/common/spotlight-card';
 import * as gtag from '@/lib/gtag';
 
 export function Education() {
@@ -43,7 +44,7 @@ export function Education() {
             className='mb-16'
           >
             <div className='flex items-center gap-3 mb-8'>
-              <div className='p-2 rounded-lg bg-point-10'>
+              <div className='p-2 rounded-lg liquid-glass-subtle'>
                 <GraduationCap className='h-6 w-6 text-point' />
               </div>
               <h2 className='text-3xl md:text-4xl font-bold'>
@@ -51,6 +52,7 @@ export function Education() {
               </h2>
             </div>
 
+            <SpotlightCard>
             <Collapsible
               open={isCoursesOpen}
               onOpenChange={(open) => {
@@ -62,7 +64,7 @@ export function Education() {
                 });
               }}
             >
-              <Card>
+              <Card className='liquid-glass'>
                 <CardHeader>
                   <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-4'>
                     <div>
@@ -76,7 +78,7 @@ export function Education() {
                         <Calendar className='h-4 w-4' />
                         <span>{tEdu('period')}</span>
                       </div>
-                      <Badge variant='secondary'>{tEdu('status')}</Badge>
+                      <Badge variant='glass'>{tEdu('status')}</Badge>
                     </div>
                   </div>
                 </CardHeader>
@@ -117,7 +119,7 @@ export function Education() {
                         }}
                         className='overflow-hidden'
                       >
-                        <div className='space-y-4 pt-4 border-t'>
+                        <div className='space-y-4 pt-4 p-4 liquid-glass-subtle mt-4'>
                           {/* Basic Courses */}
                           <div>
                             <h3 className='text-sm font-medium text-muted-foreground mb-3'>
@@ -127,8 +129,8 @@ export function Education() {
                               {basicCourses.map((course) => (
                                 <Badge
                                   key={course}
-                                  variant='outline'
-                                  className='bg-point-10 border-point-50 text-point'
+                                  variant='glass'
+                                  className='hover:glass-glow'
                                 >
                                   {course}
                                 </Badge>
@@ -145,8 +147,8 @@ export function Education() {
                               {majorCourses.map((course) => (
                                 <Badge
                                   key={course}
-                                  variant='outline'
-                                  className='bg-point-10 border-point-50 text-point'
+                                  variant='glass'
+                                  className='hover:glass-glow'
                                 >
                                   {course}
                                 </Badge>
@@ -160,6 +162,7 @@ export function Education() {
                 </CardContent>
               </Card>
             </Collapsible>
+            </SpotlightCard>
           </motion.div>
 
           {/* Certifications */}
@@ -170,7 +173,7 @@ export function Education() {
             viewport={{ once: true }}
           >
             <div className='flex items-center gap-3 mb-8'>
-              <div className='p-2 rounded-lg bg-point-10'>
+              <div className='p-2 rounded-lg liquid-glass-subtle'>
                 <Award className='h-6 w-6 text-point' />
               </div>
               <h2 className='text-3xl md:text-4xl font-bold'>
@@ -186,10 +189,10 @@ export function Education() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                   viewport={{ once: true }}
-                  className='relative pl-6 pb-6 border-l-2 border-border last:pb-0'
+                  className='relative pl-6 pb-6 border-l-2 border-[var(--glass-border)] last:pb-0'
                 >
                   {/* Timeline dot */}
-                  <div className='absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-background border-2 border-primary' />
+                  <div className='absolute left-[-9px] top-0 w-4 h-4 rounded-full liquid-glass-subtle border-2 border-primary glass-glow' />
 
                   {/* Content */}
                   <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-2'>
@@ -199,7 +202,7 @@ export function Education() {
                         {cert.org}
                       </p>
                     </div>
-                    <Badge variant='outline' className='shrink-0 w-fit'>
+                    <Badge variant='glass' className='shrink-0 w-fit'>
                       {cert.date}
                     </Badge>
                   </div>

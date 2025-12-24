@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Mail, Github, Linkedin, FileText, ExternalLink } from 'lucide-react';
+import { SpotlightCard } from '@/components/common/spotlight-card';
 import * as gtag from '@/lib/gtag';
 
 export function Contact() {
@@ -76,8 +77,8 @@ export function Contact() {
           >
             <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
               {links.map((link, index) => (
+                <SpotlightCard key={link.label} className='h-full'>
                 <motion.a
-                  key={link.label}
                   href={link.href}
                   target='_blank'
                   rel='noopener noreferrer'
@@ -85,6 +86,7 @@ export function Contact() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.2 + index * 0.05 }}
                   viewport={{ once: true }}
+                  className='h-full block'
                   onClick={() =>
                     gtag.event({
                       action: 'click',
@@ -93,13 +95,15 @@ export function Contact() {
                     })
                   }
                 >
-                  <Card className='h-full hover:border-primary/50 transition-all group'>
+                  <Card className='h-full liquid-glass-interactive group'>
                     <CardContent className='pt-6'>
                       <div className='flex items-center justify-between'>
                         <div className='flex items-center gap-3'>
-                          <link.icon
-                            className={`h-5 w-5 text-muted-foreground transition-colors ${link.color}`}
-                          />
+                          <div className='p-2 rounded-lg liquid-glass-subtle group-hover:glass-glow transition-all'>
+                            <link.icon
+                              className={`h-5 w-5 text-muted-foreground transition-colors ${link.color}`}
+                            />
+                          </div>
                           <div className='text-left'>
                             <p className='font-medium group-hover:text-primary transition-colors'>
                               {link.label}
@@ -114,6 +118,7 @@ export function Contact() {
                     </CardContent>
                   </Card>
                 </motion.a>
+                </SpotlightCard>
               ))}
             </div>
           </motion.div>

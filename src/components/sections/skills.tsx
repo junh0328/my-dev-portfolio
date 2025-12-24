@@ -54,11 +54,11 @@ export function Skills() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className='flex flex-col md:flex-row md:items-center gap-4 p-4 rounded-xl bg-card border border-border'
+              className='flex flex-col md:flex-row md:items-center gap-4 p-4 liquid-glass glass-refraction'
             >
               {/* Category Label */}
               <div className='flex items-center gap-3 md:w-48 shrink-0'>
-                <div className='p-2 rounded-lg bg-point-10'>
+                <div className='p-2 rounded-xl liquid-glass-subtle'>
                   <category.icon className='h-5 w-5 text-point' />
                 </div>
                 <span className='font-medium'>
@@ -72,8 +72,8 @@ export function Skills() {
                   (skill: string) => (
                     <Badge
                       key={skill}
-                      variant='secondary'
-                      className='hover:bg-primary hover:text-primary-foreground transition-colors cursor-default'
+                      variant='glass'
+                      className='hover:glass-glow transition-all cursor-default'
                     >
                       {skill}
                     </Badge>
