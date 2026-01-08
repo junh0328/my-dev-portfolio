@@ -634,6 +634,11 @@
     "title": "Certifications & Training",
     "items": [
       {
+        "name": "AI-POT (AI Prompt Proficiency) Level 1",
+        "org": "KPC Korea Productivity Center",
+        "date": "Jan 2026"
+      },
+      {
         "name": "AWS Foundations of Prompt Engineering",
         "org": "AWS",
         "date": "Nov 2025"

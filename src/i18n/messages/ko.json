@@ -628,6 +628,11 @@
     "title": "교육 및 자격",
     "items": [
       {
+        "name": "AI-POT(AI 프롬프트 활용 능력) 1급",
+        "org": "KPC 한국생산성본부",
+        "date": "2026.01"
+      },
+      {
         "name": "AWS Foundations of Prompt Engineering",
         "org": "AWS",
         "date": "2025.11"
