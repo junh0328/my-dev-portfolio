@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -13,6 +13,11 @@ import {
 } from '@/components/ui/collapsible';
 import { Calendar, Briefcase, ChevronDown, Users } from 'lucide-react';
 import { SpotlightCard } from '@/components/common/spotlight-card';
+import {
+  formatDuration,
+  getCompanyDuration,
+  getTotalCareerDuration,
+} from '@/lib/duration';
 
 // Details labels for each position
 const detailsConfig: Record<string, Record<string, string[]>> = {
@@ -64,7 +69,7 @@ function DetailsCollapsible({
             isOpen ? 'rotate-180' : ''
           }`}
         />
-        <span>{isOpen ? '상세 내용 접기' : '상세 내용 보기'}</span>
+        <span>{isOpen ? t('hideDetails') : t('showDetails')}</span>
       </CollapsibleTrigger>
       <CollapsibleContent className='mt-3 p-3 liquid-glass-subtle space-y-3'>
         {detailKeys.map((detailKey) => {
@@ -100,6 +105,15 @@ function DetailsCollapsible({
 
 export function Experience() {
   const t = useTranslations('experience');
+  const locale = useLocale();
+
+  // 실시간 경력 기간 계산
+  const totalCareerDuration = formatDuration(getTotalCareerDuration(), locale);
+
+  // 회사별 재직 기간 동적 계산
+  const getCompanyDurationText = (companyKey: string) => {
+    return formatDuration(getCompanyDuration(companyKey), locale);
+  };
 
   const companies = [
     {
@@ -130,7 +144,7 @@ export function Experience() {
           <h2 className='text-3xl md:text-4xl font-bold mb-4'>{t('title')}</h2>
           <div className='inline-flex items-center gap-2 px-4 py-2 liquid-glass-subtle'>
             <Briefcase className='h-4 w-4 text-primary' />
-            <span className='text-sm font-medium'>{t('years')}</span>
+            <span className='text-sm font-medium'>{totalCareerDuration}</span>
           </div>
         </motion.div>
 
@@ -172,7 +186,7 @@ export function Experience() {
                       <Calendar className='h-4 w-4' />
                       <span>{t(`companies.${company.key}.period`)}</span>
                       <Badge variant='glass'>
-                        {t(`companies.${company.key}.duration`)}
+                        {getCompanyDurationText(company.key)}
                       </Badge>
                     </div>
                   </div>

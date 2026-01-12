@@ -90,6 +90,8 @@
     "title": "Experience",
     "years": "4 Years",
     "current": "Current",
+    "showDetails": "Show Details",
+    "hideDetails": "Hide Details",
     "companies": {
       "dnsever": {
         "name": "D&S Ever Co., Ltd.",

@@ -90,6 +90,8 @@
     "title": "경력",
     "years": "4년",
     "current": "재직중",
+    "showDetails": "상세 내용 보기",
+    "hideDetails": "상세 내용 접기",
     "companies": {
       "dnsever": {
         "name": "디앤에스에버 주식회사",
