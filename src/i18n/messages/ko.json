@@ -432,7 +432,7 @@
         "title": "리뷰 텍스트 감정 분석 Agent AI",
         "description": "Google Gemini와 Claude API를 활용한 리뷰 텍스트 감정 분석 Agent AI 서비스",
         "role": "개인 프로젝트",
-        "period": "2024",
+        "period": "2025",
         "tech": [
           "Next.js 16",
           "React 19",
@@ -468,7 +468,7 @@
         "title": "AWS Rekognition Face Liveness Demo",
         "description": "AWS Rekognition과 Amplify를 활용한 Face Liveness 인증 데모 애플리케이션",
         "role": "개인 프로젝트",
-        "period": "2024",
+        "period": "2025",
         "tech": [
           "Next.js 16",
           "React 19",
@@ -499,7 +499,7 @@
         "title": "TanStack Query v5 전략 가이드",
         "description": "Next.js App Router 환경에서 TanStack Query의 세 가지 데이터 페칭 전략(CSR, SSR, Streaming) 비교 분석",
         "role": "개인 프로젝트",
-        "period": "2024",
+        "period": "2025",
         "tech": ["Next.js", "TanStack Query v5", "React 18+", "TypeScript"],
         "features": [
           "CSR vs SSR vs Streaming 전략 비교",
@@ -524,7 +524,7 @@
         "title": "우리 동네 날씨는?",
         "description": "pnpm + Turborepo 기반 모노레포로 구성된 날씨 서비스",
         "role": "개인 프로젝트",
-        "period": "2024",
+        "period": "2025",
         "tech": [
           "Next.js 16",
           "React 19",

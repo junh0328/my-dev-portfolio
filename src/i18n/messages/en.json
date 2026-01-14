@@ -434,7 +434,7 @@
         "title": "Review Sentiment Analysis Agent AI",
         "description": "Agent AI service for review text sentiment analysis using Google Gemini and Claude API",
         "role": "Personal Project",
-        "period": "2024",
+        "period": "2025",
         "tech": [
           "Next.js 16",
           "React 19",
@@ -470,7 +470,7 @@
         "title": "AWS Rekognition Face Liveness Demo",
         "description": "Face Liveness authentication demo application using AWS Rekognition and Amplify",
         "role": "Personal Project",
-        "period": "2024",
+        "period": "2025",
         "tech": [
           "Next.js 16",
           "React 19",
@@ -501,7 +501,7 @@
         "title": "TanStack Query v5 Strategy Guide",
         "description": "Comparative analysis of three data fetching strategies (CSR, SSR, Streaming) with TanStack Query in Next.js App Router",
         "role": "Personal Project",
-        "period": "2024",
+        "period": "2025",
         "tech": ["Next.js", "TanStack Query v5", "React 18+", "TypeScript"],
         "features": [
           "CSR vs SSR vs Streaming strategy comparison",
@@ -526,7 +526,7 @@
         "title": "Local Weather Service",
         "description": "Weather service built with pnpm + Turborepo-based monorepo structure",
         "role": "Personal Project",
-        "period": "2024",
+        "period": "2025",
         "tech": [
           "Next.js 16",
           "React 19",
