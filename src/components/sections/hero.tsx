@@ -101,7 +101,7 @@ export function Hero() {
           >
             <Button size='lg' variant='glass' className='glass-glow' asChild>
               <a
-                href='/resume/resume-20260108.pdf'
+                href='/resume/resume-20260205.pdf'
                 download
                 onClick={() =>
                   gtag.event({
