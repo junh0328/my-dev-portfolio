@@ -430,6 +430,42 @@
       "links": "Links"
     },
     "items": {
+      "my-claude-learner": {
+        "title": "AI Chatbot - Multi Provider SSE Streaming",
+        "description": "Multi Provider SSE streaming AI chatbot service using Claude, Gemini, and Groq",
+        "role": "Personal Project",
+        "period": "2026",
+        "tech": [
+          "Next.js 16",
+          "React 19",
+          "TypeScript",
+          "Tailwind CSS 4",
+          "shadcn/ui",
+          "Claude API",
+          "Gemini API",
+          "Groq API",
+          "SSE",
+          "Playwright"
+        ],
+        "features": [
+          "Real-time streaming chat with SSE",
+          "Multi Provider strategy (Claude, Gemini, Groq)",
+          "Chain fallback system based on Rate Limit (Gemini → Groq → Claude)"
+        ],
+        "detail": {
+          "overview": "An AI chatbot service that streams responses from various LLM APIs (Claude, Gemini, Groq) via SSE (Server-Sent Events). Features a chain fallback system that automatically switches from Gemini → Groq → Claude when rate limits are hit, along with web search integration, chat history, and code syntax highlighting.",
+          "tasks": [
+            "Implemented SSE streaming pipeline with fetch + ReadableStream",
+            "Designed Multi Provider strategy supporting Claude, Gemini, and Groq APIs",
+            "Implemented chain fallback system based on Rate Limit (429) (Gemini → Groq → Claude)",
+            "Applied proxy pattern using Next.js API Routes for API key protection",
+            "Integrated web search (Claude web_search, Gemini google_search)",
+            "Built Playwright E2E test suite (38 test cases)"
+          ]
+        },
+        "github": "https://github.com/junh0328/my-claude-learner",
+        "images": ["/images/personal-projects/my-claude-learner/claude-learner.gif"]
+      },
       "my-agentic-ai": {
         "title": "Review Sentiment Analysis Agent AI",
         "description": "Agent AI service for review text sentiment analysis using Google Gemini and Claude API",

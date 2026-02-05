@@ -428,6 +428,42 @@
       "links": "링크"
     },
     "items": {
+      "my-claude-learner": {
+        "title": "AI 챗봇 - Multi Provider SSE 스트리밍",
+        "description": "Claude, Gemini, Groq를 활용한 Multi Provider SSE 스트리밍 AI 챗봇 서비스",
+        "role": "개인 프로젝트",
+        "period": "2026",
+        "tech": [
+          "Next.js 16",
+          "React 19",
+          "TypeScript",
+          "Tailwind CSS 4",
+          "shadcn/ui",
+          "Claude API",
+          "Gemini API",
+          "Groq API",
+          "SSE",
+          "Playwright"
+        ],
+        "features": [
+          "SSE 기반 실시간 스트리밍 채팅 구현",
+          "Multi Provider 전략 (Claude, Gemini, Groq)",
+          "Rate Limit 기반 체인 폴백 시스템 (Gemini → Groq → Claude)"
+        ],
+        "detail": {
+          "overview": "Claude, Gemini, Groq 등 다양한 LLM API를 SSE(Server-Sent Events) 기반으로 스트리밍하는 AI 챗봇 서비스입니다. Rate Limit 발생 시 Gemini → Groq → Claude 순서로 자동 전환하는 체인 폴백 시스템을 적용했으며, 웹 검색 통합, 채팅 히스토리, 코드 구문 강조 등의 기능을 포함합니다.",
+          "tasks": [
+            "fetch + ReadableStream 기반 SSE 스트리밍 파이프라인 구현",
+            "Claude, Gemini, Groq API를 지원하는 Multi Provider 전략 설계",
+            "Rate Limit(429) 기반 체인 폴백 시스템 구현 (Gemini → Groq → Claude)",
+            "Next.js API Route를 활용한 프록시 패턴 적용 (API 키 보호)",
+            "웹 검색 통합 (Claude web_search, Gemini google_search)",
+            "Playwright E2E 테스트 구축 (38개 테스트 케이스)"
+          ]
+        },
+        "github": "https://github.com/junh0328/my-claude-learner",
+        "images": ["/images/personal-projects/my-claude-learner/claude-learner.gif"]
+      },
       "my-agentic-ai": {
         "title": "리뷰 텍스트 감정 분석 Agent AI",
         "description": "Google Gemini와 Claude API를 활용한 리뷰 텍스트 감정 분석 Agent AI 서비스",

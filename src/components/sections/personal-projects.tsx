@@ -15,6 +15,7 @@ export function PersonalProjects() {
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
 
   const projects = [
+    { key: 'my-claude-learner' },
     { key: 'my-agentic-ai' },
     { key: 'my-liveness' },
     { key: 'my-tanstack-query-strategy' },
