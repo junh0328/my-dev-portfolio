@@ -428,6 +428,42 @@
       "links": "링크"
     },
     "items": {
+      "my-text-to-sql-learner": {
+        "title": "Text-to-SQL - 자연어 SQL 변환 서비스",
+        "description": "자연어 질문을 SQL로 변환하고 실행 결과를 차트로 시각화하는 AI 서비스",
+        "role": "개인 프로젝트",
+        "period": "2026",
+        "tech": [
+          "Next.js 16",
+          "React 19",
+          "TypeScript",
+          "Tailwind CSS 4",
+          "shadcn/ui",
+          "Vercel AI SDK",
+          "Gemini 2.5 Flash",
+          "Supabase",
+          "Recharts",
+          "Playwright"
+        ],
+        "features": [
+          "Gemini 2.5 Flash 기반 자연어 → SQL 변환",
+          "쿼리 특성에 따른 자동 차트 시각화 (Bar/Line/Pie)",
+          "SQL 안전성 검증 (SELECT/WITH만 허용, 위험 키워드 차단)"
+        ],
+        "detail": {
+          "overview": "자연어 질문을 SQL 쿼리로 변환하여 Supabase(PostgreSQL)에서 실행하고, 결과를 테이블과 차트로 시각화하는 AI 서비스입니다. Gemini 2.5 Flash를 활용한 Text-to-SQL 변환, 쿼리 특성에 따른 자동 차트 선택(Bar/Line/Pie), SQL 안전성 검증(SELECT/WITH만 허용) 등의 기능을 포함합니다.",
+          "tasks": [
+            "Vercel AI SDK + Gemini 2.5 Flash 기반 Text-to-SQL 변환 파이프라인 구현",
+            "Server Action 기반 AI 호출, SQL 검증, DB 실행 일원화 처리",
+            "쿼리 결과 특성에 따른 자동 차트 타입 선택 로직 구현 (Recharts)",
+            "SQL 안전성 검증 레이어 구현 (SELECT/WITH만 허용, 위험 키워드 및 다중 문장 차단)",
+            "Supabase anon key + RLS 기반 데이터베이스 보안 설계 (SELECT 전용, 시스템 테이블 접근 차단)",
+            "Playwright E2E 테스트 구축"
+          ]
+        },
+        "github": "https://github.com/junh0328/my-text-to-sql-learner",
+        "images": ["/images/personal-projects/my-text-to-sql-learner/ask_to_db.gif"]
+      },
       "my-claude-learner": {
         "title": "AI 챗봇 - Multi Provider SSE 스트리밍",
         "description": "Claude, Gemini, Groq를 활용한 Multi Provider SSE 스트리밍 AI 챗봇 서비스",

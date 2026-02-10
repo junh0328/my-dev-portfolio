@@ -430,6 +430,42 @@
       "links": "Links"
     },
     "items": {
+      "my-text-to-sql-learner": {
+        "title": "Text-to-SQL - Natural Language SQL Converter",
+        "description": "AI service that converts natural language questions to SQL and visualizes query results as charts",
+        "role": "Personal Project",
+        "period": "2026",
+        "tech": [
+          "Next.js 16",
+          "React 19",
+          "TypeScript",
+          "Tailwind CSS 4",
+          "shadcn/ui",
+          "Vercel AI SDK",
+          "Gemini 2.5 Flash",
+          "Supabase",
+          "Recharts",
+          "Playwright"
+        ],
+        "features": [
+          "Natural language to SQL conversion powered by Gemini 2.5 Flash",
+          "Automatic chart visualization based on query characteristics (Bar/Line/Pie)",
+          "SQL safety validation (only SELECT/WITH allowed, dangerous keywords blocked)"
+        ],
+        "detail": {
+          "overview": "An AI service that converts natural language questions into SQL queries, executes them on Supabase (PostgreSQL), and visualizes results as tables and charts. Features Text-to-SQL conversion using Gemini 2.5 Flash, automatic chart type selection (Bar/Line/Pie) based on query characteristics, and SQL safety validation (only SELECT/WITH permitted).",
+          "tasks": [
+            "Implemented Text-to-SQL conversion pipeline with Vercel AI SDK + Gemini 2.5 Flash",
+            "Unified AI calls, SQL validation, and DB execution via Server Actions",
+            "Built automatic chart type selection logic based on query result characteristics (Recharts)",
+            "Implemented SQL safety validation layer (only SELECT/WITH allowed, dangerous keywords and multi-statement queries blocked)",
+            "Designed database security with Supabase anon key + RLS (SELECT-only, system table access blocked)",
+            "Built Playwright E2E test suite"
+          ]
+        },
+        "github": "https://github.com/junh0328/my-text-to-sql-learner",
+        "images": ["/images/personal-projects/my-text-to-sql-learner/ask_to_db.gif"]
+      },
       "my-claude-learner": {
         "title": "AI Chatbot - Multi Provider SSE Streaming",
         "description": "Multi Provider SSE streaming AI chatbot service using Claude, Gemini, and Groq",
