@@ -92,7 +92,7 @@ export const COMPANY_START_DATES: Record<
   string,
   { startDate: string; endDate?: string }
 > = {
-  dnsever: { startDate: '2024.07' }, // 현재 재직 중
+  dnsever: { startDate: '2024.07', endDate: '2026.02' }, // 퇴사
   eazel: { startDate: '2022.01', endDate: '2024.06' }, // 퇴사
 };
 

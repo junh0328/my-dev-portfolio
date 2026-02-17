@@ -95,13 +95,13 @@
     "companies": {
       "dnsever": {
         "name": "D&S Ever Co., Ltd.",
-        "period": "Jul 2024 - Present",
-        "duration": "1 year 6 months",
+        "period": "Jul 2024 - Feb 2026",
+        "duration": "1 year 8 months",
         "type": "Full-time",
         "positions": {
           "dev": {
             "team": "Dev Team",
-            "period": "Jun 2025 - Present",
+            "period": "Jun 2025 - Feb 2026",
             "projects": [
               "KYC (Know Your Customer) identity verification service internalization",
               "AI-powered service structure documentation",
@@ -361,7 +361,7 @@
         "title": "KYC Identity Verification",
         "description": "Self-developed identity verification service using AWS Rekognition",
         "role": "Solo Frontend Developer",
-        "period": "Jun 2025 - Present",
+        "period": "Jun 2025 - Feb 2026",
         "teamSize": "FE 1, BE 1, Planning 1",
         "tech": [
           "AWS Rekognition",

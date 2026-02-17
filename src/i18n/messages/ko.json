@@ -95,13 +95,13 @@
     "companies": {
       "dnsever": {
         "name": "디앤에스에버 주식회사",
-        "period": "2024.07 - 현재",
-        "duration": "1년 6개월",
+        "period": "2024.07 - 2026.02",
+        "duration": "1년 8개월",
         "type": "정규직",
         "positions": {
           "dev": {
             "team": "Dev 팀",
-            "period": "2025.06 - 현재",
+            "period": "2025.06 - 2026.02",
             "projects": [
               "KYC (Know Your Customer) 본인 인증 서비스 내재화",
               "AI를 활용한 서비스 구조 전체 문서화 작업",
@@ -359,7 +359,7 @@
         "title": "KYC 본인 인증 서비스",
         "description": "AWS Rekognition을 활용한 자체 본인 인증 서비스 설계 및 구현",
         "role": "프론트엔드 단독 개발",
-        "period": "2025.06 - 현재",
+        "period": "2025.06 - 2026.02",
         "teamSize": "FE 1명, BE 1명, 기획 1명",
         "tech": [
           "AWS Rekognition",
