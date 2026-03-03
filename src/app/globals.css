@@ -277,6 +277,31 @@
     opacity: 1;
   }
 
+  /* Shared card highlight layer for consistent surface reflection */
+  .card-sheen {
+    overflow: hidden;
+  }
+
+  .card-sheen::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(
+      150deg,
+      color-mix(in srgb, var(--glass-highlight) 95%, transparent) 0%,
+      transparent 46%
+    );
+    opacity: 0.45;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+  }
+
+  .card-sheen:hover::after {
+    opacity: 0.62;
+  }
+
   /* Glass glow effect */
   .glass-glow {
     box-shadow:

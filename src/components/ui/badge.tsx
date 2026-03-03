@@ -7,8 +7,7 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        default:
-          'liquid-glass-subtle text-foreground hover:liquid-glass',
+        default: 'liquid-glass-subtle text-foreground hover:liquid-glass',
         secondary:
           'liquid-glass-subtle text-secondary-foreground hover:liquid-glass',
         destructive:
@@ -16,6 +15,9 @@ const badgeVariants = cva(
         outline:
           'border border-[var(--glass-border)] bg-transparent backdrop-blur-sm text-foreground',
         glass: 'liquid-glass text-foreground',
+        flat: 'bg-secondary/80 text-secondary-foreground border border-border/50',
+        accent:
+          'border border-point-50 bg-point-10 text-foreground shadow-[0_0_0_1px_color-mix(in_srgb,var(--gradient-mid)_20%,transparent)]',
       },
     },
     defaultVariants: {

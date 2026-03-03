@@ -34,12 +34,12 @@ export function SpotlightCard({
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`relative ${className}`}
+      className={`relative isolate overflow-hidden rounded-[var(--glass-radius)] ${className}`}
     >
-      {children}
+      <div className='relative z-[1] h-full [&>*]:h-full'>{children}</div>
       {/* Spotlight overlay */}
       <div
-        className="pointer-events-none absolute inset-0 z-10 transition-opacity duration-300 overflow-hidden rounded-[inherit]"
+        className='pointer-events-none absolute inset-0 z-0 transition-opacity duration-300 rounded-[inherit]'
         style={{
           opacity: isHovering ? 1 : 0,
           background: `radial-gradient(600px circle at ${position.x} ${position.y}, ${spotlightColor || 'var(--spotlight-color, rgba(120, 100, 200, 0.15))'}, transparent 40%)`,
