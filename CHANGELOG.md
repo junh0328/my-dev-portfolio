@@ -13,3 +13,8 @@
 - `.github/PULL_REQUEST_TEMPLATE.md` PR 템플릿 추가
 - `.github/dependabot.yml` 의존성 자동 업데이트 설정 추가
 - `.github/workflows/security-audit.yml` 보안 audit 워크플로우 추가
+
+### Changed
+
+- `next`를 `16.0.8`에서 `16.0.11`로 업데이트 (고위험 취약점 대응)
+- `eslint-config-next`를 `16.0.8`에서 `16.0.11`로 업데이트
