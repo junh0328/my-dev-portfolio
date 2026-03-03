@@ -54,7 +54,6 @@ export function PersonalProjectModal({
   const role = t(`items.${projectKey}.role`);
   const period = t(`items.${projectKey}.period`);
   const tech = t.raw(`items.${projectKey}.tech`) as string[];
-  const features = t.raw(`items.${projectKey}.features`) as string[];
   const overview = t(`items.${projectKey}.detail.overview`);
   const tasks = t.raw(`items.${projectKey}.detail.tasks`) as string[];
   const images = t.raw(`items.${projectKey}.images`) as string[];

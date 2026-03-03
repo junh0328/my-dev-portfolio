@@ -67,45 +67,45 @@ export function About() {
               viewport={{ once: true }}
             >
               <SpotlightCard className='h-full'>
-              <Card className='h-full liquid-glass-interactive'>
-                <CardHeader>
-                  <div className='flex items-center gap-3 mb-2'>
-                    <div className='relative w-8 h-8 rounded-lg overflow-hidden liquid-glass-subtle'>
-                      <Image
-                        src={highlight.logo}
-                        alt={highlight.logoAlt}
-                        fill
-                        sizes='32px'
-                        className='object-contain'
-                      />
+                <Card className='h-full liquid-glass-interactive'>
+                  <CardHeader>
+                    <div className='flex items-center gap-3 mb-2'>
+                      <div className='relative w-8 h-8 rounded-lg overflow-hidden liquid-glass-subtle'>
+                        <Image
+                          src={highlight.logo}
+                          alt={highlight.logoAlt}
+                          fill
+                          sizes='32px'
+                          className='object-contain'
+                        />
+                      </div>
+                      <Badge variant='glass'>
+                        {t(`highlights.${highlight.key}.company`)}
+                      </Badge>
                     </div>
-                    <Badge variant='glass'>
-                      {t(`highlights.${highlight.key}.company`)}
-                    </Badge>
-                  </div>
-                  <CardTitle className='text-xl'>
-                    {t(`highlights.${highlight.key}.title`)}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className='text-muted-foreground mb-4'>
-                    {t(`highlights.${highlight.key}.description`)}
-                  </p>
-                  <ul className='space-y-2'>
-                    {(
-                      t.raw(`highlights.${highlight.key}.metrics`) as string[]
-                    ).map((metric: string, i: number) => (
-                      <li
-                        key={i}
-                        className='flex items-start gap-2 text-sm text-muted-foreground'
-                      >
-                        <span className='mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0' />
-                        <span>{metric}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+                    <CardTitle className='text-xl'>
+                      {t(`highlights.${highlight.key}.title`)}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className='text-muted-foreground mb-4'>
+                      {t(`highlights.${highlight.key}.description`)}
+                    </p>
+                    <ul className='space-y-2'>
+                      {(
+                        t.raw(`highlights.${highlight.key}.metrics`) as string[]
+                      ).map((metric: string, i: number) => (
+                        <li
+                          key={i}
+                          className='flex items-start gap-2 text-sm text-muted-foreground'
+                        >
+                          <span className='mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0' />
+                          <span>{metric}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
               </SpotlightCard>
             </motion.div>
           ))}
@@ -133,47 +133,47 @@ export function About() {
                 {(t.raw('approach.items') as ApproachItem[]).map(
                   (item, index) => (
                     <SpotlightCard key={item.key}>
-                    <div
-                      className='p-4 liquid-glass-interactive cursor-pointer group h-full'
-                      onClick={() => {
-                        setSelectedApproach(item.key);
-                        gtag.event({
-                          action: 'open',
-                          category: 'modal',
-                          label: `business_impact_${item.key}`,
-                        });
-                      }}
-                    >
-                      <div className='flex items-center justify-between mb-3'>
-                        <div className='flex items-center gap-2'>
-                          <div className='p-1.5 rounded-md liquid-glass-subtle'>
-                            {index === 0 ? (
-                              <TrendingUp className='h-4 w-4 text-point' />
-                            ) : (
-                              <BarChart3 className='h-4 w-4 text-point' />
-                            )}
+                      <div
+                        className='p-4 liquid-glass-interactive cursor-pointer group h-full'
+                        onClick={() => {
+                          setSelectedApproach(item.key);
+                          gtag.event({
+                            action: 'open',
+                            category: 'modal',
+                            label: `business_impact_${item.key}`,
+                          });
+                        }}
+                      >
+                        <div className='flex items-center justify-between mb-3'>
+                          <div className='flex items-center gap-2'>
+                            <div className='p-1.5 rounded-md liquid-glass-subtle'>
+                              {index === 0 ? (
+                                <TrendingUp className='h-4 w-4 text-point' />
+                              ) : (
+                                <BarChart3 className='h-4 w-4 text-point' />
+                              )}
+                            </div>
+                            <h3 className='font-semibold group-hover:text-primary transition-colors'>
+                              {item.title}
+                            </h3>
                           </div>
-                          <h3 className='font-semibold group-hover:text-primary transition-colors'>
-                            {item.title}
-                          </h3>
+                          <ArrowUpRight className='h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all' />
                         </div>
-                        <ArrowUpRight className='h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all' />
+                        <p className='text-sm text-muted-foreground mb-3'>
+                          {item.description}
+                        </p>
+                        <ul className='space-y-1.5'>
+                          {item.examples.map((example: string, i: number) => (
+                            <li
+                              key={i}
+                              className='flex items-start gap-2 text-sm text-muted-foreground'
+                            >
+                              <span className='mt-1.5 w-1.5 h-1.5 rounded-full bg-point shrink-0' />
+                              <span>{example}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                      <p className='text-sm text-muted-foreground mb-3'>
-                        {item.description}
-                      </p>
-                      <ul className='space-y-1.5'>
-                        {item.examples.map((example: string, i: number) => (
-                          <li
-                            key={i}
-                            className='flex items-start gap-2 text-sm text-muted-foreground'
-                          >
-                            <span className='mt-1.5 w-1.5 h-1.5 rounded-full bg-point shrink-0' />
-                            <span>{example}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
                     </SpotlightCard>
                   )
                 )}

@@ -462,7 +462,9 @@
           ]
         },
         "github": "https://github.com/junh0328/my-text-to-sql-learner",
-        "images": ["/images/personal-projects/my-text-to-sql-learner/ask_to_db.gif"]
+        "images": [
+          "/images/personal-projects/my-text-to-sql-learner/ask_to_db.gif"
+        ]
       },
       "my-claude-learner": {
         "title": "AI 챗봇 - Multi Provider SSE 스트리밍",
@@ -498,7 +500,9 @@
           ]
         },
         "github": "https://github.com/junh0328/my-claude-learner",
-        "images": ["/images/personal-projects/my-claude-learner/claude-learner.gif"]
+        "images": [
+          "/images/personal-projects/my-claude-learner/claude-learner.gif"
+        ]
       },
       "my-agentic-ai": {
         "title": "리뷰 텍스트 감정 분석 Agent AI",

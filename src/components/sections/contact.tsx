@@ -78,46 +78,46 @@ export function Contact() {
             <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
               {links.map((link, index) => (
                 <SpotlightCard key={link.label} className='h-full'>
-                <motion.a
-                  href={link.href}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.2 + index * 0.05 }}
-                  viewport={{ once: true }}
-                  className='h-full block'
-                  onClick={() =>
-                    gtag.event({
-                      action: 'click',
-                      category: 'link',
-                      label: link.gtagLabel,
-                    })
-                  }
-                >
-                  <Card className='h-full liquid-glass-interactive group'>
-                    <CardContent className='pt-6'>
-                      <div className='flex items-center justify-between'>
-                        <div className='flex items-center gap-3'>
-                          <div className='p-2 rounded-lg liquid-glass-subtle group-hover:glass-glow transition-all'>
-                            <link.icon
-                              className={`h-5 w-5 text-muted-foreground transition-colors ${link.color}`}
-                            />
+                  <motion.a
+                    href={link.href}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.2 + index * 0.05 }}
+                    viewport={{ once: true }}
+                    className='h-full block'
+                    onClick={() =>
+                      gtag.event({
+                        action: 'click',
+                        category: 'link',
+                        label: link.gtagLabel,
+                      })
+                    }
+                  >
+                    <Card className='h-full liquid-glass-interactive group'>
+                      <CardContent className='pt-6'>
+                        <div className='flex items-center justify-between'>
+                          <div className='flex items-center gap-3'>
+                            <div className='p-2 rounded-lg liquid-glass-subtle group-hover:glass-glow transition-all'>
+                              <link.icon
+                                className={`h-5 w-5 text-muted-foreground transition-colors ${link.color}`}
+                              />
+                            </div>
+                            <div className='text-left'>
+                              <p className='font-medium group-hover:text-primary transition-colors'>
+                                {link.label}
+                              </p>
+                              <p className='text-sm text-muted-foreground'>
+                                {link.username}
+                              </p>
+                            </div>
                           </div>
-                          <div className='text-left'>
-                            <p className='font-medium group-hover:text-primary transition-colors'>
-                              {link.label}
-                            </p>
-                            <p className='text-sm text-muted-foreground'>
-                              {link.username}
-                            </p>
-                          </div>
+                          <ExternalLink className='h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors' />
                         </div>
-                        <ExternalLink className='h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors' />
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.a>
+                      </CardContent>
+                    </Card>
+                  </motion.a>
                 </SpotlightCard>
               ))}
             </div>
