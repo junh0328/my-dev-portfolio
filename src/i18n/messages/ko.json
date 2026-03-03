@@ -359,7 +359,7 @@
         "title": "KYC 본인 인증 서비스",
         "description": "AWS Rekognition을 활용한 자체 본인 인증 서비스 설계 및 구현",
         "role": "프론트엔드 단독 개발",
-        "period": "2025.06 - 2026.02",
+        "period": "2025.11 - 2025.12",
         "teamSize": "FE 1명, BE 1명, 기획 1명",
         "tech": [
           "AWS Rekognition",
