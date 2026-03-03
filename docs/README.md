@@ -1,5 +1,14 @@
 # Engineering Docs
 
+## Agent Entry
+
+에이전트는 아래 순서로 문서를 확인합니다.
+
+1. `AGENTS.md`
+2. `docs/agent-playbook.md`
+3. `docs/development-guide.md`
+4. `CLAUDE.md` (이력서 업데이트 작업일 때만)
+
 ## Quality Gates
 
 프로젝트의 기본 품질 게이트는 아래 명령 하나로 확인합니다.
@@ -19,7 +28,7 @@ pnpm verify:harness
 ## CI
 
 - 파일: `.github/workflows/quality-gates.yml`
-- `main`, `codex/**` 브랜치 push와 `main` 대상 PR에서 `verify:harness`를 실행합니다.
+- `main` 브랜치 push와 `main` 대상 PR에서 `verify:harness`를 실행합니다.
 - 보안 감사: `.github/workflows/security-audit.yml`에서 `pnpm audit:security`를 실행합니다.
 
 ## Pre-commit
@@ -39,6 +48,7 @@ Husky + lint-staged가 커밋 전에 아래를 자동 실행합니다.
 
 ## Additional Docs
 
+- 에이전트 플레이북: `docs/agent-playbook.md`
 - 개발 가이드: `docs/development-guide.md`
 - API 계약: `docs/api-contract.md`
 - ADR: `docs/adr/0001-quality-gates.md`

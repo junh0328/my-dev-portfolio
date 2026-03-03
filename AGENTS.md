@@ -8,6 +8,15 @@
 - 핵심 스택: Next.js 16, React 19, TypeScript, Tailwind CSS 4, Vitest
 - 품질 게이트: lint, typecheck, format, test, build
 
+## Agent Reading Order
+
+작업 시작 시 아래 순서로 문서를 읽습니다.
+
+1. `AGENTS.md` (전역 규칙/명령)
+2. `docs/agent-playbook.md` (작업 유형별 문서/코드 진입점)
+3. `docs/development-guide.md` (실행/검증 절차)
+4. 필요 시 `CLAUDE.md` (이력서 업데이트 전용 컨텍스트)
+
 ## Setup
 
 ```bash
@@ -64,6 +73,7 @@ pnpm test:file src/lib/duration.test.ts
 ## Source of Truth
 
 - 엔지니어링 문서 인덱스: `docs/README.md`
+- 에이전트 작업 플레이북: `docs/agent-playbook.md`
 - 품질 게이트 ADR: `docs/adr/0001-quality-gates.md`
 - 진단 이력: `docs/harness/reports/`
 - 협업 컨텍스트: `CLAUDE.md`
