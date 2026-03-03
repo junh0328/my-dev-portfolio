@@ -53,115 +53,115 @@ export function Education() {
             </div>
 
             <SpotlightCard>
-            <Collapsible
-              open={isCoursesOpen}
-              onOpenChange={(open) => {
-                setIsCoursesOpen(open);
-                gtag.event({
-                  action: 'click',
-                  category: 'button',
-                  label: 'courses_toggle',
-                });
-              }}
-            >
-              <Card className='liquid-glass'>
-                <CardHeader>
-                  <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-4'>
-                    <div>
-                      <CardTitle className='text-xl mb-1'>
-                        {tEdu('university')}
-                      </CardTitle>
-                      <p className='text-muted-foreground'>{tEdu('major')}</p>
-                    </div>
-                    <div className='flex items-center gap-4'>
-                      <div className='flex items-center gap-2 text-sm text-muted-foreground'>
-                        <Calendar className='h-4 w-4' />
-                        <span>{tEdu('period')}</span>
+              <Collapsible
+                open={isCoursesOpen}
+                onOpenChange={(open) => {
+                  setIsCoursesOpen(open);
+                  gtag.event({
+                    action: 'click',
+                    category: 'button',
+                    label: 'courses_toggle',
+                  });
+                }}
+              >
+                <Card className='liquid-glass'>
+                  <CardHeader>
+                    <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-4'>
+                      <div>
+                        <CardTitle className='text-xl mb-1'>
+                          {tEdu('university')}
+                        </CardTitle>
+                        <p className='text-muted-foreground'>{tEdu('major')}</p>
                       </div>
-                      <Badge variant='glass'>{tEdu('status')}</Badge>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className='space-y-4'>
-                  <div className='flex items-center justify-between'>
-                    <div className='flex items-center gap-2'>
-                      <span className='text-sm text-muted-foreground'>
-                        GPA:
-                      </span>
-                      <span className='font-semibold gradient-text'>
-                        {tEdu('gpa')}
-                      </span>
-                    </div>
-                    <CollapsibleTrigger asChild>
-                      <Button variant='ghost' size='sm' className='gap-2'>
-                        <BookOpen className='h-4 w-4' />
-                        {isCoursesOpen
-                          ? tEdu('hideCourses')
-                          : tEdu('viewCourses')}
-                        <ChevronDown
-                          className={`h-4 w-4 transition-transform duration-200 ${
-                            isCoursesOpen ? 'rotate-180' : ''
-                          }`}
-                        />
-                      </Button>
-                    </CollapsibleTrigger>
-                  </div>
-
-                  <AnimatePresence initial={false}>
-                    {isCoursesOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{
-                          height: { duration: 0.3, ease: 'easeInOut' },
-                          opacity: { duration: 0.2, delay: 0.1 },
-                        }}
-                        className='overflow-hidden'
-                      >
-                        <div className='space-y-4 pt-4 p-4 liquid-glass-subtle mt-4'>
-                          {/* Basic Courses */}
-                          <div>
-                            <h3 className='text-sm font-medium text-muted-foreground mb-3'>
-                              {tEdu('courses.basic.title')}
-                            </h3>
-                            <div className='flex flex-wrap gap-2'>
-                              {basicCourses.map((course) => (
-                                <Badge
-                                  key={course}
-                                  variant='glass'
-                                  className='hover:glass-glow'
-                                >
-                                  {course}
-                                </Badge>
-                              ))}
-                            </div>
-                          </div>
-
-                          {/* Major Courses */}
-                          <div>
-                            <h3 className='text-sm font-medium text-muted-foreground mb-3'>
-                              {tEdu('courses.major.title')}
-                            </h3>
-                            <div className='flex flex-wrap gap-2'>
-                              {majorCourses.map((course) => (
-                                <Badge
-                                  key={course}
-                                  variant='glass'
-                                  className='hover:glass-glow'
-                                >
-                                  {course}
-                                </Badge>
-                              ))}
-                            </div>
-                          </div>
+                      <div className='flex items-center gap-4'>
+                        <div className='flex items-center gap-2 text-sm text-muted-foreground'>
+                          <Calendar className='h-4 w-4' />
+                          <span>{tEdu('period')}</span>
                         </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </CardContent>
-              </Card>
-            </Collapsible>
+                        <Badge variant='glass'>{tEdu('status')}</Badge>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className='space-y-4'>
+                    <div className='flex items-center justify-between'>
+                      <div className='flex items-center gap-2'>
+                        <span className='text-sm text-muted-foreground'>
+                          GPA:
+                        </span>
+                        <span className='font-semibold gradient-text'>
+                          {tEdu('gpa')}
+                        </span>
+                      </div>
+                      <CollapsibleTrigger asChild>
+                        <Button variant='ghost' size='sm' className='gap-2'>
+                          <BookOpen className='h-4 w-4' />
+                          {isCoursesOpen
+                            ? tEdu('hideCourses')
+                            : tEdu('viewCourses')}
+                          <ChevronDown
+                            className={`h-4 w-4 transition-transform duration-200 ${
+                              isCoursesOpen ? 'rotate-180' : ''
+                            }`}
+                          />
+                        </Button>
+                      </CollapsibleTrigger>
+                    </div>
+
+                    <AnimatePresence initial={false}>
+                      {isCoursesOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{
+                            height: { duration: 0.3, ease: 'easeInOut' },
+                            opacity: { duration: 0.2, delay: 0.1 },
+                          }}
+                          className='overflow-hidden'
+                        >
+                          <div className='space-y-4 pt-4 p-4 liquid-glass-subtle mt-4'>
+                            {/* Basic Courses */}
+                            <div>
+                              <h3 className='text-sm font-medium text-muted-foreground mb-3'>
+                                {tEdu('courses.basic.title')}
+                              </h3>
+                              <div className='flex flex-wrap gap-2'>
+                                {basicCourses.map((course) => (
+                                  <Badge
+                                    key={course}
+                                    variant='glass'
+                                    className='hover:glass-glow'
+                                  >
+                                    {course}
+                                  </Badge>
+                                ))}
+                              </div>
+                            </div>
+
+                            {/* Major Courses */}
+                            <div>
+                              <h3 className='text-sm font-medium text-muted-foreground mb-3'>
+                                {tEdu('courses.major.title')}
+                              </h3>
+                              <div className='flex flex-wrap gap-2'>
+                                {majorCourses.map((course) => (
+                                  <Badge
+                                    key={course}
+                                    variant='glass'
+                                    className='hover:glass-glow'
+                                  >
+                                    {course}
+                                  </Badge>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </CardContent>
+                </Card>
+              </Collapsible>
             </SpotlightCard>
           </motion.div>
 

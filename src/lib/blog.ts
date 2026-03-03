@@ -51,9 +51,14 @@ export async function getBlogPosts(
   limit: number = 4,
   locale: string = 'ko'
 ): Promise<BlogPost[]> {
+  if (process.env.SKIP_RSS_FETCH === '1') {
+    return [];
+  }
+
   try {
     const response = await fetch(RSS_URL, {
       next: { revalidate: 3600 }, // Revalidate every hour
+      signal: AbortSignal.timeout(5000),
     });
 
     if (!response.ok) {

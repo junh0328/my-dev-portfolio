@@ -42,7 +42,21 @@ pnpm start
 
 # 린트 검사
 pnpm lint
+
+# 타입 검사
+pnpm typecheck
+
+# 테스트
+pnpm test
+
+# 품질 게이트 일괄 검증
+pnpm verify:harness
 ```
+
+## 엔지니어링 문서
+
+- 품질 게이트/CI/훅 가이드: `docs/README.md`
+- 의사결정 기록(ADR): `docs/adr/0001-quality-gates.md`
 
 ## 프로젝트 구조
 

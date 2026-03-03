@@ -159,108 +159,108 @@ export function Experience() {
               viewport={{ once: true }}
             >
               <SpotlightCard>
-              <Card className='overflow-hidden liquid-glass-interactive'>
-                {/* Company Header */}
-                <CardHeader className='bg-gradient-to-r from-primary/5 to-transparent'>
-                  <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-4'>
-                    <div className='flex items-center gap-3'>
-                      <div className='relative w-9 h-9 rounded-lg overflow-hidden liquid-glass-subtle'>
-                        <Image
-                          src={company.logo}
-                          alt={company.logoAlt}
-                          fill
-                          sizes='36px'
-                          className='object-contain'
-                        />
-                      </div>
-                      <div>
-                        <CardTitle className='text-xl'>
-                          {t(`companies.${company.key}.name`)}
-                        </CardTitle>
-                        <p className='text-sm text-muted-foreground'>
-                          {t(`companies.${company.key}.type`)}
-                        </p>
-                      </div>
-                    </div>
-                    <div className='flex items-center gap-2 text-sm text-muted-foreground'>
-                      <Calendar className='h-4 w-4' />
-                      <span>{t(`companies.${company.key}.period`)}</span>
-                      <Badge variant='glass'>
-                        {getCompanyDurationText(company.key)}
-                      </Badge>
-                    </div>
-                  </div>
-                </CardHeader>
-
-                {/* Positions */}
-                <CardContent className='pt-6'>
-                  <div className='space-y-6'>
-                    {company.positions.map((position) => (
-                      <div
-                        key={position}
-                        className='relative pl-6 border-l-2 border-[var(--timeline-line)]'
-                      >
-                        {/* Timeline dot */}
-                        <div className='absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-[var(--timeline-dot-bg)] border-2 border-[var(--timeline-dot-border)] shadow-sm' />
-
-                        <div className='mb-2'>
-                          <h3 className='font-semibold'>
-                            {t(
-                              `companies.${company.key}.positions.${position}.team`
-                            )}
-                          </h3>
-                          <p className='text-sm text-muted-foreground'>
-                            {t(
-                              `companies.${company.key}.positions.${position}.period`
-                            )}
-                          </p>
-                          {(() => {
-                            try {
-                              const teamSize = t.raw(
-                                `companies.${company.key}.positions.${position}.teamSize`
-                              );
-                              if (typeof teamSize === 'string') {
-                                return (
-                                  <div className='flex items-center gap-1 mt-1 text-xs text-muted-foreground'>
-                                    <Users className='h-3 w-3' />
-                                    <span>{teamSize}</span>
-                                  </div>
-                                );
-                              }
-                              return null;
-                            } catch {
-                              return null;
-                            }
-                          })()}
+                <Card className='overflow-hidden liquid-glass-interactive'>
+                  {/* Company Header */}
+                  <CardHeader className='bg-gradient-to-r from-primary/5 to-transparent'>
+                    <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-4'>
+                      <div className='flex items-center gap-3'>
+                        <div className='relative w-9 h-9 rounded-lg overflow-hidden liquid-glass-subtle'>
+                          <Image
+                            src={company.logo}
+                            alt={company.logoAlt}
+                            fill
+                            sizes='36px'
+                            className='object-contain'
+                          />
                         </div>
-
-                        <ul className='space-y-2'>
-                          {(
-                            t.raw(
-                              `companies.${company.key}.positions.${position}.projects`
-                            ) as string[]
-                          ).map((project: string, i: number) => (
-                            <li
-                              key={i}
-                              className='flex items-start gap-2 text-sm text-muted-foreground'
-                            >
-                              <span className='mt-1.5 w-1.5 h-1.5 rounded-full bg-primary/50 shrink-0' />
-                              <span>{project}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        {/* Details Collapsible */}
-                        <DetailsCollapsible
-                          companyKey={company.key}
-                          positionKey={position}
-                          t={t}
-                        />
+                        <div>
+                          <CardTitle className='text-xl'>
+                            {t(`companies.${company.key}.name`)}
+                          </CardTitle>
+                          <p className='text-sm text-muted-foreground'>
+                            {t(`companies.${company.key}.type`)}
+                          </p>
+                        </div>
                       </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                      <div className='flex items-center gap-2 text-sm text-muted-foreground'>
+                        <Calendar className='h-4 w-4' />
+                        <span>{t(`companies.${company.key}.period`)}</span>
+                        <Badge variant='glass'>
+                          {getCompanyDurationText(company.key)}
+                        </Badge>
+                      </div>
+                    </div>
+                  </CardHeader>
+
+                  {/* Positions */}
+                  <CardContent className='pt-6'>
+                    <div className='space-y-6'>
+                      {company.positions.map((position) => (
+                        <div
+                          key={position}
+                          className='relative pl-6 border-l-2 border-[var(--timeline-line)]'
+                        >
+                          {/* Timeline dot */}
+                          <div className='absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-[var(--timeline-dot-bg)] border-2 border-[var(--timeline-dot-border)] shadow-sm' />
+
+                          <div className='mb-2'>
+                            <h3 className='font-semibold'>
+                              {t(
+                                `companies.${company.key}.positions.${position}.team`
+                              )}
+                            </h3>
+                            <p className='text-sm text-muted-foreground'>
+                              {t(
+                                `companies.${company.key}.positions.${position}.period`
+                              )}
+                            </p>
+                            {(() => {
+                              try {
+                                const teamSize = t.raw(
+                                  `companies.${company.key}.positions.${position}.teamSize`
+                                );
+                                if (typeof teamSize === 'string') {
+                                  return (
+                                    <div className='flex items-center gap-1 mt-1 text-xs text-muted-foreground'>
+                                      <Users className='h-3 w-3' />
+                                      <span>{teamSize}</span>
+                                    </div>
+                                  );
+                                }
+                                return null;
+                              } catch {
+                                return null;
+                              }
+                            })()}
+                          </div>
+
+                          <ul className='space-y-2'>
+                            {(
+                              t.raw(
+                                `companies.${company.key}.positions.${position}.projects`
+                              ) as string[]
+                            ).map((project: string, i: number) => (
+                              <li
+                                key={i}
+                                className='flex items-start gap-2 text-sm text-muted-foreground'
+                              >
+                                <span className='mt-1.5 w-1.5 h-1.5 rounded-full bg-primary/50 shrink-0' />
+                                <span>{project}</span>
+                              </li>
+                            ))}
+                          </ul>
+
+                          {/* Details Collapsible */}
+                          <DetailsCollapsible
+                            companyKey={company.key}
+                            positionKey={position}
+                            t={t}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
               </SpotlightCard>
             </motion.div>
           ))}

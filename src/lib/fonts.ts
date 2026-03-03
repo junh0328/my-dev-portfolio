@@ -1,11 +1,3 @@
-import { Geist, Geist_Mono } from 'next/font/google';
-
-export const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-export const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+// Keep font API shape stable without remote font fetching during CI/sandbox builds.
+export const geistSans = { variable: '' } as const;
+export const geistMono = { variable: '' } as const;
