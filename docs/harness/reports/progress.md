@@ -12,3 +12,5 @@
 | 07 Final Verify | Completed | 2026-03-03 | `docs/harness/reports/07-maintenance-final-verify-2026-03-03.md` |
 | 99 Final Audit | Completed | 2026-03-03 | `docs/harness/reports/99-final-audit-2026-03-03.md` |
 | 08 PR Merge Checkpoint | Completed | 2026-03-03 | `docs/harness/reports/08-maintenance-pr-merge-2026-03-03.md` |
+| 10 Residual Plan + Quick Wins | Completed | 2026-03-03 | `docs/harness/reports/10-maintenance-residual-plan-quickwins-2026-03-03.md` |
+| 11 Security Audit Remediation | Completed | 2026-03-03 | `docs/harness/reports/11-maintenance-security-audit-remediation-2026-03-03.md` |

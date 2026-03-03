@@ -49,13 +49,19 @@ pnpm typecheck
 # 테스트
 pnpm test
 
+# 단일 테스트 파일
+pnpm test:file src/lib/duration.test.ts
+
 # 품질 게이트 일괄 검증
 pnpm verify:harness
 ```
 
 ## 엔지니어링 문서
 
+- 에이전트 실행 가이드: `AGENTS.md`
 - 품질 게이트/CI/훅 가이드: `docs/README.md`
+- 개발 가이드: `docs/development-guide.md`
+- API 계약: `docs/api-contract.md`
 - 의사결정 기록(ADR): `docs/adr/0001-quality-gates.md`
 
 ## 프로젝트 구조
