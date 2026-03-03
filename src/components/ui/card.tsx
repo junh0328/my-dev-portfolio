@@ -25,7 +25,11 @@ const Card = React.forwardRef<
 >(({ className, variant, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn(cardVariants({ variant }), className)}
+    className={cn(
+      'relative rounded-[var(--glass-radius)] card-sheen',
+      cardVariants({ variant }),
+      className
+    )}
     {...props}
   />
 ));
