@@ -20,26 +20,34 @@ export function Projects() {
       key: 'spot',
       logo: '/images/logos/dns_ever_logo.png',
       logoAlt: 'D&S Ever',
+      cardVariant: 'editorial' as const,
+      spotlightColor: 'rgba(110, 140, 255, 0.16)',
     },
     {
       key: 'p2p',
       logo: '/images/logos/dns_ever_logo.png',
       logoAlt: 'D&S Ever',
+      cardVariant: 'glass' as const,
+      spotlightColor: 'rgba(110, 205, 255, 0.14)',
     },
     {
       key: 'kyc',
       logo: '/images/logos/dns_ever_logo.png',
       logoAlt: 'D&S Ever',
+      cardVariant: 'solid' as const,
+      spotlightColor: 'rgba(140, 230, 200, 0.14)',
     },
     {
       key: 'eazel',
       logo: '/images/logos/eazel.jpeg',
       logoAlt: 'Eazel',
+      cardVariant: 'outline' as const,
+      spotlightColor: 'rgba(246, 180, 120, 0.12)',
     },
   ];
 
   return (
-    <section id='projects' className='py-20 md:py-32'>
+    <section id='projects' className='py-20 md:py-32 scroll-mt-28'>
       <div className='container mx-auto px-4'>
         {/* Section Header */}
         <motion.div
@@ -63,9 +71,13 @@ export function Projects() {
               viewport={{ once: true }}
               className={index === 0 || index === 3 ? 'md:col-span-1' : ''}
             >
-              <SpotlightCard className='h-full'>
+              <SpotlightCard
+                className='h-full'
+                spotlightColor={project.spotlightColor}
+              >
                 <Card
-                  className='h-full group liquid-glass-interactive overflow-hidden cursor-pointer'
+                  variant={project.cardVariant}
+                  className='h-full group overflow-hidden cursor-pointer'
                   onClick={() => {
                     setSelectedProject(project.key);
                     gtag.event({
@@ -75,47 +87,75 @@ export function Projects() {
                     });
                   }}
                 >
-                  {/* Point Color Top Bar */}
-                  <div className='h-1 bg-point opacity-50 group-hover:opacity-100 group-hover:glass-glow transition-all' />
-
-                  <CardHeader>
-                    <div className='flex items-start justify-between'>
-                      <div className='flex items-center gap-3'>
-                        <div className='relative w-9 h-9 rounded-lg overflow-hidden liquid-glass-subtle'>
+                  {/* Preview */}
+                  <div className='relative h-36 overflow-hidden border-b border-white/10'>
+                    {(t.raw(`items.${project.key}.images`) as string[]).length >
+                    0 ? (
+                      <Image
+                        src={
+                          (t.raw(`items.${project.key}.images`) as string[])[0]
+                        }
+                        alt={t(`items.${project.key}.title`)}
+                        fill
+                        sizes='(max-width: 768px) 100vw, 520px'
+                        className='object-cover transition-transform duration-500 group-hover:scale-[1.03]'
+                        unoptimized
+                      />
+                    ) : (
+                      <div className='h-full w-full gradient-bg opacity-30' />
+                    )}
+                    <div className='absolute inset-0 bg-gradient-to-t from-black/55 via-black/20 to-transparent' />
+                    <div className='absolute bottom-3 left-4 right-4 flex items-center justify-between'>
+                      <div className='inline-flex items-center gap-2 rounded-full bg-black/35 px-2.5 py-1 text-[11px] text-white/90 backdrop-blur-sm'>
+                        <div className='relative h-5 w-5 overflow-hidden rounded-full ring-1 ring-white/30'>
                           <Image
                             src={project.logo}
                             alt={project.logoAlt}
                             fill
-                            sizes='36px'
-                            className='object-contain'
+                            sizes='20px'
+                            className='object-cover'
                           />
                         </div>
-                        <div>
-                          <CardTitle className='text-lg group-hover:text-primary transition-colors'>
-                            {t(`items.${project.key}.title`)}
-                          </CardTitle>
-                          <p className='text-sm text-muted-foreground'>
-                            {t(`items.${project.key}.role`)}
-                          </p>
-                        </div>
+                        <span className='line-clamp-1'>
+                          {t(`items.${project.key}.period`)}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <CardHeader>
+                    <div className='flex items-start justify-between'>
+                      <div>
+                        <CardTitle className='text-lg leading-snug group-hover:text-primary transition-colors'>
+                          {t(`items.${project.key}.title`)}
+                        </CardTitle>
+                        <p className='text-sm text-muted-foreground mt-1'>
+                          {t(`items.${project.key}.role`)}
+                        </p>
                       </div>
                       <ArrowUpRight className='h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all' />
                     </div>
                   </CardHeader>
 
                   <CardContent className='space-y-4'>
-                    <p className='text-sm text-muted-foreground'>
+                    <p className='text-sm text-muted-foreground leading-relaxed line-clamp-3'>
                       {t(`items.${project.key}.description`)}
                     </p>
 
                     {/* Tech Stack */}
                     <div className='flex flex-wrap gap-2'>
                       {(t.raw(`items.${project.key}.tech`) as string[]).map(
-                        (tech: string) => (
+                        (tech: string, techIndex: number) => (
                           <Badge
                             key={tech}
-                            variant='glass'
-                            className='text-xs hover:glass-glow'
+                            variant={
+                              techIndex === 0
+                                ? 'accent'
+                                : techIndex < 3
+                                  ? 'flat'
+                                  : 'outline'
+                            }
+                            className='text-xs'
                           >
                             {tech}
                           </Badge>
@@ -124,15 +164,15 @@ export function Projects() {
                     </div>
 
                     {/* Achievements */}
-                    <ul className='space-y-1'>
+                    <ul className='space-y-2 border-l border-border/70 pl-3'>
                       {(
                         t.raw(`items.${project.key}.achievements`) as string[]
                       ).map((achievement: string, i: number) => (
                         <li
                           key={i}
-                          className='flex items-start gap-2 text-xs text-muted-foreground'
+                          className='flex items-start gap-2 text-xs text-muted-foreground leading-relaxed'
                         >
-                          <span className='mt-1 w-1 h-1 rounded-full bg-primary shrink-0' />
+                          <span className='mt-1.5 w-1.5 h-1.5 rounded-full bg-point shrink-0' />
                           <span>{achievement}</span>
                         </li>
                       ))}
