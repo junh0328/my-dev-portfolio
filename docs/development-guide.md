@@ -7,6 +7,12 @@ pnpm install
 pnpm dev
 ```
 
+작업 시작 전 문서 진입 순서:
+
+1. `AGENTS.md`
+2. `docs/agent-playbook.md`
+3. `docs/development-guide.md`
+
 ## 2. 품질 게이트
 
 ```bash
@@ -38,6 +44,13 @@ pnpm test:file src/lib/duration.test.ts
 
 ## 5. 참고 문서
 
+- 에이전트 플레이북: `docs/agent-playbook.md`
 - 아키텍처 개요: `docs/api-contract.md`
 - 품질 게이트 ADR: `docs/adr/0001-quality-gates.md`
 - 진단 리포트: `docs/harness/reports/`
+
+## 6. 문서 동기화 규칙
+
+- `AGENTS.md`, `docs/development-guide.md`, `docs/README.md`의 명령/경로는 항상 동일하게 유지
+- 새 문서를 만들거나 경로를 바꾸면 `docs/README.md` 인덱스를 즉시 갱신
+- 계약/정책 변경 시 `CHANGELOG.md`와 필요한 `docs/adr/*`를 함께 업데이트

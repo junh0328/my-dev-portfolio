@@ -1,7 +1,7 @@
 # Collaboration Context (Resume Update)
 
 이 문서는 이력서 기반 콘텐츠 업데이트 작업에 필요한 컨텍스트만 다룹니다.
-일반 개발/검증 명령은 `AGENTS.md`, `docs/development-guide.md`를 기준으로 사용합니다.
+일반 개발/검증 명령은 `AGENTS.md`, `docs/agent-playbook.md`, `docs/development-guide.md`를 기준으로 사용합니다.
 
 ## 작업 목적
 

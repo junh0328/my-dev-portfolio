@@ -6,6 +6,7 @@
 
 ### Added
 
+- `docs/agent-playbook.md` 에이전트 작업 진입/동기화 플레이북 추가
 - `AGENTS.md` 에이전트 실행 가이드 추가
 - `docs/development-guide.md` 개발/검증 가이드 추가
 - `docs/api-contract.md` API 계약 문서 추가
@@ -16,5 +17,6 @@
 
 ### Changed
 
+- `docs/README.md`, `docs/development-guide.md`, `README.md`, `CLAUDE.md`의 에이전트 문서 진입 링크 정렬
 - `next`를 `16.0.8`에서 `16.0.11`로 업데이트 (고위험 취약점 대응)
 - `eslint-config-next`를 `16.0.8`에서 `16.0.11`로 업데이트

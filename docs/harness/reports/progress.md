@@ -14,3 +14,4 @@
 | 08 PR Merge Checkpoint | Completed | 2026-03-03 | `docs/harness/reports/08-maintenance-pr-merge-2026-03-03.md` |
 | 10 Residual Plan + Quick Wins | Completed | 2026-03-03 | `docs/harness/reports/10-maintenance-residual-plan-quickwins-2026-03-03.md` |
 | 11 Security Audit Remediation | Completed | 2026-03-03 | `docs/harness/reports/11-maintenance-security-audit-remediation-2026-03-03.md` |
+| 12 Agent Docs Alignment | Completed | 2026-03-03 | `docs/harness/reports/12-maintenance-agent-docs-alignment-2026-03-03.md` |

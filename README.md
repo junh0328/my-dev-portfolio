@@ -43,6 +43,7 @@ pnpm verify:harness
 ## 엔지니어링 문서
 
 - 에이전트 실행 가이드: `AGENTS.md`
+- 에이전트 작업 플레이북: `docs/agent-playbook.md`
 - 품질 게이트/CI/훅 가이드: `docs/README.md`
 - 개발 가이드: `docs/development-guide.md`
 - API 계약: `docs/api-contract.md`
