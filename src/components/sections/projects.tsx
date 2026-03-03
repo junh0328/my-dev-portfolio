@@ -72,12 +72,12 @@ export function Projects() {
               className={index === 0 || index === 3 ? 'md:col-span-1' : ''}
             >
               <SpotlightCard
-                className='h-full md:h-[452px]'
+                className='h-full md:h-[520px]'
                 spotlightColor={project.spotlightColor}
               >
                 <Card
                   variant={project.cardVariant}
-                  className='h-full group overflow-hidden cursor-pointer'
+                  className='h-full group overflow-hidden cursor-pointer flex flex-col'
                   onClick={() => {
                     setSelectedProject(project.key);
                     gtag.event({
@@ -88,7 +88,7 @@ export function Projects() {
                   }}
                 >
                   {/* Preview */}
-                  <div className='relative h-36 overflow-hidden border-b border-white/10'>
+                  <div className='relative h-44 md:h-48 overflow-hidden border-b border-white/10'>
                     {(t.raw(`items.${project.key}.images`) as string[]).length >
                     0 ? (
                       <Image
@@ -137,8 +137,8 @@ export function Projects() {
                     </div>
                   </CardHeader>
 
-                  <CardContent className='space-y-4'>
-                    <p className='text-sm text-muted-foreground leading-relaxed line-clamp-3'>
+                  <CardContent className='flex-1 space-y-4'>
+                    <p className='text-sm text-muted-foreground leading-relaxed line-clamp-2'>
                       {t(`items.${project.key}.description`)}
                     </p>
 
@@ -165,17 +165,17 @@ export function Projects() {
 
                     {/* Achievements */}
                     <ul className='space-y-2 border-l border-border/70 pl-3'>
-                      {(
-                        t.raw(`items.${project.key}.achievements`) as string[]
-                      ).map((achievement: string, i: number) => (
-                        <li
-                          key={i}
-                          className='flex items-start gap-2 text-xs text-muted-foreground leading-relaxed'
-                        >
-                          <span className='mt-1.5 w-1.5 h-1.5 rounded-full bg-point shrink-0' />
-                          <span>{achievement}</span>
-                        </li>
-                      ))}
+                      {(t.raw(`items.${project.key}.achievements`) as string[])
+                        .slice(0, 2)
+                        .map((achievement: string, i: number) => (
+                          <li
+                            key={i}
+                            className='flex items-start gap-2 text-xs text-muted-foreground leading-relaxed'
+                          >
+                            <span className='mt-1.5 w-1.5 h-1.5 rounded-full bg-point shrink-0' />
+                            <span>{achievement}</span>
+                          </li>
+                        ))}
                     </ul>
                   </CardContent>
                 </Card>
