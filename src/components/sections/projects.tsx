@@ -72,7 +72,7 @@ export function Projects() {
               className={index === 0 || index === 3 ? 'md:col-span-1' : ''}
             >
               <SpotlightCard
-                className='h-full'
+                className='h-full md:h-[452px]'
                 spotlightColor={project.spotlightColor}
               >
                 <Card

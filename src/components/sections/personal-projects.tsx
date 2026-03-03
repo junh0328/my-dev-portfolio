@@ -76,7 +76,7 @@ export function PersonalProjects() {
               viewport={{ once: true }}
             >
               <SpotlightCard
-                className='h-full'
+                className='h-full md:h-[452px]'
                 spotlightColor={project.spotlightColor}
               >
                 <Card

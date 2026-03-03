@@ -36,7 +36,7 @@ export function SpotlightCard({
       onMouseLeave={handleMouseLeave}
       className={`relative isolate overflow-hidden rounded-[var(--glass-radius)] ${className}`}
     >
-      <div className='relative z-[1]'>{children}</div>
+      <div className='relative z-[1] h-full [&>*]:h-full'>{children}</div>
       {/* Spotlight overlay */}
       <div
         className='pointer-events-none absolute inset-0 z-0 transition-opacity duration-300 rounded-[inherit]'
