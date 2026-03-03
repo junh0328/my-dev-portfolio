@@ -34,27 +34,11 @@ pnpm install
 # 개발 서버 실행 (http://localhost:3000)
 pnpm dev
 
-# 프로덕션 빌드
-pnpm build
-
-# 프로덕션 서버 실행
-pnpm start
-
-# 린트 검사
-pnpm lint
-
-# 타입 검사
-pnpm typecheck
-
-# 테스트
-pnpm test
-
-# 단일 테스트 파일
-pnpm test:file src/lib/duration.test.ts
-
 # 품질 게이트 일괄 검증
 pnpm verify:harness
 ```
+
+상세 실행/검증 명령은 `docs/development-guide.md`를 기준으로 관리합니다.
 
 ## 엔지니어링 문서
 
@@ -63,6 +47,7 @@ pnpm verify:harness
 - 개발 가이드: `docs/development-guide.md`
 - API 계약: `docs/api-contract.md`
 - 의사결정 기록(ADR): `docs/adr/0001-quality-gates.md`
+- 협업 컨텍스트(이력서 업데이트 전용): `CLAUDE.md`
 
 ## 프로젝트 구조
 
