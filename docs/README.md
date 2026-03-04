@@ -23,7 +23,11 @@ pnpm verify:harness
 2. `pnpm typecheck`
 3. `pnpm format:check`
 4. `pnpm test`
-5. `pnpm build`
+5. `pnpm test:coverage`
+6. `pnpm deps:cycles`
+7. `pnpm knip`
+8. `pnpm todo:check`
+9. `pnpm build`
 
 ## CI
 
@@ -39,6 +43,11 @@ Husky + lint-staged가 커밋 전에 아래를 자동 실행합니다.
 2. `eslint --fix` (staged 파일)
 3. `pnpm typecheck`
 4. `pnpm test`
+
+## TODO Policy
+
+- 코드 TODO는 `TODO(#<issue_id>): <description>` 형식을 사용합니다.
+- 형식 검증은 `pnpm todo:check`로 실행됩니다.
 
 ## Harness Diagnostics Reports
 

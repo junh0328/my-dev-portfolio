@@ -15,3 +15,6 @@
 | 10 Residual Plan + Quick Wins | Completed | 2026-03-03 | `docs/harness/reports/10-maintenance-residual-plan-quickwins-2026-03-03.md` |
 | 11 Security Audit Remediation | Completed | 2026-03-03 | `docs/harness/reports/11-maintenance-security-audit-remediation-2026-03-03.md` |
 | 12 Agent Docs Alignment | Completed | 2026-03-03 | `docs/harness/reports/12-maintenance-agent-docs-alignment-2026-03-03.md` |
+| 13 Audit Refresh + Residual Plan Update | Completed | 2026-03-03 | `docs/harness/residual-remediation-plan-2026-03-03.md` |
+| 14 Roadmap Sync with Residual Plan | Completed | 2026-03-03 | `ROADMAP.md` |
+| 15 Quick Wins 1-4 Implementation | Completed | 2026-03-04 | `docs/harness/reports/15-maintenance-quickwins-1-4-implementation-2026-03-04.md` |

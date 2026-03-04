@@ -26,6 +26,10 @@ pnpm lint
 pnpm typecheck
 pnpm format:check
 pnpm test
+pnpm test:coverage
+pnpm deps:cycles
+pnpm knip
+pnpm todo:check
 pnpm build
 pnpm test:file src/lib/duration.test.ts
 ```
@@ -53,4 +57,5 @@ pnpm test:file src/lib/duration.test.ts
 
 - `AGENTS.md`, `docs/development-guide.md`, `docs/README.md`의 명령/경로는 항상 동일하게 유지
 - 새 문서를 만들거나 경로를 바꾸면 `docs/README.md` 인덱스를 즉시 갱신
+- 코드 TODO는 `TODO(#<issue_id>): ...` 형식으로 작성하고 `pnpm todo:check`를 통과해야 함
 - 계약/정책 변경 시 `CHANGELOG.md`와 필요한 `docs/adr/*`를 함께 업데이트

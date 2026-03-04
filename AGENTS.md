@@ -6,7 +6,7 @@
 
 - 앱 유형: Next.js App Router 기반 포트폴리오 웹앱
 - 핵심 스택: Next.js 16, React 19, TypeScript, Tailwind CSS 4, Vitest
-- 품질 게이트: lint, typecheck, format, test, build
+- 품질 게이트: lint, typecheck, format, test, coverage, deps:cycles, knip, todo:check, build
 
 ## Agent Reading Order
 
@@ -37,6 +37,10 @@ pnpm lint
 pnpm typecheck
 pnpm format:check
 pnpm test
+pnpm test:coverage
+pnpm deps:cycles
+pnpm knip
+pnpm todo:check
 pnpm build
 
 # 단일 테스트 파일 실행
@@ -56,6 +60,7 @@ pnpm test:file src/lib/duration.test.ts
 - TypeScript `strict` 유지, `any` 추가 금지
 - 컴포넌트 파일은 역할 단위로 분리하고 UI/로직을 과도하게 혼합하지 않음
 - 공통 유틸은 `src/lib`에 배치, 경로 alias `@/*` 사용
+- TODO는 `TODO(#<issue_id>): <내용>` 형식을 준수
 - 커밋 전 `pre-commit` 훅(lint-staged, typecheck, test) 통과 필수
 
 ## Environment Notes
