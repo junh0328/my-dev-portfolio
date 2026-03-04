@@ -1,99 +1,130 @@
-# Residual Harness Remediation Plan (2026-03-03)
+# Residual Harness Remediation Plan (2026-03-03, Audit Refresh)
 
-## 0) 기준 점수
+## 0) 현재 기준 점수
 
-사용자 제공 체크리스트 결과(84항목):
+최신 Audit 결과:
+
+- 종합 등급: **L4 (Optimized)**
+- 종합 점수: **73.6 / 100**
+- 목표: **L5 진입(80+)**
+
+차원 점수:
+
+| 차원 | 점수(/10) |
+|---|---:|
+| A. Documentation & Navigation | 7.75 |
+| B. Enforcement & Consistency | 8.00 |
+| C. Architecture & Knowledge | 6.67 |
+| D. Operations & Maintenance | 6.50 |
+
+체크리스트(84항목) 최신값:
 
 | 카테고리 | 전체 | 통과 | 실패 | 통과율 |
 |---|---:|---:|---:|---:|
-| 1. Agent Entry Point | 15 | 12 | 3 | 80.0% |
-| 2. 문서 구조 | 12 | 8 | 4 | 66.7% |
+| 1. Agent Entry Point | 15 | 15 | 0 | 100.0% |
+| 2. 문서 구조 | 12 | 10 | 2 | 83.3% |
 | 3. Invariant 강제 | 15 | 12 | 3 | 80.0% |
 | 4. 아키텍처 | 12 | 7 | 5 | 58.3% |
-| 5. Source of Truth | 10 | 7 | 3 | 70.0% |
+| 5. Source of Truth | 10 | 8 | 2 | 80.0% |
 | 6. 운영/유지보수 | 10 | 5 | 5 | 50.0% |
-| 7. Agent 가독성 | 10 | 7 | 3 | 70.0% |
-| **합계** | **84** | **58** | **26** | **69.0%** |
+| 7. Agent 가독성 | 10 | 6 | 4 | 60.0% |
+| **합계** | **84** | **63** | **21** | **75.0%** |
 
-## 1) 왜 실패했는가 (카테고리별 원인)
+이전 기준(58/84, 69.0%) 대비 **+5 항목 개선**.
 
-### 1. Agent Entry Point (실패 3)
+## 1) 잔여 갭 요약 (실패 항목 중심)
 
-- 단일 테스트 파일 실행 명령이 문서에 없었음 (`README.md`)
-- gotchas/환경 주의점이 분산되어 에이전트 진입 속도가 느림 (`README.md`, `CLAUDE.md`)
-- 에이전트 전용 entry guide가 루트에 부재 (`AGENTS.md` 없음)
+### 1. 문서 구조 (실패 2)
 
-### 2. 문서 구조 (실패 4)
+- 일부 의사결정 문서의 대안 비교가 약함 (`docs/adr/0001-quality-gates.md`)
+- 실행 가능한 예제 밀도가 낮은 문서가 일부 존재
 
-- 개발 가이드 문서 부재
-- API 계약 문서 부재
-- CHANGELOG 부재
-- 실행 가능한 검증 예제(명령 중심) 문서가 약함
+### 2. Invariant 강제 (실패 3)
 
-### 3. Invariant 강제 (실패 3)
+- 커버리지 threshold + CI fail 조건 미설정
+- 브랜치 보호 규칙은 레포 설정 영역이라 코드베이스만으로 증명 불가
+- import 경계/아키텍처 룰 자동 강제가 부족
 
-- 보안 취약점 스캔이 CI에 자동화되어 있지 않음
-- 테스트 커버리지 기준/게이트 미설정
-- 브랜치 보호 규칙은 레포 설정 영역이라 코드베이스만으로 강제 불가
+### 3. 아키텍처 (실패 5)
 
-### 4. 아키텍처 (실패 5)
-
-- import 경계/의존성 방향을 도구로 강제하지 않음
 - 순환 의존성 자동 검증 도구 부재
-- 에러 처리 규약 문서/패턴 표준 부재
-- 외부 의존성 접근 추상화가 부분적
-- 대형 파일(`liquid-ether-engine.tsx`) 중심의 응집도 문제
+- 모듈 경계(import boundary) 강제 부재
+- 에러 처리/로깅 규약 표준화 부족
+- 외부 의존성 추상화 계층이 부분 적용
+- 대형 파일 중심 응집도 문제 지속 (`src/components/common/liquid-ether-engine.tsx`)
 
-### 5. Source of Truth (실패 3)
+### 4. Source of Truth (실패 2)
 
-- PR 템플릿 부재
-- 레포 내 로드맵 문서 부재
-- TODO 항목의 이슈 연결/정리 루틴 부재 (`src/app/robots.ts`, `src/app/sitemap.ts`)
+- TODO 항목의 이슈 연결 정책 미정
+- 외부 의존성 선택 이유를 ADR/문서에 일관되게 남기는 규칙이 약함
 
-### 6. 운영/유지보수 (실패 5)
+### 5. 운영/유지보수 (실패 5)
 
-- dead code 탐지 도구 미도입
-- 의존성 업데이트 자동화 미도입
+- dead code 탐지 자동화 미도입 (`knip` 등)
 - stale dependency 식별 루틴 미도입
-- health check 엔드포인트 부재
-- 구조화 로깅/관측 표준 미정
+- 구조화 로깅 표준 미정
+- 에러 모니터링 연동 미적용
+- flaky test 관리 규칙 미정
 
-### 7. Agent 가독성 (실패 3)
+### 6. Agent 가독성 (실패 4)
 
 - 300줄 초과 파일 존재 (`src/components/common/liquid-ether-engine.tsx`, `src/components/common/ascii-text.tsx`)
-- 함수/컴포넌트 단위가 큰 파일 다수 존재
-- 일부 모듈의 public API 경계가 문서/코드에서 명시적이지 않음
+- `any` 예외 잔존 (`src/components/sections/experience.tsx`)
+- 일부 모듈 public API 경계가 암묵적
+- 대형 파일의 내부 역할 분리가 약함
 
-## 2) 해결 전략
+## 2) 실행 계획 (L5 목표 잔여 +6.4)
 
-## Quick Wins (당일)
+### Quick Wins (1~2주)
 
-| 우선순위 | 액션 | 기대 효과 | 상태 |
-|---|---|---|---|
-| 1 | `AGENTS.md` 추가 | Entry Point 실패 3개 중 2~3개 해소 | Done |
-| 2 | `docs/development-guide.md` 추가 | 문서 구조/실행 예제 보강 | Done |
-| 3 | `docs/api-contract.md` + `/api/health` 추가 | 아키텍처/운영 가시성 개선 | Done |
-| 4 | `CHANGELOG.md`, `ROADMAP.md` 추가 | Source of Truth 강화 | Done |
-| 5 | PR 템플릿 + Dependabot + Security Audit 워크플로우 | Invariant/운영 자동화 보강 | Done |
+| 우선순위 | 액션 | 관련 카테고리 | Definition of Done | 예상 점수 향상 |
+|---|---|---|---|---:|
+| 1 | 테스트 커버리지 게이트 도입 | 3,6 | `pnpm test:coverage` + threshold + CI fail 조건 | +1.5 |
+| 2 | dead code 검사(`knip`) CI 통합 | 6 | `pnpm knip` 스크립트 + CI 주기 실행 | +1.0 |
+| 3 | 의존성/순환 검사(`madge`) 도입 | 4 | cycle check를 CI에 추가하고 실패 시 차단 | +1.5 |
+| 4 | TODO 이슈 연동 규칙 문서화 | 5 | TODO에 이슈 ID 필수 규칙 + 기존 TODO 정리 | +0.5 |
+| 5 | 대형 파일 1차 분해 | 4,7 | `liquid-ether-engine`/`ascii-text` 책임 분리 | +2.0 |
 
-## 단기 개선 (1~2주)
+예상 합계: **+6.5** (목표 80.1, L5 최소선 도달)
 
-| 우선순위 | 액션 | 관련 카테고리 | Definition of Done |
-|---|---|---|---|
-| 1 | 커버리지 기준 수립 및 CI 강제 | 3 | `pnpm test:coverage` + threshold + CI fail 조건 |
-| 2 | dead code 검사 도구 도입 (`knip`) | 6 | 스크립트/설정 추가 + 주간 실행 |
-| 3 | 순환 의존성/아키텍처 규칙 검사 도입 | 4 | 도구 기반 cycle check + CI 통합 |
-| 4 | `liquid-ether-engine` 추가 분해 | 4,7 | 파일 300줄 이하, 핵심 로직 모듈 분리 |
-| 5 | TODO 이슈 연결 정책 문서화 | 5 | TODO마다 이슈 ID 연결 규칙 확정 |
+진행 상태(2026-03-04):
+
+- Quick Win 1~4 구현 완료
+- Quick Win 5(`liquid-ether-engine`/`ascii-text` 1차 분해) 미착수
+
+### 중기 개선 (1~2개월)
+
+| 액션 | 관련 카테고리 | Definition of Done |
+|---|---|---|
+| import boundary lint 규칙 도입 | 3,4 | 아키텍처 위반 import를 lint 단계에서 차단 |
+| 에러/로깅 표준 문서화 | 4,6 | `docs/`에 표준 추가 + 1개 이상 모듈 적용 |
+| 외부 의존성 선정 ADR 템플릿화 | 2,5 | 신규 의존성 PR에 근거 섹션 필수화 |
+
+### 장기 개선 (3개월+)
+
+| 액션 | 관련 카테고리 | Definition of Done |
+|---|---|---|
+| 모듈별 테스트 대칭성 확장 | 4,6,7 | 핵심 모듈별 단위/통합 테스트 매트릭스 구성 |
+| 관측(모니터링) 체계 확장 | 6 | 에러 모니터링 연동 + 운영 알람 기준 수립 |
 
 ## 3) 실행 루프 (반복)
 
-1. 단계 목표 확정 (Quick Win 또는 단기 항목 1개)
-2. 코드/문서 변경
-3. `pnpm verify:harness` 통과
-4. `harness-diagnostics` Maintenance 리포트 기록 (`docs/harness/reports/`)
-5. 체크리스트 재계산 후 다음 단계로 진행
+1. 단일 개선 과제 1개를 스프린트 목표로 확정
+2. 코드/문서 변경 후 `pnpm verify:harness` 실행
+3. 결과를 `docs/harness/reports/`에 Maintenance 리포트로 누적
+4. 84항목 체크리스트와 12원칙 점수를 재산정
+5. 목표 점수(80+) 대비 갭을 다음 스프린트 백로그로 반영
 
-## 4) 현재 브랜치
+## 4) 추적 지표
 
-- `codex/harness-residual-loop-2026-03-03`
+| 지표 | 현재 | 목표 |
+|---|---:|---:|
+| 종합 점수 | 73.6 | 80+ |
+| 체크리스트 통과 | 63/84 | 70+/84 |
+| 300줄 초과 파일 수 | 3 | 1 이하 |
+| `any` 사용 지점 | 1+ | 0 |
+| TODO-이슈 미연결 수 | 2 | 0 |
+
+## 5) 작업 기준 브랜치
+
+- `main` (2026-03-03 Audit refresh 기준)
